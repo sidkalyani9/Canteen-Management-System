@@ -16,7 +16,7 @@ import { NavbarComponent } from './navbar/navbar/navbar.component';
     LandingPageComponent,
     HeaderComponent,
     FooterComponent,
-    PickUpManagementComponent
+    PickUpManagementComponent,
     NavbarComponent
   ],
   imports: [
