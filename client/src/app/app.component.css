@@ -1,0 +1,13 @@
+.app{
+    
+}
+.mainBody{
+    background-color: aqua;
+    display: grid;
+    height: 100%;
+    grid-template-columns: 15% 85%;
+}
+
+.bodyheight{
+    height: 100% !important;
+}

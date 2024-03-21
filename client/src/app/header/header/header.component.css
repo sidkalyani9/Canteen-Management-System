@@ -1,0 +1,11 @@
+.headerBar{
+    padding: 2% 3%;
+    background-color: rgb(97, 97, 97);
+    display: grid;
+    grid-template-columns: 20% 80%;
+    color: white;
+}
+
+.headerUserBtn{
+    margin-left: auto;
+}

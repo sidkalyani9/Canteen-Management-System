@@ -1,0 +1,12 @@
+.navBtn{
+    
+    margin-top: 200cm !important;
+    background-color: white;
+    color: black;
+    text-decoration: none;
+}
+
+.navList{
+    height: 84vh;
+    list-style-type: none;
+}
