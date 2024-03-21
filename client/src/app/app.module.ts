@@ -7,6 +7,7 @@ import { LandingPageComponent } from './admin/landing-page/landing-page.componen
 import { HeaderComponent } from './header/header/header.component';
 import { FooterComponent } from './footer/footer/footer.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { PickUpManagementComponent } from './pick-up-management/pick-up-management.component';
 import { NavbarComponent } from './navbar/navbar/navbar.component';
 
 @NgModule({
@@ -15,6 +16,7 @@ import { NavbarComponent } from './navbar/navbar/navbar.component';
     LandingPageComponent,
     HeaderComponent,
     FooterComponent,
+    PickUpManagementComponent
     NavbarComponent
   ],
   imports: [
