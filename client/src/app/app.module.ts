@@ -8,6 +8,7 @@ import { HeaderComponent } from './header/header/header.component';
 import { FooterComponent } from './footer/footer/footer.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { PickUpManagementComponent } from './pick-up-management/pick-up-management.component';
+import { NavbarComponent } from './navbar/navbar/navbar.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { PickUpManagementComponent } from './pick-up-management/pick-up-manageme
     HeaderComponent,
     FooterComponent,
     PickUpManagementComponent
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
