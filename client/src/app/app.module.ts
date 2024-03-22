@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { LandingPageComponent } from './admin/landing-page/landing-page.component';
 import { HeaderComponent } from './header/header/header.component';
 import { FooterComponent } from './footer/footer/footer.component';
+
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { PickUpManagementComponent } from './pick-up-management/pick-up-management.component';
 import { NavbarComponent } from './navbar/navbar/navbar.component';
@@ -19,14 +20,14 @@ import {MatListModule} from '@angular/material/list';
 import {MatButtonModule} from '@angular/material/button';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
     LandingPageComponent,
     HeaderComponent,
     FooterComponent,
-    PickUpManagementComponent,
-    NavbarComponent
+
   ],
   imports: [
     BrowserModule,
