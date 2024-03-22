@@ -1,20 +1,53 @@
 <div class="mainApp">
   <!-- Header -->
-  <div class="header">
-    <app-header></app-header>
-  </div>
+  <mat-toolbar class="header">
+    <mat-toolbar-row class="headerRow">
+      <div>
+        <button mat-icon-button (click)="sidenav.toggle();">
+          <fa-icon [icon] = "faBars" class="menuIcon"></fa-icon>
+        </button>
+        <img src="assets/logo.png" alt="Argusoft Logo" class="headerLogo">
+      </div>
+      <div class="headerRight">
+        <fa-icon [icon] = "faUser" class="userIcon"></fa-icon>
+      </div>
+
+    </mat-toolbar-row>
+  </mat-toolbar>
+  <!-- <div class="header">
+    <app-header [toggleSideNav]="toggleSideNav"></app-header>
+  </div> -->
   
   <!-- Main Body -->
-  <div class="mainBody">
+
     <!-- Navigation Bar on the left -->
-    <div class="navbar">
+    <mat-sidenav-container class="mainBody">
+
+      <mat-sidenav #sidenav class="navbar" opened="true" mode="side">
+        <mat-nav-list class="routerList">
+          <button mat-list-item class="routerBtn" [ngClass]="{active: btn==1}" (click)="navHome()"><span [ngClass]="{active: btn==1}">Home</span></button>
+          <button mat-list-item class="routerBtn" [ngClass]="{active: btn==2}" (click)="navHome2()"><span [ngClass]="{active: btn==2}">Home</span></button>
+          <button mat-list-item class="routerBtn" [ngClass]="{active: btn==3}">Home</button>
+          <button mat-list-item class="routerBtn" [ngClass]="{active: btn==4}">Home</button>
+          <button mat-list-item class="routerBtn" [ngClass]="{active: btn==5}">Home</button>
+        </mat-nav-list>
+      </mat-sidenav>
+
+      <mat-sidenav-content>
+        <div>
+          <router-outlet></router-outlet>
+        </div>
+      </mat-sidenav-content>
+
+    </mat-sidenav-container>
+    <!-- <div class="navbar">
       <app-navbar class="appNavBar"></app-navbar>
-    </div>
+    </div> -->
     <!-- Components on the right -->
-    <div class="routerOutlet">
+    <!-- <div class="routerOutlet">
       <router-outlet></router-outlet>
-    </div>
-  </div>
+    </div> -->
+
 
 
   <!-- Footer -->
