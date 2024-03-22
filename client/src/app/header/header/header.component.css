@@ -1,0 +1,20 @@
+.headerBar{
+    align-items: center;
+    padding: 0% 2%;
+    margin: 0;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 20% 80%;
+    color: white;
+}
+
+.headerUserBtn{
+    margin-left: auto;
+}
+
+.headerLogo{
+    width:50%;
+}
+.userIcon{
+    font-size: 2em !important;
+}

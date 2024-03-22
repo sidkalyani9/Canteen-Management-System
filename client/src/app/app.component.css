@@ -1,0 +1,31 @@
+.mainApp{
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+.header{
+    height: 10% !important;
+    background-color: #802f59;
+}
+.mainBody{
+    display: flex;
+    flex-grow: 1;
+}
+
+.navbar{
+    background-color: white;
+    width: 15%;
+    box-shadow: 2px 0px 10px 0px grey;
+}
+
+.appNavBar{
+    padding: 0;
+    height: 100%;
+    width: 100%;
+}
+
+.routerOutlet{
+    overflow: scroll;
+    width: 85%;
+    background-color: rgb(229, 229, 229);
+}

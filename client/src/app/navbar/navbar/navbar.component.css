@@ -1,0 +1,32 @@
+.navList{
+    height: 100%;
+    padding: 0;
+    margin:0;
+    list-style-type: none;
+}
+
+.navListItem{
+    margin: 13% 0% 20% 0;
+    color: black;
+    text-decoration: none;
+    text-align: center;
+
+}
+.navBtn{
+    border-radius: 10px;
+    background-color: #802f59;
+    font-size: 1.4vw;
+    padding: 7% 30%;
+    text-decoration: none;
+    color: white;
+    transition: 0.5s;
+}
+
+.navBtn:hover {
+    text-decoration: none;
+    color: white;
+    border-radius: 10px;
+    background-color: #5d2140;
+    font-size: 1.4vw;
+    padding: 7% 30%;
+}

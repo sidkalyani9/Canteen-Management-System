@@ -1,0 +1,11 @@
+.footer{
+    background-color: rgb(97, 97, 97);
+    padding: 2% 3%;
+    display: grid;
+    grid-template-columns: 20% 80%;
+    color: white;
+}
+
+.footerRight{
+    margin-left: auto;
+}

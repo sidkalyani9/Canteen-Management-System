@@ -1,12 +1,25 @@
-<div>
-  <h1>Header</h1>
-  <app-header></app-header>
-  <a routerLink="admin">Home</a>
-</div>
-<div>
-  <router-outlet></router-outlet>
-</div>
-<div>
-  <h1>Footer</h1>
-  <app-footer></app-footer>
+<div class="mainApp">
+  <!-- Header -->
+  <div class="header">
+    <app-header></app-header>
+  </div>
+  
+  <!-- Main Body -->
+  <div class="mainBody">
+    <!-- Navigation Bar on the left -->
+    <div class="navbar">
+      <app-navbar class="appNavBar"></app-navbar>
+    </div>
+    <!-- Components on the right -->
+    <div class="routerOutlet">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+
+
+  <!-- Footer -->
+  <!-- <div>
+    <app-footer></app-footer>
+  </div> -->
+
 </div>
