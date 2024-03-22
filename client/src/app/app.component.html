@@ -14,42 +14,29 @@
 
     </mat-toolbar-row>
   </mat-toolbar>
-  <!-- <div class="header">
-    <app-header [toggleSideNav]="toggleSideNav"></app-header>
-  </div> -->
+  
   
   <!-- Main Body -->
 
-    <!-- Navigation Bar on the left -->
+    
     <mat-sidenav-container class="mainBody">
-
+      <!-- Navigation Bar on the left -->
       <mat-sidenav #sidenav class="navbar" opened="true" mode="side">
         <mat-nav-list class="routerList">
           <button mat-list-item class="routerBtn" [ngClass]="{active: btn==1}" (click)="navHome()"><span [ngClass]="{active: btn==1}">Home</span></button>
-          <button mat-list-item class="routerBtn" [ngClass]="{active: btn==2}" (click)="navHome2()"><span [ngClass]="{active: btn==2}">Home</span></button>
-          <button mat-list-item class="routerBtn" [ngClass]="{active: btn==3}">Home</button>
-          <button mat-list-item class="routerBtn" [ngClass]="{active: btn==4}">Home</button>
-          <button mat-list-item class="routerBtn" [ngClass]="{active: btn==5}">Home</button>
+          <button mat-list-item class="routerBtn" [ngClass]="{active: btn==2}" (click)="navHome2()"><span [ngClass]="{active: btn==2}">Edit Menu</span></button>
+          <button mat-list-item class="routerBtn" [ngClass]="{active: btn==3}">Analytics</button>
+          <button mat-list-item class="routerBtn" [ngClass]="{active: btn==4}">Order History</button>
+          <!-- <button mat-list-item class="routerBtn" [ngClass]="{active: btn==5}">Staff Management</button> -->
         </mat-nav-list>
       </mat-sidenav>
-
-      <mat-sidenav-content>
-        <div>
-          <router-outlet></router-outlet>
-        </div>
+      <!-- Components on the right -->
+      <mat-sidenav-content class="routerOutlet">
+        <router-outlet></router-outlet>
       </mat-sidenav-content>
 
     </mat-sidenav-container>
-    <!-- <div class="navbar">
-      <app-navbar class="appNavBar"></app-navbar>
-    </div> -->
-    <!-- Components on the right -->
-    <!-- <div class="routerOutlet">
-      <router-outlet></router-outlet>
-    </div> -->
-
-
-
+    
   <!-- Footer -->
   <!-- <div>
     <app-footer></app-footer>
