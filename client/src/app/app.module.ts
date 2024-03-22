@@ -9,6 +9,7 @@ import { FooterComponent } from './footer/footer/footer.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { PickUpManagementComponent } from './pick-up-management/pick-up-management.component';
 import { NavbarComponent } from './navbar/navbar/navbar.component';
+import { CouponComponent } from './admin/Coupon-Management/coupon/coupon.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { NavbarComponent } from './navbar/navbar/navbar.component';
     HeaderComponent,
     FooterComponent,
     PickUpManagementComponent,
-    NavbarComponent
+    NavbarComponent,
+    CouponComponent
   ],
   imports: [
     BrowserModule,
