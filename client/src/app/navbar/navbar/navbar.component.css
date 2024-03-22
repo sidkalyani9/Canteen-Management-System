@@ -14,7 +14,7 @@
 }
 .navBtn{
     border-radius: 10px;
-    background-color: rgb(178, 77, 255);
+    background-color: #802f59;
     font-size: 1.4vw;
     padding: 7% 30%;
     text-decoration: none;
@@ -26,7 +26,7 @@
     text-decoration: none;
     color: white;
     border-radius: 10px;
-    background-color: rgb(131, 56, 188);
+    background-color: #5d2140;
     font-size: 1.4vw;
     padding: 7% 30%;
 }

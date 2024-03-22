@@ -5,6 +5,7 @@
 }
 .header{
     height: 10% !important;
+    background-color: #802f59;
 }
 .mainBody{
     display: flex;
@@ -12,8 +13,9 @@
 }
 
 .navbar{
-    background-color: green;
+    background-color: white;
     width: 15%;
+    box-shadow: 2px 0px 10px 0px grey;
 }
 
 .appNavBar{
@@ -23,6 +25,7 @@
 }
 
 .routerOutlet{
+    overflow: scroll;
     width: 85%;
-    background-color: red;
+    background-color: rgb(229, 229, 229);
 }
