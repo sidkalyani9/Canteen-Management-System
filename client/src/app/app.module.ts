@@ -28,7 +28,6 @@ import {MatButtonModule} from '@angular/material/button';
     LandingPageComponent,
     HeaderComponent,
     FooterComponent,
-,
     CouponComponent
   ],
   imports: [
