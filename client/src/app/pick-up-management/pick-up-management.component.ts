@@ -7,4 +7,22 @@ import { Component } from '@angular/core';
 })
 export class PickUpManagementComponent {
 
+  constructor(){}
+  array:any= [
+    {
+      order_no : "90",
+      customer_name : "Darshan",
+      customer_mo_no : "9898181761"
+    },
+    {
+      order_no : "91",
+      customer_name : "Darshan",
+      customer_mo_no : "9898181761"
+    },
+    {
+      order_no : "92",
+      customer_name : "Darshan",
+      customer_mo_no : "9898181761"
+    }
+  ]
 }
