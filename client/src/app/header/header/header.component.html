@@ -1,9 +1,12 @@
 <div class="headerBar">
 
         <div class="headerLogo">
-            Logo
+            <button (click)="toggleParentSidenav();" mat-icon-button>
+                <mat-icon ></mat-icon>
+            </button>
+            <img src="assets/logo.png" alt="Argusoft Logo" class="headerLogo">
         </div>
         <div class="headerUserBtn">
-            User Btn
+            <fa-icon [icon] = "faUserCircle" class="userIcon"></fa-icon>
         </div>
 </div>
