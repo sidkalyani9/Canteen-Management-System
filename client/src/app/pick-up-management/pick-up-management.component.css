@@ -34,10 +34,19 @@ li{
     border-radius: 15px;
 }
 
-img{
-    height: 200px;
-    width: 100%;
+.order_no{
+    margin-bottom: 10px;
+}
+
+.user-logo-img{
+    height: 150px;
+    width: 150px;
     
+}
+.pick_up_button_logo{
+    /* padding-right: 4px; */
+    height: 16px;
+    width: 16px;
 }
 
 .center {
