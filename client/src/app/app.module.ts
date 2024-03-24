@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { LandingPageComponent } from './admin/landing-page/landing-page.component';
 import { HeaderComponent } from './header/header/header.component';
 import { FooterComponent } from './footer/footer/footer.component';
+import { HttpClientModule } from '@angular/common/http';
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { PickUpManagementComponent } from './pick-up-management/pick-up-management.component';
@@ -27,6 +28,7 @@ import {MatButtonModule} from '@angular/material/button';
     LandingPageComponent,
     HeaderComponent,
     FooterComponent,
+    PickUpManagementComponent
 
   ],
   imports: [
@@ -40,6 +42,8 @@ import {MatButtonModule} from '@angular/material/button';
     MatListModule,
     MatButtonModule,
     MatToolbarModule,
+    HttpClientModule
+    
   ],
   providers: [
     provideAnimationsAsync()
