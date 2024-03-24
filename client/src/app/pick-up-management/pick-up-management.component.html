@@ -1,1 +1,21 @@
-<p>pick-up-management works!</p>
+<!-- <a routerLink="pick-up-management">Pick-up</a> -->
+
+
+<div class="container">
+    <div class="d-flex">
+        <ul>
+            <li *ngFor="let user of pickUpUsers" class="order-item-box">
+                <div>
+                    <img src="assets/user-sample.jpg" class="center user-logo-img">
+                </div>
+                <div class="order_no">order no. :-{{ user.order_no }}</div>
+                <div>{{ user.customer_name }}</div>
+                <div class="text-left">{{ user.customer_mo_no }}
+                    <button class="text-left">
+                        <img src="assets\pick_up_button_logo.webp" class="pick_up_button_logo" alt=""> Pick Up
+                    </button>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>

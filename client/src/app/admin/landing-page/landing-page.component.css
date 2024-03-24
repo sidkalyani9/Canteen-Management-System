@@ -1,0 +1,90 @@
+.component{
+    display: grid;
+    margin-top: 2%;
+    margin-left: 5%;
+    /* background-color: aqua; */
+    width: 92%;
+    height:fit-content;
+}
+
+.cardrow{
+    margin-top: 1%;
+    display: grid;
+    justify-content: center;
+    grid-template-columns: 23% 23% 23% 23%;
+    grid-column-gap: 2.5%;
+}
+.card{
+    padding: 5% 0%;
+    text-align: center;
+    display: grid;
+    grid-template-rows: 15% 80%;
+    width:100%;
+    background-color: white;
+    height: 16vw;
+    border-radius: 1em;
+    border: 0;
+}
+
+.btncard{
+    padding: 0% 0%;
+    text-align: center;
+    display: grid;
+    grid-template-rows: 47% 47%;
+    grid-row-gap: 6% !important;
+    width:100%;
+    border-radius: 10px;
+}
+
+.btnPrimary{
+    background-color: #802f59;
+    border:0;
+    border-radius: 1vw;
+    color: white;
+    font-size: 1.5vw;
+    transition: 0.5s;
+}
+
+.btnPrimary:hover{
+    background-color: #551a39;
+}
+
+.cardHeading{
+    font-size: 2.5vw;
+}
+
+.cardContent{
+    margin: auto 0;
+    font-size: 2vw;
+}
+
+.highestOrderedDishesCard{
+    margin: 3% 0.1% 0% 0.1%;
+    border-radius: 1em;
+    background-color: white;
+    padding: 2%;
+}
+
+.dishcard{
+    margin-bottom: 1%;
+    padding: 2% 5%;
+    display: grid;
+    grid-template-columns: 80% 20%;
+    background-color: rgb(228, 228, 228);
+    border-radius: 1em;
+
+}
+
+.scrollableDishes{
+    overflow: scroll;
+    overflow-x: hidden;
+    height:33vh;
+}
+
+.left{
+    display: grid;
+}
+
+.right{
+    margin-left: auto;
+}

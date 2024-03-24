@@ -1,1 +1,38 @@
-<p>landing-page works!</p>
+<div class="component">
+    <!-- Main Heading -->
+    <h1 style="font-weight: bold;">Today's Performance</h1>
+
+    <!-- Cards On Top -->
+    <div class="cardrow">
+        <div class="card">
+            <span class="cardHeading">Sales</span>
+            <span class="cardContent"><fa-icon [icon]="rupeeIcon"></fa-icon>5,345</span>
+        </div>
+        <div class="card">
+            <span class="cardHeading">Plates Sold</span>
+            <span class="cardContent"><fa-icon [icon]="plateIcon"></fa-icon> 234</span>
+        </div>
+        <div class="card">
+            <span class="cardHeading">Avg Rating</span>
+            <span class="cardContent">4.5 <fa-icon [icon]="starIcon"></fa-icon></span>
+        </div>
+        <div class="btncard">
+            <button class="btnPrimary">Order Pickup</button>
+            <button class="btnPrimary">Place Order</button>
+        </div>
+    </div>
+
+    <!-- Most Sold Dishes Card on bottom -->
+    <div class="highestOrderedDishesCard">
+        <h1 style="font-weight: bold;">Highest Ordered Dishes</h1>
+        <div class="scrollableDishes" >
+            <div *ngFor="let number of [0,1,2,3,4]" class="dishcard">
+                <div class="left">
+                    <span>Paneer Tikka Masala</span>
+                    <span>4.5 <fa-icon [icon]="starIcon"></fa-icon></span>
+                </div>
+                <span class="right">Qty: 5</span>
+            </div>
+        </div>
+    </div>
+</div>
