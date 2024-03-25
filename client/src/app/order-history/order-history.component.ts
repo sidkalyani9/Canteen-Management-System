@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 
+
 @Component({
   selector: 'app-order-history',
   templateUrl: './order-history.component.html',
@@ -7,4 +8,19 @@ import { Component } from '@angular/core';
 })
 export class OrderHistoryComponent {
 
+  showAllOrders() {
+    console.log("all orders")
+  }
+
+  showCompletedOrders() {
+    console.log("completed orders")
+  }
+
+  showCancelledOrders() {
+    console.log("Cancelled orders")
+  }
+
+
+
 }
+

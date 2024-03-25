@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LandingPageComponent } from './admin/landing-page/landing-page.component';
 import { PickUpManagementComponent } from './pick-up-management/pick-up-management.component';
+import { OrderHistoryComponent } from './order-history/order-history.component';
 
 const routes: Routes = [
   {
@@ -17,6 +18,11 @@ const routes: Routes = [
     children: [
       // Admin's Child Routes
     ]
+  },
+  {
+    path: "order-history",
+    component: OrderHistoryComponent,
+    
   }
 ];
 

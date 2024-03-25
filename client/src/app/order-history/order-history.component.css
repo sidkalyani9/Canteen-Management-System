@@ -1,0 +1,58 @@
+/*  heading  */
+
+.heading {
+    font-size: 35px;
+    font-weight: bold;
+    border: 2px solid #802f59 !important;
+    border-radius: 20px;
+    width: 300px;
+    margin-left: 40%;
+    margin-top: 20px;
+    padding: 10px;
+    box-shadow: 10px 10px 5px #802f59;
+}
+
+/* tab-list  */
+
+.order-tab-list {
+    margin-top: 50px;
+    margin-left: 40px;
+    width: 100%;
+}
+
+.nav-pills {
+    border-bottom: 2px solid #802f59;
+
+}
+
+.nav-item {
+    padding: 10px;
+    border: 2px solid #802f59 !important;
+    border-top-right-radius: 15px;
+    border-top-left-radius: 15px;
+    cursor: pointer;
+
+}
+
+.nav-item:hover {
+    background-color: #b17b97;
+}
+
+.nav-link {
+    color: black;
+
+}
+
+/* date filter  */
+
+
+.dates {
+    float: left;
+    margin-left: 10px;
+}
+
+.date-filter {
+    margin-left: 630px;
+    position: absolute;
+    margin-top: 60px;
+}

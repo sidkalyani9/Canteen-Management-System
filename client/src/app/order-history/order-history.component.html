@@ -1,1 +1,35 @@
-<p>order-history works!</p>
+<!-- main header  -->
+<h1 class="heading text-center">Order history</h1>
+
+
+<!-- date filter  -->
+<div class="date-filter">
+    <div class="dates">
+        <label for="start-date">filter from Date</label>
+        <input type="date" id="start-date" name="start-date">
+    </div>
+
+    <div class="dates">
+        <label for="end-date">to Date</label>
+        <input type="date" id="end-date" name="end-date">
+    </div>
+</div>
+
+
+<!-- tab-list  -->
+<div class="order-tab-list">
+    <ul class="nav nav-pills">
+        <li class="nav-item">
+            <button class="nav-link " (click)="showAllOrders()">All orders</button>
+        </li>
+        <li class="nav-item">
+            <button class="nav-link" (click)="showCompletedOrders()">Completed</button>
+        </li>
+        <li class="nav-item">
+            <button class="nav-link" (click)="showCancelledOrders()">Cancelled</button>
+        </li>
+    </ul>
+</div>
+
+
+<!-- table  -->
