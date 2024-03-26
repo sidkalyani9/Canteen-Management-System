@@ -1,5 +1,6 @@
 *{
     margin: 0;
+    padding: 0;
    
 }
 
@@ -12,9 +13,19 @@ ul{
     text-align: center;
     flex-wrap: wrap;
     padding-top: 30px;
+    
+}
+.container{
+    max-width: 100%;
+    margin: 0 auto;
+
+}
+element.style {
+    margin: 0 auto;
 }
 
 li{
+    margin: 20px;
     /* width: 30%; */
 }
 
