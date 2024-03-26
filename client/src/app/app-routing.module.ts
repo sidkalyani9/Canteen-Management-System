@@ -4,6 +4,7 @@ import { LandingPageComponent } from './admin/landing-page/landing-page.componen
 import { PickUpManagementComponent } from './pick-up-management/pick-up-management.component';
 import { AnalyticsComponent } from './admin/analytics/analytics/analytics.component';
 import { RootComponent } from './admin/root/root/root.component';
+import { CouponComponent } from './admin/Coupon-Management/coupon/coupon.component';
 
 const routes: Routes = [
   {
@@ -23,6 +24,10 @@ const routes: Routes = [
         path:"analytics",
         component: AnalyticsComponent
       },
+      {
+        path:'coupons',
+        component:CouponComponent
+      }
 
     ]
   }
