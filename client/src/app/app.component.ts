@@ -35,7 +35,11 @@ export class AppComponent {
     this.btn = 4;
     this.router.navigate(['admin/pickupmanagement'])
   }
-  
-  
 
+  navCoupon(){
+    this.btn = 5;
+    this.router.navigate(['admin/coupons'])
+  }
+
+  
 }
