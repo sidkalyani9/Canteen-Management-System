@@ -20,9 +20,7 @@ ul{
     margin: 0 auto;
 
 }
-element.style {
-    margin: 0 auto;
-}
+
 
 li{
     margin: 20px;
@@ -39,7 +37,7 @@ li{
     text-align: left;
 }
 .order-item-box{
-    margin: 5px;
+    margin: 20px;
     padding:10px;
     border: 2px solid black;
     border-radius: 15px;
