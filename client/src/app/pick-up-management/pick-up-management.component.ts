@@ -18,7 +18,14 @@ export class PickUpManagementComponent implements OnInit {
   ngOnInit(): void {
     this.pickUpUserData.pickUpUsers().subscribe((data: any) => {
       this.pickUpUsers = data;
+      console.log(data);
     });
+  }
+  data:any={};
+
+  getValue(){
+    console.log(this.data);
+    
   }
   
   // array: any[] = [
