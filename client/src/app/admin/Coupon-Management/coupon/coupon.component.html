@@ -24,7 +24,7 @@
         color: white;
         margin: 3px;
     "
-    (click)="selectModal()"
+    (click)="addModal()"
     >
     Add Coupon
     </button>
@@ -56,7 +56,7 @@
                 </div>
               </div>
               <div style="margin-top: 10px">
-                <h4>Description of coupon in brief nknknol</h4>
+                <p>Description of coupon in brief nknknol</p>
               </div>
               <div style="text-align: center; margin-top: 30px">
                 <button
@@ -69,6 +69,7 @@
                     width: 2.5cm;
                     margin-right: 20px;
                   "
+                  (click)="editModal()"
                 >
                   EDIT
                 </button>
@@ -82,6 +83,8 @@
                     width: 2.5cm;
                     margin-left: 20px;
                   "
+                  (click)="deleteCoupon()"
+                  
                 >
                   DELETE
                 </button>
@@ -434,16 +437,16 @@
 </div>
 
 
-<!-- Add coupon -->
+<!-- Add coupon Modal -->
 <div id="addCouponModal" class="modal" tabindex="-1">
   <div class="modal-dialog" style="width: 75vw">
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
-          (click)="closemodal()"></button>
+          (click)="closeaddmodal()"></button>
       </div>
       <div class="modal-body">
-
+        
         <body style="
               font-family: Arial, sans-serif;
               background-color: #f4f4f4;
@@ -453,6 +456,7 @@
               justify-content: center;
               align-items: center;
               height: 100vh;
+              
             ">
           <div style="
                 width: 150%;
@@ -536,7 +540,7 @@
               <br />
               <!-- <input type="submit" value="Submit" style="background-color: #007bff; color: #fff; border: none; cursor: pointer; padding: 10px; border-radius: 5px;"> -->
               <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="closemodal()">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="closeaddmodal()">
                   Close
                 </button>
                 <button type="submit" style="
@@ -554,3 +558,125 @@
     </div>
   </div>
 </div>
+
+<!-- edit coupon modal -->
+<div id="editCouponModal" class="modal" tabindex="-1">
+  <div class="modal-dialog" style="width: 75vw">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
+          (click)="closeeditmodal()"></button>
+      </div>
+      <div class="modal-body">
+
+        <body style="
+              font-family: Arial, sans-serif;
+              background-color: #f4f4f4;
+              margin: 0;
+              padding: 0;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              height: 100vh;
+            ">
+          <div style="
+                width: 150%;
+                max-width: 500px;
+                background-color: #fff;
+                padding: 20px;
+                border-radius: 10px;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+                margin-top: 30px;
+                margin-bottom: 30px;
+              ">
+            <h2 style="
+                  text-align: center;
+                  color: #333;
+                  font-size: 24px;
+                  margin-bottom: 20px;
+                  margin-top: 0;
+                ">
+              Add Coupon
+            </h2>
+            <form #editCoupon="ngForm" (ngSubmit)="addcoupon(editCoupon.value)"
+              style="display: flex; flex-direction: column">
+              <label for="couponName" style="font-weight: bold">Name of Coupon:</label>
+              <br />
+              <input type="text" name="couponName" ngModel required style="
+                    padding: 10px;
+                    margin-bottom: 15px;
+                    border: 1px solid #ccc;
+                    border-radius: 5px;
+                  " />
+              <br />
+
+              <label for="activeTill" style="font-weight: bold">Active Till:</label>
+              <br />
+              <input type="date" ngModel name="activeTill" required style="
+                    padding: 10px;
+                    margin-bottom: 15px;
+                    border: 1px solid #ccc;
+                    border-radius: 5px;
+                  " />
+              <br />
+              <label for="description" style="font-weight: bold">Description:</label>
+              <br />
+              <textarea ngModel name="description" rows="4" placeholder="Add a brief description of the coupon"
+                cols="50" required style="
+                    padding: 10px;
+                    margin-bottom: 15px;
+                    border: 1px solid #ccc;
+                    border-radius: 5px;
+                  "></textarea>
+              <br />
+              <label for="discountType" style="font-weight: bold">Discount Type:</label>
+              <br />
+              <select ngModel name="discountType" required style="
+                    padding: 10px;
+                    margin-bottom: 15px;
+                    border: 1px solid #ccc;
+                    border-radius: 5px;
+                  ">
+                <option value="flat">Flat</option>
+                <option value="percentage">Percentage</option>
+              </select>
+              <br />
+              <label for="deductionAmount" style="font-weight: bold">Deduction Amount (%):</label>
+              <br />
+              <input type="text" ngModel name="deductionAmount" required style="
+                    padding: 10px;
+                    margin-bottom: 15px;
+                    border: 1px solid #ccc;
+                    border-radius: 5px;
+                  " pattern="\d+(\.\d+)?%" title="Please enter a valid percentage value (e.g., 10%)." />
+              <br />
+              <label for="minValue" style="font-weight: bold">Min Value:</label>
+              <br />
+              <input type="number" ngModel name="minValue" min="100" required style="
+                    padding: 10px;
+                    margin-bottom: 15px;
+                    border: 1px solid #ccc;
+                    border-radius: 5px;
+                  " />
+              <br />
+              <!-- <input type="submit" value="Submit" style="background-color: #007bff; color: #fff; border: none; cursor: pointer; padding: 10px; border-radius: 5px;"> -->
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="closeeditmodal()">
+                  Close
+                </button>
+                <button type="submit" style="
+                      background-color: #802f59;
+                      border: 0;
+                      border-radius: 5px;
+                    " class="btn btn-primary" [disabled]="addCoupon.invalid">
+                  Save
+                </button>
+              </div>
+            </form>
+          </div>
+        </body>
+      </div>
+    </div>
+  </div>
+</div>
+
