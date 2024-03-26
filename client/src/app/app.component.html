@@ -3,7 +3,7 @@
   <mat-toolbar class="header">
     <mat-toolbar-row class="headerRow">
       <div>
-        <button mat-icon-button (click)="sidenav.toggle();">
+        <button mat-icon-button (click)="sidenav.toggle();" class="Button">
           <fa-icon [icon] = "faBars" class="menuIcon"></fa-icon>
         </button>
         <img src="assets/logo.png" alt="Argusoft Logo" class="headerLogo">
@@ -25,8 +25,10 @@
         <mat-nav-list class="routerList">
           <button mat-list-item class="routerBtn" [ngClass]="{active: btn==1}" (click)="navHome()"><span [ngClass]="{active: btn==1}">Home</span></button>
           <button mat-list-item class="routerBtn" [ngClass]="{active: btn==2}" (click)="navHome2()"><span [ngClass]="{active: btn==2}">Edit Menu</span></button>
-          <button mat-list-item class="routerBtn" [ngClass]="{active: btn==3}">Analytics</button>
-          <button mat-list-item class="routerBtn" [ngClass]="{active: btn==4}">Order History</button>
+          <button mat-list-item class="routerBtn" [ngClass]="{active: btn==3}" (click)="navAnalytics()"><span [ngClass]="{active: btn==3}">Analytics</span></button>
+          <button mat-list-item class="routerBtn" [ngClass]="{active: btn==4}" (click)="navPickup()"><span [ngClass]="{active: btn==4}">Order Pickup</span></button>
+          <button mat-list-item class="routerBtn" [ngClass]="{active: btn==5}" (click)="navCoupon()"><span [ngClass]="{active: btn==5}">Edit Coupon</span></button>
+          <button mat-list-item class="routerBtn" [ngClass]="{active: btn==6}">Order History</button>
           <!-- <button mat-list-item class="routerBtn" [ngClass]="{active: btn==5}">Staff Management</button> -->
         </mat-nav-list>
       </mat-sidenav>

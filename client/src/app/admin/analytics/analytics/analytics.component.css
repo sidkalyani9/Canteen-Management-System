@@ -1,0 +1,9 @@
+.component{
+    display: grid;
+    margin-top: 3.5vh;
+    margin-left: 5%;
+    /* background-color: aqua; */
+    width: 92%;
+    height:fit-content;
+}
+
