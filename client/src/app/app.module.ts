@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { LandingPageComponent } from './admin/landing-page/landing-page.component';
 import { HeaderComponent } from './header/header/header.component';
 import { FooterComponent } from './footer/footer/footer.component';
+import { HttpClientModule } from '@angular/common/http';
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { PickUpManagementComponent } from './pick-up-management/pick-up-management.component';
@@ -20,6 +21,8 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatListModule} from '@angular/material/list';
 import {MatButtonModule} from '@angular/material/button';
 import { FormsModule } from '@angular/forms';
+import { AnalyticsComponent } from './admin/analytics/analytics/analytics.component';
+import { RootComponent } from './admin/root/root/root.component';
 
 
 
@@ -29,7 +32,11 @@ import { FormsModule } from '@angular/forms';
     LandingPageComponent,
     HeaderComponent,
     FooterComponent,
-    CouponComponent
+    CouponComponent,
+    PickUpManagementComponent,
+    AnalyticsComponent,
+    RootComponent
+
   ],
   imports: [
     BrowserModule,
@@ -42,7 +49,9 @@ import { FormsModule } from '@angular/forms';
     MatListModule,
     MatButtonModule,
     MatToolbarModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
+   
   ],
   providers: [
     provideAnimationsAsync()
