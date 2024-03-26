@@ -20,6 +20,7 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatListModule} from '@angular/material/list';
 import {MatButtonModule} from '@angular/material/button';
 import { AnalyticsComponent } from './admin/analytics/analytics/analytics.component';
+import { RootComponent } from './admin/root/root/root.component';
 
 
 
@@ -30,7 +31,8 @@ import { AnalyticsComponent } from './admin/analytics/analytics/analytics.compon
     HeaderComponent,
     FooterComponent,
     PickUpManagementComponent,
-    AnalyticsComponent
+    AnalyticsComponent,
+    RootComponent
 
   ],
   imports: [
