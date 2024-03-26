@@ -35,8 +35,7 @@ import { RootComponent } from './admin/root/root/root.component';
     CouponComponent,
     PickUpManagementComponent,
     AnalyticsComponent,
-    RootComponent
-
+    RootComponent,
   ],
   imports: [
     BrowserModule,
@@ -50,8 +49,7 @@ import { RootComponent } from './admin/root/root/root.component';
     MatButtonModule,
     MatToolbarModule,
     FormsModule,
-    HttpClientModule
-   
+    HttpClientModule,
   ],
   providers: [
     provideAnimationsAsync()
