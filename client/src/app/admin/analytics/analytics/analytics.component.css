@@ -1,9 +1,9 @@
 .component{
     display: grid;
-    margin: 3.5vh 5%;
+    margin: 3.5vh 1.5% 0vh 3%;
     /* background-color: aqua; */
 
-    height:fit-content;
+    height:95%;
 }
 
 .cards{
@@ -11,12 +11,42 @@
     flex-wrap: wrap;
     flex-direction: row;
     flex-grow: 1;
-    margin: auto;
+    width: 100%;
+    height: 100%;
+}
+
+.analytics{
+    width: 39%;
+    /* background-color: green; */
+}
+
+.rightAnalytics{
+    margin: 0% 0% 0% 2%;
+    width: 59%;
+    /* background-color: red; */
 }
 
 #quad1{
     display: grid;
-    grid-template-rows: 82% 18%;
+    grid-template-rows: 81% 19%;
+}
+
+/* #quad2{
+    padding: 2%;
+    display: flex;
+    margin: auto !important;
+    justify-content: center;
+
+} */
+
+#quad2{
+    display: grid;
+    grid-template-rows: 90% 10%;
+    padding-top: 2%;
+}
+
+#chart2{
+    width:20vw !important;
 }
 
 .chart{
@@ -34,21 +64,36 @@
 
 .quad {
     text-align: center;
-    height: 33vh;
-    margin: 2% 2% 1% 2%;
-    padding: 2%;
+    height: 37vh;
+    margin: 1vh 2% 1.5vh 0%;
     border-radius: 1em;
     background-color: white;
-    width:46%;
+    width:100%;
 }
 
 .button{
     color: white;
     background-color: #802f59;
+    /* background-color: rgba(83, 186, 93, 0.75); */
     border: 0;
     text-align: center;
     padding: 2% 2%;
     border-radius: 5px;
     margin: 2% 2%;
     transition: 0.5s;
+    cursor: pointer;
+}
+
+.button:hover{
+    background-color: #b95084;
+}
+
+.rightCard{
+    text-align: center;
+    height: 75.5vh !important;
+    margin: 1vh 2% 1.5vh 0%;
+    border-radius: 1em;
+    background-color: white;
+    width:100%;
+    height: 100%;
 }

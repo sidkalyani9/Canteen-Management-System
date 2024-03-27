@@ -2,28 +2,35 @@
 
     <h1 style="font-weight: bold;">Analytics</h1>
     <div class="cards">
-        <div class="quad" id="quad1">
-            <canvas class="chart" id="chart1"></canvas>
-            <div>
-                <button class="button" (click)="monthOnMonth()">
-                    Month on Month revenue
-                </button>
-                <button class="button" (click)="dailyRevenue()">
-                    Daily Revenue
-                </button>
+        <div class="analytics">
+            <div class="quad" id="quad1">
+                <canvas class="chart" id="chart1"></canvas>
+                <div>
+                    <button class="button" (click)="monthOnMonth()">
+                        Monthly revenue
+                    </button>
+                    <button class="button" (click)="dailyRevenue()">
+                        Daily Revenue
+                    </button>
+                </div>
+            </div>
+    
+            <!-- <div class="quad" id="quad2">
+                <canvas id="chart2"></canvas>
+            </div> -->
+
+            <div class="quad" id="quad2">
+                <canvas class="chart" id="chart2"></canvas>
+                <span>
+                    This Month's Category wise division
+                </span>
             </div>
         </div>
 
-        <div class="quad">
-            <canvas id="chart2"></canvas>
-        </div>
-
-        <div class="quad">
-            <canvas id="chart3"></canvas>
-        </div>
-
-        <div class="quad">
-            <canvas id="chart4"></canvas>
+        <div class="rightAnalytics">
+            <div class="rightCard">
+                <canvas id="chart2"></canvas>
+            </div>
         </div>
         
     </div>

@@ -9,7 +9,8 @@ Chart.register(...registerables);
   styleUrl: './analytics.component.css'
 })
 export class AnalyticsComponent implements OnInit {
-  public chart: any;
+  public salesChart: any;
+  public productSegmentPieChart: any;
   public selectedArr=[];
 
   ngOnInit(): void {
@@ -39,7 +40,7 @@ export class AnalyticsComponent implements OnInit {
 
   createChart(){
 
-    this.chart = new Chart("chart1", {
+    this.productSegmentPieChart = new Chart("chart1", {
       type: 'bar', //this denotes tha type of chart
 
       data: {// values on X-Axis
@@ -54,10 +55,61 @@ export class AnalyticsComponent implements OnInit {
         ]
       },
       options: {
-        aspectRatio:2.5
+        aspectRatio:2
       }
-      
-      
     });
+
+    this.salesChart = new Chart("chart2", {
+      type: 'doughnut', //this denotes tha type of chart
+
+      data: {
+        labels: [
+        'Breakfast',
+        'Lunch',
+        'Snacks'
+      ],
+      datasets: [{
+        label: 'Order Quantity',
+        data: [300, 150, 100],
+        backgroundColor: [
+          'rgba(145, 38, 84, 0.75)',
+          'rgba(108, 101, 186, 0.75)',
+          'rgba(83, 186, 93, 0.75)',
+        ],
+        borderColor: [
+          'rgba(255, 255, 255 ,1)',
+          'rgba(255, 255, 255 ,1)',
+          'rgba(255, 255, 255 ,1)',
+        ],
+        hoverOffset: 4
+      },]
+  },
+  options: {
+    hover:{
+      // mode:'y'
+    },
+    plugins: {
+      legend: {
+
+        position: 'top',
+        title: {
+          display: false,
+          padding: 1
+        },
+        labels: {
+          // color: '#ffffff',
+          padding: 8,
+
+        }
+      }
+    },
+
+    // rotation: -90,
+    // circumference: 180,
+    radius:130,
+    cutout:50,
+
+  },
+  });
   }
 }
