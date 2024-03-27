@@ -28,7 +28,6 @@ const routes: Routes = [
         path:'coupons',
         component:CouponComponent
       }
-
     ]
   }
 
