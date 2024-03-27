@@ -21,6 +21,8 @@ import { MatListModule } from '@angular/material/list';
 import { MatButtonModule } from '@angular/material/button';
 import { CommonModule } from '@angular/common';
 import { OrderHistoryComponent } from './order-history/order-history.component';
+import { FormsModule } from '@angular/forms';
+
 
 
 
@@ -47,7 +49,10 @@ import { OrderHistoryComponent } from './order-history/order-history.component';
     MatButtonModule,
     MatToolbarModule,
     HttpClientModule,
-    CommonModule
+    CommonModule,
+    FormsModule
+
+    
   ],
   providers: [
     provideAnimationsAsync()
