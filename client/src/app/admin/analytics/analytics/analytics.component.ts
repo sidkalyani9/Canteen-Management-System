@@ -38,7 +38,7 @@ export class AnalyticsComponent implements OnInit {
   }
 
   createChart(){
-  
+
     this.chart = new Chart("chart1", {
       type: 'bar', //this denotes tha type of chart
 
@@ -49,19 +49,14 @@ export class AnalyticsComponent implements OnInit {
             label: "Sales",
             data: ['467','576', '572', '79', '92',
 								 '574'],
-            backgroundColor: 'blue'
-          },
-          {
-            label: "Profit",
-            data: ['542', '542', '536', '327', '17',
-									 '0.00'],
-            backgroundColor: 'limegreen'
-          }  
+            backgroundColor: '#802f59'
+          }
         ]
       },
       options: {
         aspectRatio:2.5
       }
+      
       
     });
   }
