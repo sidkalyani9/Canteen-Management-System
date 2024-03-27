@@ -11,6 +11,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { PickUpManagementComponent } from './pick-up-management/pick-up-management.component';
 import { NavbarComponent } from './navbar/navbar/navbar.component';
+import { CouponComponent } from './admin/Coupon-Management/coupon/coupon.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 
@@ -19,6 +20,9 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon';
 import {MatListModule} from '@angular/material/list';
 import {MatButtonModule} from '@angular/material/button';
+import { FormsModule } from '@angular/forms';
+import { AnalyticsComponent } from './admin/analytics/analytics/analytics.component';
+import { RootComponent } from './admin/root/root/root.component';
 
 
 
@@ -28,8 +32,10 @@ import {MatButtonModule} from '@angular/material/button';
     LandingPageComponent,
     HeaderComponent,
     FooterComponent,
-    PickUpManagementComponent
-
+    CouponComponent,
+    PickUpManagementComponent,
+    AnalyticsComponent,
+    RootComponent,
   ],
   imports: [
     BrowserModule,
@@ -42,8 +48,8 @@ import {MatButtonModule} from '@angular/material/button';
     MatListModule,
     MatButtonModule,
     MatToolbarModule,
-    HttpClientModule
-    
+    FormsModule,
+    HttpClientModule,
   ],
   providers: [
     provideAnimationsAsync()

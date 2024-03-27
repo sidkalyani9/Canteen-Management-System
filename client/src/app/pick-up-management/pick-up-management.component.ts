@@ -1,12 +1,13 @@
 import { NgModule } from '@angular/core';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,ViewEncapsulation } from '@angular/core';
 import { PickUpOrderDataService } from '../service/pick-up-order-data.service';
 
 
 @Component({
   selector: 'app-pick-up-management',
   templateUrl: './pick-up-management.component.html',
-  styleUrl: './pick-up-management.component.css'
+  styleUrl: './pick-up-management.component.css',
+  encapsulation: ViewEncapsulation.None
 })
 export class PickUpManagementComponent implements OnInit {
 
