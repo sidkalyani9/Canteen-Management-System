@@ -40,6 +40,10 @@ export class AppComponent {
     this.btn = 5;
     this.router.navigate(['admin/coupons'])
   }
-
+  
+  navUserMenu(){
+    this.btn = 7;
+    this.router.navigate(['user/menu'])
+  }
   
 }

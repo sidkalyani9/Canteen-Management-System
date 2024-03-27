@@ -1,32 +1,45 @@
-import { NgModule } from '@angular/core';
+import { Component, NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LandingPageComponent } from './admin/landing-page/landing-page.component';
 import { PickUpManagementComponent } from './pick-up-management/pick-up-management.component';
 import { AnalyticsComponent } from './admin/analytics/analytics/analytics.component';
 import { RootComponent } from './admin/root/root/root.component';
 import { CouponComponent } from './admin/Coupon-Management/coupon/coupon.component';
+import { MenuComponent } from './user/menu/menu.component';
 
 const routes: Routes = [
   {
-    path:"admin",
+    path: "admin",
     component: RootComponent,
     children: [
       // Admin's Child Routes
       {
-        path:"",
+        path: "",
         component: LandingPageComponent
       },
       {
-        path:"pickupmanagement",
+        path: "pickupmanagement",
         component: PickUpManagementComponent
       },
       {
-        path:"analytics",
+        path: "analytics",
         component: AnalyticsComponent
       },
       {
-        path:'coupons',
-        component:CouponComponent
+        path: 'coupons',
+        component: CouponComponent
+      }
+    ]
+  },
+
+  {
+    path: "user",
+    component: RootComponent,
+    children: [
+      // User childers 
+      {
+        path: "menu",
+        component: MenuComponent
       }
     ]
   }
