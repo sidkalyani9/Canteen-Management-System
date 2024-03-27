@@ -19,6 +19,8 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { MatButtonModule } from '@angular/material/button';
+import { CommonModule } from '@angular/common';
+import { OrderHistoryComponent } from './order-history/order-history.component';
 
 
 
@@ -29,7 +31,8 @@ import { MatButtonModule } from '@angular/material/button';
     LandingPageComponent,
     HeaderComponent,
     FooterComponent,
-    PickUpManagementComponent
+    PickUpManagementComponent,
+    OrderHistoryComponent
 
   ],
   imports: [
@@ -44,6 +47,7 @@ import { MatButtonModule } from '@angular/material/button';
     MatButtonModule,
     MatToolbarModule,
     HttpClientModule,
+    CommonModule
   ],
   providers: [
     provideAnimationsAsync()

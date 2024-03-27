@@ -33,3 +33,38 @@
 
 
 <!-- table  -->
+
+<input type="text" placeholder="search">
+<select>
+    <option value="">Test</option>
+</select>
+
+<table>
+    <thead>
+        <tr>
+            <td>#</td>
+            <td>supplier</td>
+            <td>address</td>
+            <td>email</td>
+            <td>phone</td>
+            <td>action</td>
+        </tr>
+
+    </thead>
+    <tbody>
+        <tr *ngFor="let supplier of suppliers; let i = index">
+            <td>{{i}}</td>
+            <td>{{supplier.name}}</td>
+            <td>{{supplier.address}}</td>
+            <td>{{supplier.phone}}</td>
+            <td>{{supplier.email}}</td>
+            <td></td>
+        </tr>
+    </tbody>
+</table>
+
+<div class="buttons">
+    <button>previous</button>
+    <button>1</button>
+    <button>next</button>
+</div>
