@@ -1,7 +1,31 @@
 <div class="component">
-    <!-- Main Heading -->
+
     <h1 style="font-weight: bold;">Analytics</h1>
-    <canvas id="MyChart"></canvas>
+    <div class="cards">
+        <div class="quad" id="quad1">
+            <canvas class="chart" id="chart1"></canvas>
+            <div>
+                <button class="button" (click)="monthOnMonth()">
+                    Month on Month revenue
+                </button>
+                <button class="button" (click)="dailyRevenue()">
+                    Daily Revenue
+                </button>
+            </div>
+        </div>
+
+        <div class="quad">
+            <canvas id="chart2"></canvas>
+        </div>
+
+        <div class="quad">
+            <canvas id="chart3"></canvas>
+        </div>
+
+        <div class="quad">
+            <canvas id="chart4"></canvas>
+        </div>
+        
+    </div>
 </div>
 
-<router-outlet></router-outlet>

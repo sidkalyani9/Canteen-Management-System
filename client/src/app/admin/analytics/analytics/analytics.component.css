@@ -1,9 +1,54 @@
 .component{
     display: grid;
-    margin-top: 3.5vh;
-    margin-left: 5%;
+    margin: 3.5vh 5%;
     /* background-color: aqua; */
-    width: 92%;
+
     height:fit-content;
 }
 
+.cards{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    flex-grow: 1;
+    margin: auto;
+}
+
+#quad1{
+    display: grid;
+    grid-template-rows: 82% 18%;
+}
+
+.chart{
+    justify-content: center !important;
+    align-items: center !important;
+    margin: 0 auto !important;
+    width: 90% !important;
+    height: 100% !important;
+}
+
+.chartLegend{
+    position: relative;
+    bottom: 0%;
+}
+
+.quad {
+    text-align: center;
+    height: 33vh;
+    margin: 2% 2% 1% 2%;
+    padding: 2%;
+    border-radius: 1em;
+    background-color: white;
+    width:46%;
+}
+
+.button{
+    color: white;
+    background-color: #802f59;
+    border: 0;
+    text-align: center;
+    padding: 2% 2%;
+    border-radius: 5px;
+    margin: 2% 2%;
+    transition: 0.5s;
+}
