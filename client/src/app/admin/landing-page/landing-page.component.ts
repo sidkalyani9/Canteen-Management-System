@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { faIndianRupeeSign, faStar, faPlateWheat } from '@fortawesome/free-solid-svg-icons';
-
 
 @Component({
   selector: 'app-landing-page',
@@ -8,7 +8,10 @@ import { faIndianRupeeSign, faStar, faPlateWheat } from '@fortawesome/free-solid
   styleUrl: './landing-page.component.css'
 })
 export class LandingPageComponent {
+
+  clickedBtn:any;
   rupeeIcon = faIndianRupeeSign
   starIcon = faStar
   plateIcon = faPlateWheat
+
 }

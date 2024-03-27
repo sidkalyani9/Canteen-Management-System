@@ -22,23 +22,23 @@ interface order {
 export class OrderHistoryComponent {
 
   showAllOrders() {
-    this.searchQuery = ''; // Clear the search query
-    this.selectedCategory = 'orderNo'; // Reset the selected category
-    this.calculateTotalPages(); // Recalculate pagination
+    this.searchQuery = '';
+    this.selectedCategory = 'orderNo';
+    this.calculateTotalPages();
   }
 
   showCompletedOrders() {
-    this.searchQuery = ''; // Clear the search query
-    this.selectedCategory = 'orderStatus'; // Set the selected category to 'orderStatus'
-    this.searchQuery = 'Delivered'; // Set the search query to 'Delivered'
-    this.calculateTotalPages(); // Recalculate pagination
+    this.searchQuery = '';
+    this.selectedCategory = 'orderStatus'; 
+    this.searchQuery = 'Delivered'; 
+    this.calculateTotalPages();
   }
 
   showCancelledOrders() {
-    this.searchQuery = ''; // Clear the search query
-    this.selectedCategory = 'orderStatus'; // Set the selected category to 'orderStatus'
-    this.searchQuery = 'Cancelled'; // Set the search query to 'Cancelled'
-    this.calculateTotalPages(); // Recalculate pagination
+    this.searchQuery = '';
+    this.selectedCategory = 'orderStatus';
+    this.searchQuery = 'Cancelled';
+    this.calculateTotalPages();
   }
 
   data: Array<order> = [
@@ -761,11 +761,11 @@ export class OrderHistoryComponent {
     const end = start + this.itemsPerPage;
     return this.data
       .filter(item => {
-        // Filter by selected date range
+        
         const isWithinDateRange = (!this.startDate || item.orderDate >= this.startDate) &&
           (!this.endDate || item.orderDate <= this.endDate);
 
-        // Filter by search query
+        
         let matchesSearchQuery = false;
         if (typeof item[this.selectedCategory] === 'string') {
           matchesSearchQuery = (item[this.selectedCategory] as string).toLowerCase().includes(this.searchQuery.toLowerCase());

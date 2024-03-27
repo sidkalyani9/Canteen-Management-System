@@ -1,6 +1,6 @@
 .component{
     display: grid;
-    margin-top: 2%;
+    margin-top: 3.5vh;
     margin-left: 5%;
     /* background-color: aqua; */
     width: 92%;
@@ -8,14 +8,14 @@
 }
 
 .cardrow{
-    margin-top: 1%;
+    margin-top: 1.5vh;
     display: grid;
     justify-content: center;
     grid-template-columns: 23% 23% 23% 23%;
     grid-column-gap: 2.5%;
 }
 .card{
-    padding: 5% 0%;
+    padding: 2vh 0%;
     text-align: center;
     display: grid;
     grid-template-rows: 15% 80%;
@@ -46,7 +46,7 @@
 }
 
 .btnPrimary:hover{
-    background-color: #551a39;
+    background-color: #b95084;
 }
 
 .cardHeading{
@@ -59,7 +59,7 @@
 }
 
 .highestOrderedDishesCard{
-    margin: 3% 0.1% 0% 0.1%;
+    margin: 3vh 0.1% 0% 0.1%;
     border-radius: 1em;
     background-color: white;
     padding: 2%;
