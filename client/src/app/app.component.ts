@@ -41,5 +41,10 @@ export class AppComponent {
     this.router.navigate(['admin/coupons'])
   }
 
+  navOrderHistory(){
+    this.btn = 6;
+    this.router.navigate(['admin/order-history'])
+  }
+
   
 }
