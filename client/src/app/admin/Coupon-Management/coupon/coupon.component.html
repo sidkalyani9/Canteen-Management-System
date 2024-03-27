@@ -1,0 +1,699 @@
+<div style="
+ position: sticky;
+ top: 0;
+ z-index: 1000;
+ background-color: #ffffff;
+ color: #802f59;
+ font-style: bold;
+ margin: 30px;
+ margin-top: 0;
+ display: flex;
+ justify-content: space-between;
+ align-items: center;
+" class="shadow-sm p-3 mb-5 bg-body-tertiary rounded">
+    <h1 style="margin-left: 0;">Coupons</h1>
+    <button
+    type="button"
+    class="btn btn-primary"
+    data-bs-toggle="modal"
+    data-bs-target="#addCouponModal"
+    style="
+        background-color: #802f59;
+        border: 0;
+        margin-right: 0;
+        color: white;
+        margin: 3px;
+    "
+    (click)="addModal()"
+    >
+    Add Coupon
+    </button>
+</div>
+
+<!-- //coupon icons -->
+<div style="margin-left: 30px; margin-right: 30px">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-4">
+        <div class="card card-margin">
+          <div class="card-header no-border">
+            <h5 class="card-title">Percentage</h5>
+          </div>
+          <div class="card-body pt-0">
+            <div class="widget-49">
+              <div class="widget-49-title-wrapper">
+                <div class="widget-49-date-primary">
+                  <span class="widget-49-date-day">25%</span>
+                  <span class="widget-49-date-month">OFF</span>
+                </div>
+                <div class="widget-49-meeting-info">
+                  <span class="widget-49-pro-title"
+                    >ON MIN Rs.500 ORDER</span
+                  >
+                  <span class="widget-49-pro-title"
+                    >ACTIVE TILL:25 MARCH,2024</span
+                  >
+                </div>
+              </div>
+              <div style="margin-top: 10px">
+                <p>Description of coupon in brief nknknol</p>
+              </div>
+              <div style="text-align: center; margin-top: 30px">
+                <button
+                  type="button"
+                  class="btn btn-primary"
+                  style="
+                    background-color: #802f59;
+                    border: 0;
+                    border-radius: 5px;
+                    width: 2.5cm;
+                    margin-right: 20px;
+                  "
+                  (click)="editModal()"
+                >
+                  EDIT
+                </button>
+                <button
+                  type="button"
+                  class="btn btn-primary"
+                  style="
+                    background-color: #802f59;
+                    border: 0;
+                    border-radius: 5px;
+                    width: 2.5cm;
+                    margin-left: 20px;
+                  "
+                  (click)="deleteModal()"
+                  
+                >
+                  DELETE
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4">
+        <div class="card card-margin">
+          <div class="card-header no-border">
+            <h5 class="card-title">Percentage</h5>
+          </div>
+          <div class="card-body pt-0">
+            <div class="widget-49">
+              <div class="widget-49-title-wrapper">
+                <div class="widget-49-date-primary">
+                  <span class="widget-49-date-day">25%</span>
+                  <span class="widget-49-date-month">OFF</span>
+                </div>
+                <div class="widget-49-meeting-info">
+                  <span class="widget-49-pro-title"
+                    >ON MIN Rs.500 ORDER</span
+                  >
+                  <span class="widget-49-pro-title"
+                    >ACTIVE TILL:25 MARCH,2024</span
+                  >
+                </div>
+              </div>
+              <div>
+                <h4>Description of coupon in brief nknknol</h4>
+              </div>
+              <div style="text-align: center">
+                <button
+                  type="button"
+                  class="btn btn-primary"
+                  style="
+                    background-color: #802f59;
+                    border: 0;
+                    border-radius: 5px;
+                    width: 2.5cm;
+                    margin-right: 20px;
+                  "
+                >
+                  EDIT
+                </button>
+                <button
+                  type="button"
+                  class="btn btn-primary"
+                  style="
+                    background-color: #802f59;
+                    border: 0;
+                    border-radius: 5px;
+                    width: 2.5cm;
+                    margin-left: 20px;
+                  "
+                >
+                  DELETE
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-4">
+        <div class="card card-margin">
+          <div class="card-header no-border">
+            <h5 class="card-title">Percentage</h5>
+          </div>
+          <div class="card-body pt-0">
+            <div class="widget-49">
+              <div class="widget-49-title-wrapper">
+                <div class="widget-49-date-primary">
+                  <span class="widget-49-date-day">25%</span>
+                  <span class="widget-49-date-month">OFF</span>
+                </div>
+                <div class="widget-49-meeting-info">
+                  <span class="widget-49-pro-title"
+                    >ON MIN Rs.500 ORDER</span
+                  >
+                  <span class="widget-49-pro-title"
+                    >ACTIVE TILL:25 MARCH,2024</span
+                  >
+                </div>
+              </div>
+              <div>
+                <h4>Description of coupon in brief nknknol</h4>
+              </div>
+              <div style="text-align: center">
+                <button
+                  type="button"
+                  class="btn btn-primary"
+                  style="
+                    background-color: #802f59;
+                    border: 0;
+                    border-radius: 5px;
+                    width: 2.5cm;
+                    margin-right: 20px;
+                  "
+                >
+                  EDIT
+                </button>
+                <button
+                  type="button"
+                  class="btn btn-primary"
+                  style="
+                    background-color: #802f59;
+                    border: 0;
+                    border-radius: 5px;
+                    width: 2.5cm;
+                    margin-left: 20px;
+                  "
+                >
+                  DELETE
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-4">
+        <div class="card card-margin">
+          <div class="card-header no-border">
+            <h5 class="card-title">Percentage</h5>
+          </div>
+          <div class="card-body pt-0">
+            <div class="widget-49">
+              <div class="widget-49-title-wrapper">
+                <div class="widget-49-date-primary">
+                  <span class="widget-49-date-day">25%</span>
+                  <span class="widget-49-date-month">OFF</span>
+                </div>
+                <div class="widget-49-meeting-info">
+                  <span class="widget-49-pro-title"
+                    >ON MIN Rs.500 ORDER</span
+                  >
+                  <span class="widget-49-pro-title"
+                    >ACTIVE TILL:25 MARCH,2024</span
+                  >
+                </div>
+              </div>
+              <div>
+                <h4>Description of coupon in brief nknknol</h4>
+              </div>
+              <div style="text-align: center">
+                <button
+                  type="button"
+                  class="btn btn-primary"
+                  style="
+                    background-color: #802f59;
+                    border: 0;
+                    border-radius: 5px;
+                    width: 2.5cm;
+                    margin-right: 20px;
+                  "
+                >
+                  EDIT
+                </button>
+                <button
+                  type="button"
+                  class="btn btn-primary"
+                  style="
+                    background-color: #802f59;
+                    border: 0;
+                    border-radius: 5px;
+                    width: 2.5cm;
+                    margin-left: 20px;
+                  "
+                >
+                  DELETE
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-4">
+        <div class="card card-margin">
+          <div class="card-header no-border">
+            <h5 class="card-title">Percentage</h5>
+          </div>
+          <div class="card-body pt-0">
+            <div class="widget-49">
+              <div class="widget-49-title-wrapper">
+                <div class="widget-49-date-primary">
+                  <span class="widget-49-date-day">25%</span>
+                  <span class="widget-49-date-month">OFF</span>
+                </div>
+                <div class="widget-49-meeting-info">
+                  <span class="widget-49-pro-title"
+                    >ON MIN Rs.500 ORDER</span
+                  >
+                  <span class="widget-49-pro-title"
+                    >ACTIVE TILL:25 MARCH,2024</span
+                  >
+                </div>
+              </div>
+              <div>
+                <h4>Description of coupon in brief nknknol</h4>
+              </div>
+              <div style="text-align: center">
+                <button
+                  type="button"
+                  class="btn btn-primary"
+                  style="
+                    background-color: #802f59;
+                    border: 0;
+                    border-radius: 5px;
+                    width: 2.5cm;
+                    margin-right: 20px;
+                  "
+                >
+                  EDIT
+                </button>
+                <button
+                  type="button"
+                  class="btn btn-primary"
+                  style="
+                    background-color: #802f59;
+                    border: 0;
+                    border-radius: 5px;
+                    width: 2.5cm;
+                    margin-left: 20px;
+                  "
+                >
+                  DELETE
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4">
+        <div class="card card-margin">
+          <div class="card-header no-border">
+            <h5 class="card-title">Percentage</h5>
+          </div>
+          <div class="card-body pt-0">
+            <div class="widget-49">
+              <div class="widget-49-title-wrapper">
+                <div class="widget-49-date-primary">
+                  <span class="widget-49-date-day">25%</span>
+                  <span class="widget-49-date-month">OFF</span>
+                </div>
+                <div class="widget-49-meeting-info">
+                  <span class="widget-49-pro-title"
+                    >ON MIN Rs.500 ORDER</span
+                  >
+                  <span class="widget-49-pro-title"
+                    >ACTIVE TILL:25 MARCH,2024</span
+                  >
+                </div>
+              </div>
+              <div>
+                <h4>Description of coupon in brief nknknol</h4>
+              </div>
+              <div style="text-align: center">
+                <button
+                  type="button"
+                  class="btn btn-primary"
+                  style="
+                    background-color: #802f59;
+                    border: 0;
+                    border-radius: 5px;
+                    width: 2.5cm;
+                    margin-right: 20px;
+                  "
+                >
+                  EDIT
+                </button>
+                <button
+                  type="button"
+                  class="btn btn-primary"
+                  style="
+                    background-color: #802f59;
+                    border: 0;
+                    border-radius: 5px;
+                    width: 2.5cm;
+                    margin-left: 20px;
+                  "
+                >
+                  DELETE
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4">
+        <div class="card card-margin">
+          <div class="card-header no-border">
+            <h5 class="card-title">Percentage</h5>
+          </div>
+          <div class="card-body pt-0">
+            <div class="widget-49">
+              <div class="widget-49-title-wrapper">
+                <div class="widget-49-date-primary">
+                  <span class="widget-49-date-day">25%</span>
+                  <span class="widget-49-date-month">OFF</span>
+                </div>
+                <div class="widget-49-meeting-info">
+                  <span class="widget-49-pro-title"
+                    >ON MIN Rs.500 ORDER</span
+                  >
+                  <span class="widget-49-pro-title"
+                    >ACTIVE TILL:25 MARCH,2024</span
+                  >
+                </div>
+              </div>
+              <div>
+                <h4>Description of coupon in brief nknknol</h4>
+              </div>
+              <div style="text-align: center">
+                <button
+                  type="button"
+                  class="btn btn-primary"
+                  style="
+                    background-color: #802f59;
+                    border: 0;
+                    border-radius: 5px;
+                    width: 2.5cm;
+                    margin-right: 20px;
+                  "
+                >
+                  EDIT
+                </button>
+                <button
+                  type="button"
+                  class="btn btn-primary"
+                  style="
+                    background-color: #802f59;
+                    border: 0;
+                    border-radius: 5px;
+                    width: 2.5cm;
+                    margin-left: 20px;
+                  "
+                >
+                  DELETE
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Add coupon Modal -->
+<div id="addCouponModal" class="modal"  tabindex="-1" style="   background-color: rgba(0, 0, 0, 0.5);">
+  <div class="modal-dialog" >
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
+          (click)="closeaddmodal()"></button>
+      </div>
+      <div class="modal-body"  >
+        
+        <body style="
+              font-family: Arial, sans-serif;
+              background-color: #f4f4f4;
+              margin: 0;
+              padding: 0;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              height: 100vh;
+              
+            ">
+          <div style="
+             
+                max-width: 500px;
+                background-color: #fff;
+                padding: 20px;
+                border-radius: 10px;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+                margin-top: 30px;
+                margin-bottom: 30px;
+              ">
+            <h2 style="
+                  text-align: center;
+                  color: #333;
+                  font-size: 24px;
+                  margin-bottom: 20px;
+                  margin-top: 0;
+                ">
+              Add Coupon
+            </h2>
+            <form #addCoupon="ngForm" (ngSubmit)="addcoupon(addCoupon.value)"
+              style="display: flex; flex-direction: column">
+              <label for="couponName" style="font-weight: bold">Name of Coupon:</label>
+              <br />
+              <input type="text" name="couponName" ngModel required style="
+                    padding: 10px;
+                    margin-bottom: 15px;
+                    border: 1px solid #ccc;
+                    border-radius: 5px;
+                  " />
+              <br />
+
+              <label for="activeTill" style="font-weight: bold">Active Till:</label>
+              <br />
+              <input type="date" ngModel name="activeTill" required style="
+                    padding: 10px;
+                    margin-bottom: 15px;
+                    border: 1px solid #ccc;
+                    border-radius: 5px;
+                  " />
+              <br />
+              <label for="description" style="font-weight: bold">Description:</label>
+              <br />
+              <textarea ngModel name="description" rows="4" placeholder="Add a brief description of the coupon"
+                cols="50" required style="
+                    padding: 10px;
+                    margin-bottom: 15px;
+                    border: 1px solid #ccc;
+                    border-radius: 5px;
+                  "></textarea>
+              <br />
+              <label for="discountType" style="font-weight: bold">Discount Type:</label>
+              <br />
+              <select ngModel name="discountType" required style="
+                    padding: 10px;
+                    margin-bottom: 15px;
+                    border: 1px solid #ccc;
+                    border-radius: 5px;
+                  ">
+                <option value="flat">Flat</option>
+                <option value="percentage">Percentage</option>
+              </select>
+              <br />
+              <label for="deductionAmount" style="font-weight: bold">Deduction Amount (%):</label>
+              <br />
+              <input type="text" ngModel name="deductionAmount" required style="
+                    padding: 10px;
+                    margin-bottom: 15px;
+                    border: 1px solid #ccc;
+                    border-radius: 5px;
+                  " pattern="\d+(\.\d+)?%" title="Please enter a valid percentage value (e.g., 10%)." />
+              <br />
+              <label for="minValue" style="font-weight: bold">Min Value:</label>
+              <br />
+              <input type="number" ngModel name="minValue" min="100" required style="
+                    padding: 10px;
+                    margin-bottom: 15px;
+                    border: 1px solid #ccc;
+                    border-radius: 5px;
+                  " />
+              <br />
+              <!-- <input type="submit" value="Submit" style="background-color: #007bff; color: #fff; border: none; cursor: pointer; padding: 10px; border-radius: 5px;"> -->
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="closeaddmodal()">
+                  Close
+                </button>
+                <button type="submit" style="
+                      background-color: #802f59;
+                      border: 0;
+                      border-radius: 5px;
+                    " class="btn btn-primary" [disabled]="addCoupon.invalid">
+                  Save
+                </button>
+              </div>
+            </form>
+          </div>
+        </body>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- edit coupon modal -->
+<div id="editCouponModal" class="modal" tabindex="-1" style="   background-color: rgba(0, 0, 0, 0.5);">
+  <div class="modal-dialog" >
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
+          (click)="closeeditmodal()"></button>
+      </div>
+      <div class="modal-body">
+
+        <body style="
+              font-family: Arial, sans-serif;
+              background-color: #f4f4f4;
+              margin: 0;
+              padding: 0;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              height: 100vh;
+            ">
+          <div style="
+                width: 150%;
+                max-width: 500px;
+                background-color: #fff;
+                padding: 20px;
+                border-radius: 10px;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+                margin-top: 30px;
+                margin-bottom: 30px;
+              ">
+            <h2 style="
+                  text-align: center;
+                  color: #333;
+                  font-size: 24px;
+                  margin-bottom: 20px;
+                  margin-top: 0;
+                ">
+              Add Coupon
+            </h2>
+            <form #editCoupon="ngForm" (ngSubmit)="editcoupon(editCoupon.value)"
+              style="display: flex; flex-direction: column">
+              <label for="couponName" style="font-weight: bold">Name of Coupon:</label>
+              <br />
+              <input type="text" name="couponName" ngModel required style="
+                    padding: 10px;
+                    margin-bottom: 15px;
+                    border: 1px solid #ccc;
+                    border-radius: 5px;
+                  " />
+              <br />
+
+              <label for="activeTill" style="font-weight: bold">Active Till:</label>
+              <br />
+              <input type="date" ngModel name="activeTill" required style="
+                    padding: 10px;
+                    margin-bottom: 15px;
+                    border: 1px solid #ccc;
+                    border-radius: 5px;
+                  " />
+              <br />
+              <label for="description" style="font-weight: bold">Description:</label>
+              <br />
+              <textarea ngModel name="description" rows="4" placeholder="Add a brief description of the coupon"
+                cols="50" required style="
+                    padding: 10px;
+                    margin-bottom: 15px;
+                    border: 1px solid #ccc;
+                    border-radius: 5px;
+                  "></textarea>
+              <br />
+              <label for="discountType" style="font-weight: bold">Discount Type:</label>
+              <br />
+              <select ngModel name="discountType" required style="
+                    padding: 10px;
+                    margin-bottom: 15px;
+                    border: 1px solid #ccc;
+                    border-radius: 5px;
+                  ">
+                <option value="flat">Flat</option>
+                <option value="percentage">Percentage</option>
+              </select>
+              <br />
+              <label for="deductionAmount" style="font-weight: bold">Deduction Amount (%):</label>
+              <br />
+              <input type="text" ngModel name="deductionAmount" required style="
+                    padding: 10px;
+                    margin-bottom: 15px;
+                    border: 1px solid #ccc;
+                    border-radius: 5px;
+                  " pattern="\d+(\.\d+)?%" title="Please enter a valid percentage value (e.g., 10%)." />
+              <br />
+              <label for="minValue" style="font-weight: bold">Min Value:</label>
+              <br />
+              <input type="number" ngModel name="minValue" min="100" required style="
+                    padding: 10px;
+                    margin-bottom: 15px;
+                    border: 1px solid #ccc;
+                    border-radius: 5px;
+                  " />
+              <br />
+              <!-- <input type="submit" value="Submit" style="background-color: #007bff; color: #fff; border: none; cursor: pointer; padding: 10px; border-radius: 5px;"> -->
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="closeeditmodal()">
+                  Close
+                </button>
+                <button type="submit" style="
+                      background-color: #802f59;
+                      border: 0;
+                      border-radius: 5px;
+                    " class="btn btn-primary" [disabled]="addCoupon.invalid">
+                  Save
+                </button>
+              </div>
+            </form>
+          </div>
+        </body>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--delete Modal -->
+<div class="modal " id="deleteCouponModal" tabindex="-1"  aria-hidden="true" style="background-color: rgba(0, 0, 0, 0.5);">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Delete Coupon</h1>
+      </div>
+      <div class="modal-body">
+        Are you sure you want to delete this coupon? 
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="closeDeleteModal()">Cancel</button>
+        <button type="button" class="btn btn-primary" (click)="deleteCoupon()">Delete</button>
+      </div>
+    </div>
+  </div>
+</div>

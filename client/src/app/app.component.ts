@@ -23,9 +23,23 @@ export class AppComponent {
 
   navHome2(){
     this.btn = 2;
-    this.router.navigate(['admin'])
+    this.router.navigate([''])
   }
-  
-  
 
+  navAnalytics(){
+    this.btn = 3;
+    this.router.navigate(['admin/analytics'])
+  }
+
+  navPickup(){
+    this.btn = 4;
+    this.router.navigate(['admin/pickupmanagement'])
+  }
+
+  navCoupon(){
+    this.btn = 5;
+    this.router.navigate(['admin/coupons'])
+  }
+
+  
 }
