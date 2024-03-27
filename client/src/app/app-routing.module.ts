@@ -28,14 +28,14 @@ const routes: Routes = [
       {
         path:'coupons',
         component:CouponComponent
+      },
+      {
+        path: "order-history",
+        component: OrderHistoryComponent,
       }
     ]
   },
-  {
-    path: "order-history",
-    component: OrderHistoryComponent,
-    
-  }
+
 
   //Don't put all paths here please
 

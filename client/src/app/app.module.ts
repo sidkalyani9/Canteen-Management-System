@@ -7,11 +7,11 @@ import { LandingPageComponent } from './admin/landing-page/landing-page.componen
 import { HeaderComponent } from './header/header/header.component';
 import { FooterComponent } from './footer/footer/footer.component';
 import { HttpClientModule } from '@angular/common/http';
+import { CouponComponent } from './admin/Coupon-Management/coupon/coupon.component';
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { PickUpManagementComponent } from './pick-up-management/pick-up-management.component';
 import { NavbarComponent } from './navbar/navbar/navbar.component';
-import { CouponComponent } from './admin/Coupon-Management/coupon/coupon.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 
@@ -38,8 +38,7 @@ import { RootComponent } from './admin/root/root/root.component';
     HeaderComponent,
     FooterComponent,
     PickUpManagementComponent,
-    OrderHistoryComponent
-
+    OrderHistoryComponent,
     CouponComponent,
     PickUpManagementComponent,
     AnalyticsComponent,
@@ -56,16 +55,9 @@ import { RootComponent } from './admin/root/root/root.component';
     MatListModule,
     MatButtonModule,
     MatToolbarModule,
-<<<<<<< HEAD
     HttpClientModule,
     CommonModule,
-    FormsModule
-
-    
-=======
-    FormsModule,
-    HttpClientModule,
->>>>>>> e9fba863dec65eebecb5ed607490a78dc0f0038b
+    FormsModule    
   ],
   providers: [
     provideAnimationsAsync()
