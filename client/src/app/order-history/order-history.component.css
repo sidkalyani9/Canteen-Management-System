@@ -56,3 +56,37 @@
     position: absolute;
     margin-top: 60px;
 }
+
+.input-group {
+    width: 30%;
+    margin-top: 20px;
+    margin-left: 40px;
+}
+
+.page-size-option p {
+    margin-left: 40px;
+}
+
+.select-size {
+    margin-left: 40px;
+    position: absolute;
+    top: 261px;
+    left: 70px;
+
+}
+
+
+.table {
+    margin-left: 20px;
+    margin-right: 20px;
+    width: 97%;
+}
+
+th {
+    background-color: #802f59;
+    color: white;
+}
+
+.pagination {
+    margin-left: 30%;
+}

@@ -32,39 +32,68 @@
 </div>
 
 
-<!-- table  -->
+<!-- search  -->
+<div class="input-group mb-3">
+    <input type="text" class="form-control" placeholder="Search" aria-label="Recipient's username"
+        aria-describedby="basic-addon2" #filter (click)="filterData(filter.value)">
+    <div class="input-group-append">
+        <button class="btn btn-outline-secondary" type="button">Search</button>
+    </div>
+</div>
 
-<input type="text" placeholder="search">
-<select>
-    <option value="">Test</option>
-</select>
+<!-- page size option  -->
 
-<table>
-    <thead>
-        <tr>
-            <td>#</td>
-            <td>supplier</td>
-            <td>address</td>
-            <td>email</td>
-            <td>phone</td>
-            <td>action</td>
-        </tr>
+<div class="page-size-option">
+    <p>page size</p>
+    <div class="select-size">
+        <select #pageSize (change)="changePageSize(pageSize.value)">
+            <option *ngFor="let size of pageSizes" [value]="size" class="select-option">{{size}}</option>
+        </select>
+    </div>
+</div>
 
-    </thead>
-    <tbody>
-        <tr *ngFor="let supplier of suppliers; let i = index">
-            <td>{{i}}</td>
-            <td>{{supplier.name}}</td>
-            <td>{{supplier.address}}</td>
-            <td>{{supplier.phone}}</td>
-            <td>{{supplier.email}}</td>
-            <td></td>
-        </tr>
-    </tbody>
-</table>
 
-<div class="buttons">
-    <button>previous</button>
-    <button>1</button>
-    <button>next</button>
+
+<div class="table">
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Order number</th>
+                <th scope="col">Customer name</th>
+                <th scope="col">Order date</th>
+                <th scope="col">Food items</th>
+                <th scope="col">Order status</th>
+                <th scope="col">Payment status</th>
+                <th scope="col">Total price</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let supplier of visibledata(); let i = index">
+                <td>{{supplier.orderNo}}</td>
+                <td>{{supplier.customerName}}</td>
+                <td>{{supplier.orderDate}}</td>
+                <td>{{supplier.FoodItems}}</td>
+                <td>{{supplier.orderStatus}}</td>
+                <td>{{supplier.paymentStatus}}</td>
+                <td>{{supplier.TotalPrice}}</td>
+
+            </tr>
+
+        </tbody>
+    </table>
+</div>
+
+<div class="pagination">
+    <nav aria-label="...">
+        <ul class="pagination">
+            <li class="page-item disabled" (click)="previousPage()">
+                <a class="page-link" tabindex="-1">Previous</a>
+            </li>
+            <li class="page-item" *ngFor="let pageNumber of pageNumbers();let i = index"
+                [class.bg-danger]="i+1 == currentPage" (click)="changePage(i+1)"><a class="page-link">{{i+ 1}}</a></li>
+            <li class="page-item">
+                <a class="page-link" (click)="nextPage()">Next</a>
+            </li>
+        </ul>
+    </nav>
 </div>
