@@ -6,9 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrl: './coupon.component.css',
 })
 export class CouponComponent implements OnInit {
-deleteCoupon() {
-throw new Error('Method not implemented.');
-}
+
+
   // ---------------------------------------------------------------------------------------
   // edit modal functions
   editModal():void {
@@ -46,11 +45,32 @@ throw new Error('Method not implemented.');
     }
   }
   // -------------------------------------------------------------------------------------
+  //delete modal functions
+  deleteModal():void{
+    const modal=document.getElementById('deleteCouponModal');
+    if (modal != null) {
+      modal.style.display = 'block';
+    } else {
+      alert('Unknown error occoured');
+    }
+  }
+  closeDeleteModal(){
+    const modal = document.getElementById('deleteCouponModal');
+    if (modal != null) {
+      modal.style.display = 'none';
+    }
+  }
+  // ----------------------------------------------------------------------------------------
   // database functions
   addcoupon(arg0: any) {
-    throw new Error('Method not implemented.');
+    
   }
+  deleteCoupon() {
 
+  }
+  editcoupon(arg0: any) {
+   
+    }
 
   ngOnInit(): void { }
 
