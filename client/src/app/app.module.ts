@@ -28,6 +28,7 @@ import {MatButtonModule} from '@angular/material/button';
 import { FormsModule } from '@angular/forms';
 import { AnalyticsComponent } from './admin/analytics/analytics/analytics.component';
 import { RootComponent } from './admin/root/root/root.component';
+import { MenuComponent } from './user/menu/menu.component';
 
 
 
@@ -42,6 +43,7 @@ import { RootComponent } from './admin/root/root/root.component';
     PickUpManagementComponent,
     AnalyticsComponent,
     RootComponent,
+    MenuComponent,
   ],
   imports: [
     BrowserModule,
