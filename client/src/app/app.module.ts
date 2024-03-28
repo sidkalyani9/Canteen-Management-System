@@ -30,6 +30,9 @@ import { AnalyticsComponent } from './admin/analytics/analytics/analytics.compon
 import { RootComponent } from './admin/root/root/root.component';
 import { MenuComponent } from './user/menu/menu.component';
 
+import {CheckboxModule} from 'primeng/checkbox';
+import {TableModule} from 'primeng/table';
+
 
 
 @NgModule({
@@ -52,6 +55,8 @@ import { MenuComponent } from './user/menu/menu.component';
     AppRoutingModule,
     NgbModule,
     FontAwesomeModule,
+
+    //Angular Material Modules
     MatSidenavModule,
     MatIconModule,
     MatListModule,
@@ -59,7 +64,11 @@ import { MenuComponent } from './user/menu/menu.component';
     MatToolbarModule,
     HttpClientModule,
     CommonModule,
-    FormsModule    
+    FormsModule,
+
+    //PrimeNg Modules
+    CheckboxModule,
+    TableModule
   ],
   providers: [
     provideAnimationsAsync()
