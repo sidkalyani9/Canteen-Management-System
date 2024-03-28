@@ -3,14 +3,13 @@
 
 
 <!-- date filter  -->
-<div class="date-filter">
-    <div class="dates">
-        <label for="start-date">Filter from Date</label>
+<div class="col-6 date-filter">
+    <div class=" dates">
+        <label for="start-date">Start Date</label>
         <input type="date" id="start-date" name="start-date" [(ngModel)]="startDate" (change)="filterByDate()">
     </div>
-
-    <div class="dates">
-        <label for="end-date">To Date</label>
+    <div class=" dates">
+        <label for="end-date">End Date</label>
         <input type="date" id="end-date" name="end-date" [(ngModel)]="endDate" (change)="filterByDate()">
     </div>
 </div>
@@ -35,12 +34,15 @@
 </div>
 
 
-<div>
-    <label for="itemsPerPageInput">Items Per Page:</label>
+<!-- items per page  -->
+<div class="itemsPerPage">
+    <label for="itemsPerPageInput">Items Per Page</label>
     <input type="number" id="itemsPerPageInput" [(ngModel)]="itemsPerPage" (change)="changePageSize()">
 </div>
 
-<div>
+
+<!-- search  -->
+<div class="search">
     <label for="searchCategory">Search By:</label>
     <select id="searchCategory" [(ngModel)]="selectedCategory">
         <option *ngFor="let category of searchCategories" [value]="category">{{ category }}</option>
@@ -49,6 +51,7 @@
 </div>
 
 
+<!-- table  -->
 <table class="table table-striped">
     <thead>
         <tr>
@@ -74,7 +77,9 @@
     </tbody>
 </table>
 
-<nav aria-label="...">
+
+<!-- pagination  -->
+<div class="pagination-container">
     <ul class="pagination">
         <li class="page-item" [ngClass]="{disabled :currentPage == 1}" style="cursor: pointer;">
             <a class="page-link" (click)="pageClicked(currentPage - 1)">Previous</a>
@@ -85,4 +90,4 @@
             <a class="page-link" (click)="pageClicked(currentPage + 1)">Next</a>
         </li>
     </ul>
-</nav>
+</div>
