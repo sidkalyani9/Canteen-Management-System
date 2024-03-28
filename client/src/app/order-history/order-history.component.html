@@ -3,7 +3,7 @@
 
 
 <!-- date filter  -->
-<div class="col-6 date-filter">
+<div class="date-filter">
     <div class=" dates">
         <label for="start-date">Start Date</label>
         <input type="date" id="start-date" name="start-date" [(ngModel)]="startDate" (change)="filterByDate()">
@@ -43,7 +43,7 @@
 
 <!-- search  -->
 <div class="search">
-    <label for="searchCategory">Search By:</label>
+    <label for="searchCategory">Search by :</label>
     <select id="searchCategory" [(ngModel)]="selectedCategory">
         <option *ngFor="let category of searchCategories" [value]="category">{{ category }}</option>
     </select>

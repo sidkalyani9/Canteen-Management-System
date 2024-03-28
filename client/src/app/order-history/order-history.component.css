@@ -26,9 +26,12 @@
     width: 412px;
 }
 
+
+
 .nav-link:hover {
     background-color: #b17b97;
 }
+
 
 .nav-link {
     color: #333;
@@ -36,6 +39,7 @@
     cursor: pointer;
 
 }
+
 
 .nav-link.active {
     background-color: #802f59;
@@ -48,12 +52,39 @@
 .dates {
     float: left;
     margin-left: 10px;
+    margin-bottom: 10px;
 }
 
 .date-filter {
     margin-left: 630px;
     position: absolute;
     margin-top: 50px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.dates label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.dates input[type="date"] {
+    width: 100%;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #802f59;
+    border-radius: 4px;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.dates input[type="date"]:focus {
+    outline: none;
+    border-color: #802f59;
+    box-shadow: 0 0 0 0.2rem #945776;
 }
 
 
@@ -147,6 +178,19 @@
     padding: 20px;
     box-sizing: border-box;
     overflow-x: auto;
+}
+
+.pagination-container::-webkit-scrollbar {
+    width: 10px;
+}
+
+.pagination-container::-webkit-scrollbar-thumb {
+    background-color: #802f59;
+    border-radius: 20px;
+}
+
+.pagination-container::-webkit-scrollbar-track {
+    background-color: #fff;
 }
 
 .pagination {
