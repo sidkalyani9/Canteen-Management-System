@@ -106,7 +106,7 @@ export class AnalyticsComponent implements OnInit {
 
     // rotation: -90,
     // circumference: 180,
-    radius:130,
+    radius:145,
     cutout:50,
 
   },
