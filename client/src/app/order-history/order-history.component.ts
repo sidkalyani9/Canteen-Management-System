@@ -21,25 +21,25 @@ interface order {
 })
 export class OrderHistoryComponent {
 
-  // showAllOrders() {
-  //   this.searchQuery = '';
-  //   this.selectedCategory = 'orderNo';
-  //   this.calculateTotalPages();
-  // }
+  showAllOrders() {
+    this.searchQuery = '';
+    this.selectedCategory = 'orderNo';
+    this.calculateTotalPages();
+  }
 
-  // showCompletedOrders() {
-  //   this.searchQuery = '';
-  //   this.selectedCategory = 'orderStatus';
-  //   this.searchQuery = 'Delivered';
-  //   this.calculateTotalPages();
-  // }
+  showCompletedOrders() {
+    this.searchQuery = '';
+    this.selectedCategory = 'orderStatus';
+    this.searchQuery = 'Delivered';
+    this.calculateTotalPages();
+  }
 
-  // showCancelledOrders() {
-  //   this.searchQuery = '';
-  //   this.selectedCategory = 'orderStatus';
-  //   this.searchQuery = 'Cancelled';
-  //   this.calculateTotalPages();
-  // }
+  showCancelledOrders() {
+    this.searchQuery = '';
+    this.selectedCategory = 'orderStatus';
+    this.searchQuery = 'Cancelled';
+    this.calculateTotalPages();
+  }
 
   data: Array<order> = [
     {
@@ -729,85 +729,9 @@ export class OrderHistoryComponent {
   ]
 
 
-  // totalItems: number = this.data.length;
-  // currentPage: number = 1;
-  // itemsPerPage: number = 20;
-  // totalPages: number = 0;
-  // pages: number[] = [];
-  // searchQuery: string = '';
-  // selectedCategory: string = 'orderNo';
-  // searchCategories: string[] = ['orderNo', 'customerName', 'paymentStatus', 'orderStatus'];
-  // startDate: string = '';
-  // endDate: string = '';
-
-  
-
-  // constructor() { }
-
-  // ngOnInit(): void {
-  //   this.calculateTotalPages();
-  // }
-
-  // filterByDate() {
-  //   this.currentPage = 1;
-  //   this.calculateTotalPages();
-  // }
-
-  // calculateTotalPages() {
-  //   const filteredData = this.data.filter(item => {
-  //     const isWithinDateRange = (!this.startDate || item.orderDate >= this.startDate) &&
-  //       (!this.endDate || item.orderDate <= this.endDate);
-  //     return isWithinDateRange;
-  //   });
-
-  //   this.totalItems = filteredData.length;
-  //   this.totalPages = Math.ceil(this.totalItems / this.itemsPerPage);
-  //   this.pages = Array.from({ length: this.totalPages }, (_, i) => i + 1);
-  // }
-
-  // get paginatedData() {
-  //   const start = (this.currentPage - 1) * this.itemsPerPage;
-  //   const end = start + this.itemsPerPage;
-  //   const filteredData = this.data.filter(item => {
-  //     const isWithinDateRange = (!this.startDate || item.orderDate >= this.startDate) &&
-  //       (!this.endDate || item.orderDate <= this.endDate);
-
-  //     let matchesSearchQuery = false;
-  //     if (typeof item[this.selectedCategory] === 'string') {
-  //       matchesSearchQuery = (item[this.selectedCategory] as string).toLowerCase().includes(this.searchQuery.toLowerCase());
-  //     } else if (Array.isArray(item[this.selectedCategory])) {
-  //       matchesSearchQuery = (item[this.selectedCategory] as string[]).some(food => food.toLowerCase().includes(this.searchQuery.toLowerCase()));
-  //     }
-
-  //     return isWithinDateRange && matchesSearchQuery;
-  //   });
-
-  //   return filteredData.slice(start, end);
-  // }
-
-  // changePageSize() {
-  //   if (this.itemsPerPage > 0) {
-  //     this.currentPage = 1;
-  //     this.calculateTotalPages();
-  //   }
-  // }
-
-  // pageClicked(page: number) {
-  //   if (page > 0 && page <= this.totalPages) {
-  //     this.currentPage = page;
-  //   }
-  // }
-
-  // search() {
-  //   this.currentPage = 1;
-  //   this.calculateTotalPages();
-  // }
-
-
-  filteredData: order[] = [];
-  totalItems: number = 0;
+  totalItems: number = this.data.length;
   currentPage: number = 1;
-  itemsPerPage: number = 5; // Adjust the number of items per page as needed
+  itemsPerPage: number = 20;
   totalPages: number = 0;
   pages: number[] = [];
   searchQuery: string = '';
@@ -816,43 +740,55 @@ export class OrderHistoryComponent {
   startDate: string = '';
   endDate: string = '';
 
-  showAllOrders() {
-    this.filteredData = this.data.filter(order => true); // No filter for all orders
-    this.calculatePagination();
+
+
+  constructor() { }
+
+  ngOnInit(): void {
+    this.calculateTotalPages();
   }
 
-  showCompletedOrders() {
-    this.filteredData = this.data.filter(order => order.orderStatus === 'Delivered');
-    this.calculatePagination();
+  filterByDate() {
+    this.currentPage = 1;
+    this.calculateTotalPages();
   }
 
-  showCancelledOrders() {
-    this.filteredData = this.data.filter(order => order.orderStatus === 'Cancelled');
-    this.calculatePagination();
-  }
+  calculateTotalPages() {
+    const filteredData = this.data.filter(item => {
+      const isWithinDateRange = (!this.startDate || item.orderDate >= this.startDate) &&
+        (!this.endDate || item.orderDate <= this.endDate);
+      return isWithinDateRange;
+    });
 
-  calculatePagination() {
-    this.totalItems = this.filteredData.length;
+    this.totalItems = filteredData.length;
     this.totalPages = Math.ceil(this.totalItems / this.itemsPerPage);
     this.pages = Array.from({ length: this.totalPages }, (_, i) => i + 1);
   }
 
   get paginatedData() {
-    const startIndex = (this.currentPage - 1) * this.itemsPerPage;
-    const endIndex = startIndex + this.itemsPerPage;
-    return this.filteredData.slice(startIndex, endIndex);
-  }
+    const start = (this.currentPage - 1) * this.itemsPerPage;
+    const end = start + this.itemsPerPage;
+    const filteredData = this.data.filter(item => {
+      const isWithinDateRange = (!this.startDate || item.orderDate >= this.startDate) &&
+        (!this.endDate || item.orderDate <= this.endDate);
 
-  filterByDate() {
-    // Implement filtering by date if needed
-    this.currentPage = 1;
-    this.calculatePagination();
+      let matchesSearchQuery = false;
+      if (typeof item[this.selectedCategory] === 'string') {
+        matchesSearchQuery = (item[this.selectedCategory] as string).toLowerCase().includes(this.searchQuery.toLowerCase());
+      } else if (Array.isArray(item[this.selectedCategory])) {
+        matchesSearchQuery = (item[this.selectedCategory] as string[]).some(food => food.toLowerCase().includes(this.searchQuery.toLowerCase()));
+      }
+
+      return isWithinDateRange && matchesSearchQuery;
+    });
+
+    return filteredData.slice(start, end);
   }
 
   changePageSize() {
     if (this.itemsPerPage > 0) {
       this.currentPage = 1;
-      this.calculatePagination();
+      this.calculateTotalPages();
     }
   }
 
@@ -864,30 +800,7 @@ export class OrderHistoryComponent {
 
   search() {
     this.currentPage = 1;
-    if (this.searchQuery.trim() === '') {
-      this.showAllOrders(); // If search query is empty, show all orders
-      return;
-    }
-    this.filteredData = this.data.filter(order => {
-      const categoryValue = order[this.selectedCategory];
-      if (Array.isArray(categoryValue)) {
-        // Check if the property is an array
-        return categoryValue.some(item => {
-          if (typeof item === 'string') {
-            // Check if the array item is a string
-            return item.toLowerCase().includes(this.searchQuery.toLowerCase());
-          } else {
-            return false; // Ignore non-string array items
-          }
-        });
-      } else if (typeof categoryValue === 'string') {
-        // If it's not an array and a string, treat it as a single string
-        return categoryValue.toLowerCase().includes(this.searchQuery.toLowerCase());
-      } else {
-        return false; // Ignore non-string values
-      }
-    });
-    this.calculatePagination();
+    this.calculateTotalPages();
   }
 }
 

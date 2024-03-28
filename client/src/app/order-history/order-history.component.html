@@ -19,15 +19,18 @@
 <div class="order-tab-list">
     <ul class="nav nav-pills">
         <li class="nav-item">
-            <button class="nav-link" [class.active]="selectedCategory === 'orderNo'" (click)="showAllOrders()">All
+            <button class="nav-link button" [class.active]="selectedCategory === 'orderNo'"
+                (click)="showAllOrders()">All
                 Orders</button>
         </li>
         <li class="nav-item">
-            <button class="nav-link" [class.active]="selectedCategory === 'orderStatus' && searchQuery === 'Delivered'"
+            <button class="nav-link button"
+                [class.active]="selectedCategory === 'orderStatus' && searchQuery === 'Delivered'"
                 (click)="showCompletedOrders()">Completed Orders</button>
         </li>
         <li class="nav-item">
-            <button class="nav-link" [class.active]="selectedCategory === 'orderStatus' && searchQuery === 'Cancelled'"
+            <button class="nav-link button"
+                [class.active]="selectedCategory === 'orderStatus' && searchQuery === 'Cancelled'"
                 (click)="showCancelledOrders()">Cancelled Orders</button>
         </li>
     </ul>

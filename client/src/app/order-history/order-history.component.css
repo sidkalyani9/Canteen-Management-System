@@ -40,13 +40,11 @@
 
 }
 
-
-.nav-link.active {
+.button.active {
     background-color: #802f59;
     color: #fff;
     border-color: #802f59;
 }
-
 
 /* date filter  */
 .dates {
