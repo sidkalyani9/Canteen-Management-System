@@ -708,7 +708,7 @@ export class OrderHistoryComponent implements OnInit {
 
   totalItems: number = this.data.length;
   currentPage: number = 1;
-  itemsPerPage: number = 5; // Adjust items per page as needed
+  itemsPerPage: number = 20;
   totalPages: number = 0;
   pages: number[] = [];
   searchQuery: string = '';
