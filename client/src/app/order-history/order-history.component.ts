@@ -1,7 +1,4 @@
-import { Component, ViewChild, OnInit, } from '@angular/core';
-import { NgModule } from '@angular/core';
-import { start } from '@popperjs/core';
-
+import { Component, OnInit } from '@angular/core';
 
 interface order {
   orderNo: string;
@@ -17,29 +14,9 @@ interface order {
 @Component({
   selector: 'app-order-history',
   templateUrl: './order-history.component.html',
-  styleUrl: './order-history.component.css'
+  styleUrls: ['./order-history.component.css']
 })
-export class OrderHistoryComponent {
-
-  showAllOrders() {
-    this.searchQuery = '';
-    this.selectedCategory = 'orderNo';
-    this.calculateTotalPages();
-  }
-
-  showCompletedOrders() {
-    this.searchQuery = '';
-    this.selectedCategory = 'orderStatus';
-    this.searchQuery = 'Delivered';
-    this.calculateTotalPages();
-  }
-
-  showCancelledOrders() {
-    this.searchQuery = '';
-    this.selectedCategory = 'orderStatus';
-    this.searchQuery = 'Cancelled';
-    this.calculateTotalPages();
-  }
+export class OrderHistoryComponent implements OnInit {
 
   data: Array<order> = [
     {
@@ -731,7 +708,7 @@ export class OrderHistoryComponent {
 
   totalItems: number = this.data.length;
   currentPage: number = 1;
-  itemsPerPage: number = 20;
+  itemsPerPage: number = 5; // Adjust items per page as needed
   totalPages: number = 0;
   pages: number[] = [];
   searchQuery: string = '';
@@ -740,11 +717,27 @@ export class OrderHistoryComponent {
   startDate: string = '';
   endDate: string = '';
 
-
-
   constructor() { }
 
   ngOnInit(): void {
+    this.calculateTotalPages();
+  }
+
+  showAllOrders() {
+    this.searchQuery = '';
+    this.selectedCategory = 'orderNo';
+    this.calculateTotalPages();
+  }
+
+  showCompletedOrders() {
+    this.searchQuery = 'Delivered';
+    this.selectedCategory = 'orderStatus';
+    this.calculateTotalPages();
+  }
+
+  showCancelledOrders() {
+    this.searchQuery = 'Cancelled';
+    this.selectedCategory = 'orderStatus';
     this.calculateTotalPages();
   }
 
@@ -757,7 +750,7 @@ export class OrderHistoryComponent {
     const filteredData = this.data.filter(item => {
       const isWithinDateRange = (!this.startDate || item.orderDate >= this.startDate) &&
         (!this.endDate || item.orderDate <= this.endDate);
-      return isWithinDateRange;
+      return isWithinDateRange && this.matchesSearchQuery(item);
     });
 
     this.totalItems = filteredData.length;
@@ -771,18 +764,19 @@ export class OrderHistoryComponent {
     const filteredData = this.data.filter(item => {
       const isWithinDateRange = (!this.startDate || item.orderDate >= this.startDate) &&
         (!this.endDate || item.orderDate <= this.endDate);
-
-      let matchesSearchQuery = false;
-      if (typeof item[this.selectedCategory] === 'string') {
-        matchesSearchQuery = (item[this.selectedCategory] as string).toLowerCase().includes(this.searchQuery.toLowerCase());
-      } else if (Array.isArray(item[this.selectedCategory])) {
-        matchesSearchQuery = (item[this.selectedCategory] as string[]).some(food => food.toLowerCase().includes(this.searchQuery.toLowerCase()));
-      }
-
-      return isWithinDateRange && matchesSearchQuery;
+      return isWithinDateRange && this.matchesSearchQuery(item);
     });
 
     return filteredData.slice(start, end);
+  }
+
+  matchesSearchQuery(item: order): boolean {
+    if (typeof item[this.selectedCategory] === 'string') {
+      return (item[this.selectedCategory] as string).toLowerCase().includes(this.searchQuery.toLowerCase());
+    } else if (Array.isArray(item[this.selectedCategory])) {
+      return (item[this.selectedCategory] as string[]).some(food => food.toLowerCase().includes(this.searchQuery.toLowerCase()));
+    }
+    return false;
   }
 
   changePageSize() {
