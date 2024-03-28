@@ -34,13 +34,14 @@ li{
     text-align: left;
 }
 .text-right{
-    text-align: left;
+    text-align: right;
 }
 .order-item-box{
     margin: 20px;
     padding:10px;
     border: 2px solid black;
     border-radius: 15px;
+    width: 25%;
 }
 
 .order_no{

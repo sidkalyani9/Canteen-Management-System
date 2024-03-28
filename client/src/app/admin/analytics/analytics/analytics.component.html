@@ -28,9 +28,41 @@
         </div>
 
         <div class="rightAnalytics">
-            <div class="rightCard">
-                <canvas id="chart2"></canvas>
-            </div>
+            <p-table 
+                #MostOrderedDataTable
+                [tableStyle]="{'border-radius': '5em'}"
+                [value]="cars" 
+                [paginator]="true" 
+                [rows]="10"
+                [globalFilterFields]="['name','year','brand','color']"
+                >
+                <ng-template pTemplate="caption" style="border-radius: 1em;">
+                    
+                        <span>Most Ordered Dishes</span>
+                        <span class="searchBox">
+                            <fa-icon [icon]="searchIcon"></fa-icon>
+                            <input pInputText class="searchInput" type="text" (input)="MostOrderedDataTable.filterGlobal($any($event.target).value, 'contains')" placeholder="Search keyword" />
+                        </span>
+                  
+                </ng-template>
+                <ng-template pTemplate="header">
+                    <tr>
+                        <th pSortableColumn="name"><p-sortIcon field="name"></p-sortIcon>Name</th>
+                        <th pSortableColumn="year"><p-sortIcon field="name"></p-sortIcon>Year</th>
+                        <th pSortableColumn="brand"><p-sortIcon field="name"></p-sortIcon>Brand</th>
+                        <th pSortableColumn="color"><p-sortIcon field="name"></p-sortIcon>Color</th>
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-car>
+                    <tr>
+                        <td>{{car.name}}</td>
+                        <td>{{car.year}}</td>
+                        <td>{{car.brand}}</td>
+                        <td>{{car.color}}</td>
+                    </tr>
+                </ng-template>
+                
+            </p-table>
         </div>
         
     </div>
