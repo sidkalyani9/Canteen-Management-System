@@ -4,20 +4,19 @@
     <mat-toolbar-row class="headerRow">
       <div>
         <button mat-icon-button (click)="sidenav.toggle();" class="Button">
-          <fa-icon [icon] = "faBars" class="menuIcon"></fa-icon>
+          <fa-icon [icon]="faBars" class="menuIcon"></fa-icon>
         </button>
         <img src="assets/logo.png" alt="Argusoft Logo" class="headerLogo">
       </div>
       <div class="headerRight">
-        <fa-icon [icon] = "faUser" class="userIcon"></fa-icon>
+        <fa-icon [icon]="faUser" class="userIcon"></fa-icon>
       </div>
 
     </mat-toolbar-row>
   </mat-toolbar>
-  
-  
-  <!-- Main Body -->
 
+
+  <!-- Main Body -->
     
     <mat-sidenav-container class="mainBody">
       <!-- Navigation Bar on the left -->
@@ -28,7 +27,8 @@
           <button mat-list-item class="routerBtn" [ngClass]="{active: btn==3}" (click)="navAnalytics()"><span [ngClass]="{active: btn==3}">Analytics</span></button>
           <button mat-list-item class="routerBtn" [ngClass]="{active: btn==4}" (click)="navPickup()"><span [ngClass]="{active: btn==4}">Order Pickup</span></button>
           <button mat-list-item class="routerBtn" [ngClass]="{active: btn==5}" (click)="navCoupon()"><span [ngClass]="{active: btn==5}">Coupons</span></button>
-          <button mat-list-item class="routerBtn" [ngClass]="{active: btn==6}">Order History</button>
+          <button mat-list-item class="routerBtn" [ngClass]="{active: btn==6}" (click)="navOrderHistory()"><span [ngClass]="{active: btn==6}">Order History</span></button>
+          <button mat-list-item class="routerBtn" [ngClass]="{active: btn==7}" (click)="navUserMenu()"><span [ngClass]="{active: btn==7}">Menu</span></button>
           <!-- <button mat-list-item class="routerBtn" [ngClass]="{active: btn==5}">Staff Management</button> -->
         </mat-nav-list>
       </mat-sidenav>
@@ -38,9 +38,9 @@
       </mat-sidenav-content>
 
     </mat-sidenav-container>
-    
+
   <!-- Footer -->
-  <!-- <div>
+  <!-- <div>        
     <app-footer></app-footer>
   </div> -->
 

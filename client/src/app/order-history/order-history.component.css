@@ -1,0 +1,108 @@
+/*  heading  */
+
+.heading {
+    font-size: 35px;
+    font-weight: bold;
+    border: 2px solid #802f59 !important;
+    border-radius: 20px;
+    width: 300px;
+    margin-left: 40%;
+    margin-top: 20px;
+    padding: 10px;
+    box-shadow: 10px 10px 5px #802f59;
+}
+
+/* tab-list  */
+
+.order-tab-list {
+    margin-top: 50px;
+    margin-left: 40px;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.nav-pills {
+    border-bottom: 2px solid #802f59;
+    display: inline-block;
+    margin-right: 10px;
+
+}
+
+.nav-item {
+    padding: 10px;
+    border: 2px solid #802f59 !important;
+    border-top-right-radius: 15px;
+    border-top-left-radius: 15px;
+    cursor: pointer;
+    display: inline-block;
+    margin-right: 10px;
+
+}
+
+.nav-item:hover {
+    background-color: #b17b97;
+}
+
+.nav-link {
+    color: #333;
+    background-color: transparent;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+
+}
+
+.nav-link.active {
+    background-color: purple;
+    color: #fff;
+    border-color: purple;
+}
+
+/* date filter  */
+
+
+.dates {
+    float: left;
+    margin-left: 10px;
+}
+
+.date-filter {
+    margin-left: 630px;
+    position: absolute;
+    margin-top: 60px;
+}
+
+.input-group {
+    width: 30%;
+    margin-top: 20px;
+    margin-left: 40px;
+}
+
+.page-size-option p {
+    margin-left: 40px;
+}
+
+.select-size {
+    margin-left: 40px;
+    position: absolute;
+    top: 261px;
+    left: 70px;
+
+}
+
+
+.table {
+    margin-left: 20px;
+    margin-right: 20px;
+    width: 97%;
+}
+
+th {
+    background-color: #802f59;
+    color: white;
+}
+
+.pagination {
+    margin-left: 30%;
+}

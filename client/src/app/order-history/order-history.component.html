@@ -1,1 +1,88 @@
-<p>order-history works!</p>
+<!-- main header  -->
+<h1 class="heading text-center">Order history</h1>
+
+
+<!-- date filter  -->
+<div class="date-filter">
+    <div class="dates">
+        <label for="start-date">Filter from Date</label>
+        <input type="date" id="start-date" name="start-date" [(ngModel)]="startDate" (change)="filterByDate()">
+    </div>
+
+    <div class="dates">
+        <label for="end-date">To Date</label>
+        <input type="date" id="end-date" name="end-date" [(ngModel)]="endDate" (change)="filterByDate()">
+    </div>
+</div>
+
+
+<!-- tab-list  -->
+<div class="order-tab-list">
+    <ul class="nav nav-pills">
+        <li class="nav-item">
+            <button class="nav-link" [class.active]="selectedCategory === 'orderNo'" (click)="showAllOrders()">All
+                Orders</button>
+        </li>
+        <li class="nav-item">
+            <button class="nav-link" [class.active]="selectedCategory === 'orderStatus' && searchQuery === 'Delivered'"
+                (click)="showCompletedOrders()">Completed Orders</button>
+        </li>
+        <li class="nav-item">
+            <button class="nav-link" [class.active]="selectedCategory === 'orderStatus' && searchQuery === 'Cancelled'"
+                (click)="showCancelledOrders()">Cancelled Orders</button>
+        </li>
+    </ul>
+</div>
+
+
+<div>
+    <label for="itemsPerPageInput">Items Per Page:</label>
+    <input type="number" id="itemsPerPageInput" [(ngModel)]="itemsPerPage" (change)="changePageSize()">
+</div>
+
+<div>
+    <label for="searchCategory">Search By:</label>
+    <select id="searchCategory" [(ngModel)]="selectedCategory">
+        <option *ngFor="let category of searchCategories" [value]="category">{{ category }}</option>
+    </select>
+    <input type="text" [(ngModel)]="searchQuery" (input)="search()" placeholder="Search...">
+</div>
+
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th scope="col">Order number</th>
+            <th scope="col">Customer name</th>
+            <th scope="col">Order date</th>
+            <th scope="col">Food items</th>
+            <th scope="col">Order status</th>
+            <th scope="col">Payment status</th>
+            <th scope="col">Total price</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let item of paginatedData; let index=index">
+            <td scope="row">{{item.orderNo}}</td>
+            <td>{{item.customerName}}</td>
+            <td>{{item.orderDate}}</td>
+            <td>{{item.foodItems}}</td>
+            <td>{{item.orderStatus}}</td>
+            <td>{{item.paymentStatus}}</td>
+            <td>{{item.TotalPrice}}</td>
+        </tr>
+    </tbody>
+</table>
+
+<nav aria-label="...">
+    <ul class="pagination">
+        <li class="page-item" [ngClass]="{disabled :currentPage == 1}" style="cursor: pointer;">
+            <a class="page-link" (click)="pageClicked(currentPage - 1)">Previous</a>
+        </li>
+        <li (click)="pageClicked(page)" *ngFor="let page of pages" class="page-item"
+            [ngClass]="{'active':page == currentPage}"><a class="page-link">{{page}}</a></li>
+        <!-- <li class="page-item" [ngClass]="{disabled :currentPage == totalPages}" style="cursor: pointer;">
+            <a class="page-link" (click)="pageClicked(currentPage + 1)">Next</a>
+        </li> -->
+    </ul>
+</nav>

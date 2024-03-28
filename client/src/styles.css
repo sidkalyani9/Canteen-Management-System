@@ -1,6 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
 @import 'https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css';
 @import 'https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css';
+@import "primeng/resources/themes/lara-light-blue/theme.css";
+@import "primeng/resources/primeng.css";
+@import "primeicons/primeicons.css";
+@import  "primeng/resources/primeng.min.css";
 
 *{
     font-family: 'Epilogue' !important;     
@@ -15,6 +19,8 @@ html, body {
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .Button:hover {
     cursor: pointer;
 }
@@ -22,3 +28,8 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .modal-backdrop.show {
     position: relative;
 }
+
+span{
+    font-family:'primeicons' !important
+}
+
