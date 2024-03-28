@@ -1,17 +1,39 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { Chart, registerables } from 'chart.js';
+import { faSearch } from '@fortawesome/free-solid-svg-icons';
 
 Chart.register(...registerables);
 
 @Component({
   selector: 'app-analytics',
   templateUrl: './analytics.component.html',
-  styleUrl: './analytics.component.css'
+  styleUrl: './analytics.component.css',
+  encapsulation: ViewEncapsulation.None
 })
 export class AnalyticsComponent implements OnInit {
   public salesChart: any;
   public productSegmentPieChart: any;
   public selectedArr=[];
+  public searchIcon = faSearch;
+  public cars = [
+    {
+      name: "Alto",
+      year: 2012,
+      brand: "Maruti Suzuki",
+      color: "White"
+    },{
+      name: "City",
+      year: 2022,
+      brand: "Honda",
+      color: "Brown"
+    },
+    {
+      name: "Meteor 350",
+      year: 2021,
+      brand: "Royal Enfield",
+      color: "Matter Black"
+    }
+  ]
 
   ngOnInit(): void {
     this.selectedArr = this.dayArr;
@@ -98,7 +120,7 @@ export class AnalyticsComponent implements OnInit {
         },
         labels: {
           // color: '#ffffff',
-          padding: 8,
+          padding: 5,
 
         }
       }

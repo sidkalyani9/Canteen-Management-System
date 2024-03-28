@@ -10,7 +10,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { CouponComponent } from './admin/Coupon-Management/coupon/coupon.component';
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { PickUpManagementComponent } from './pick-up-management/pick-up-management.component';
+import { PickUpManagementComponent } from './pick-up/pick-up-management/pick-up-management.component';
 import { NavbarComponent } from './navbar/navbar/navbar.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
@@ -28,6 +28,10 @@ import {MatButtonModule} from '@angular/material/button';
 import { FormsModule } from '@angular/forms';
 import { AnalyticsComponent } from './admin/analytics/analytics/analytics.component';
 import { RootComponent } from './admin/root/root/root.component';
+import { MenuComponent } from './user/menu/menu.component';
+
+import {CheckboxModule} from 'primeng/checkbox';
+import {TableModule} from 'primeng/table';
 
 
 
@@ -37,12 +41,12 @@ import { RootComponent } from './admin/root/root/root.component';
     LandingPageComponent,
     HeaderComponent,
     FooterComponent,
-    PickUpManagementComponent,
     OrderHistoryComponent,
     CouponComponent,
     PickUpManagementComponent,
     AnalyticsComponent,
     RootComponent,
+    MenuComponent,
   ],
   imports: [
     BrowserModule,
@@ -50,6 +54,8 @@ import { RootComponent } from './admin/root/root/root.component';
     AppRoutingModule,
     NgbModule,
     FontAwesomeModule,
+
+    //Angular Material Modules
     MatSidenavModule,
     MatIconModule,
     MatListModule,
@@ -57,7 +63,11 @@ import { RootComponent } from './admin/root/root/root.component';
     MatToolbarModule,
     HttpClientModule,
     CommonModule,
-    FormsModule    
+    FormsModule,
+
+    //PrimeNg Modules
+    CheckboxModule,
+    TableModule
   ],
   providers: [
     provideAnimationsAsync()

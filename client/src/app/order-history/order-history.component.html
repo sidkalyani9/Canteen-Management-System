@@ -90,8 +90,8 @@
         </li>
         <li (click)="pageClicked(page)" *ngFor="let page of pages" class="page-item"
             [ngClass]="{'active':page == currentPage}"><a class="page-link">{{page}}</a></li>
-        <li class="page-item" [ngClass]="{disabled :currentPage == totalPages}" style="cursor: pointer;">
+        <!-- <li class="page-item" [ngClass]="{disabled :currentPage == totalPages}" style="cursor: pointer;">
             <a class="page-link" (click)="pageClicked(currentPage + 1)">Next</a>
-        </li>
+        </li> -->
     </ul>
 </div>
