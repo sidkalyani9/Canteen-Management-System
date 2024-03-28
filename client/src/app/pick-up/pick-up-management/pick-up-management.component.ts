@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Component, OnInit,ViewEncapsulation } from '@angular/core';
-import { PickUpOrderDataService } from '../service/pick-up-order-data.service';
+import { PickUpOrderDataService } from '../../service/pick-up-order-data.service';
 
 
 @Component({

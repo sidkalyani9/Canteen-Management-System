@@ -10,7 +10,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { CouponComponent } from './admin/Coupon-Management/coupon/coupon.component';
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { PickUpManagementComponent } from './pick-up-management/pick-up-management.component';
+import { PickUpManagementComponent } from './pick-up/pick-up-management/pick-up-management.component';
 import { NavbarComponent } from './navbar/navbar/navbar.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
@@ -37,7 +37,6 @@ import { RootComponent } from './admin/root/root/root.component';
     LandingPageComponent,
     HeaderComponent,
     FooterComponent,
-    PickUpManagementComponent,
     OrderHistoryComponent,
     CouponComponent,
     PickUpManagementComponent,

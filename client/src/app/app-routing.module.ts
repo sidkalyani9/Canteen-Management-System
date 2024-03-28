@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LandingPageComponent } from './admin/landing-page/landing-page.component';
-import { PickUpManagementComponent } from './pick-up-management/pick-up-management.component';
+import { PickUpManagementComponent } from './pick-up/pick-up-management/pick-up-management.component';
 import { OrderHistoryComponent } from './order-history/order-history.component';
 import { AnalyticsComponent } from './admin/analytics/analytics/analytics.component';
 import { RootComponent } from './admin/root/root/root.component';
