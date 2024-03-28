@@ -7,13 +7,18 @@ import { LandingPageComponent } from './admin/landing-page/landing-page.componen
 import { HeaderComponent } from './header/header/header.component';
 import { FooterComponent } from './footer/footer/footer.component';
 import { HttpClientModule } from '@angular/common/http';
+import { CouponComponent } from './admin/Coupon-Management/coupon/coupon.component';
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { PickUpManagementComponent } from './pick-up-management/pick-up-management.component';
 import { NavbarComponent } from './navbar/navbar/navbar.component';
-import { CouponComponent } from './admin/Coupon-Management/coupon/coupon.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+
+
+import { CommonModule } from '@angular/common';
+import { OrderHistoryComponent } from './order-history/order-history.component';
+
 
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatToolbarModule} from '@angular/material/toolbar';
@@ -33,6 +38,8 @@ import { MenuComponent } from './user/menu/menu.component';
     LandingPageComponent,
     HeaderComponent,
     FooterComponent,
+    PickUpManagementComponent,
+    OrderHistoryComponent,
     CouponComponent,
     PickUpManagementComponent,
     AnalyticsComponent,
@@ -50,13 +57,14 @@ import { MenuComponent } from './user/menu/menu.component';
     MatListModule,
     MatButtonModule,
     MatToolbarModule,
-    FormsModule,
     HttpClientModule,
+    CommonModule,
+    FormsModule    
   ],
   providers: [
     provideAnimationsAsync()
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule { 
+export class AppModule {
 }
