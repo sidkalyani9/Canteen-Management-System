@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Component, OnInit,ViewEncapsulation } from '@angular/core';
-import { PickUpOrderDataService } from '../service/pick-up-order-data.service';
+import { PickUpOrderDataService } from '../../service/pick-up-order-data.service';
 
 
 @Component({
@@ -18,7 +18,14 @@ export class PickUpManagementComponent implements OnInit {
   ngOnInit(): void {
     this.pickUpUserData.pickUpUsers().subscribe((data: any) => {
       this.pickUpUsers = data;
+      console.log(data);
     });
+  }
+  data:any={};
+
+  getValue(){
+    console.log(this.data);
+    
   }
   
   // array: any[] = [
