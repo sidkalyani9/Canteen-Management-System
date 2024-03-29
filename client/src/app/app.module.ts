@@ -32,6 +32,13 @@ import { MenuComponent } from './user/menu/menu.component';
 
 import {CheckboxModule} from 'primeng/checkbox';
 import {TableModule} from 'primeng/table';
+import { MenuManagementComponent } from './admin/Menu-Management/menu-management/menu-management.component';
+import { PanelModule } from 'primeng/panel';
+import { ToastModule } from 'primeng/toast';
+import { ToolbarModule } from 'primeng/toolbar';
+import { ButtonModule } from 'primeng/button'; 
+import { TabViewModule } from 'primeng/tabview';
+import { PrimeIcons } from 'primeng/api';
 
 
 
@@ -47,6 +54,8 @@ import {TableModule} from 'primeng/table';
     AnalyticsComponent,
     RootComponent,
     MenuComponent,
+    MenuManagementComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -67,7 +76,12 @@ import {TableModule} from 'primeng/table';
 
     //PrimeNg Modules
     CheckboxModule,
-    TableModule
+    TableModule,
+    PanelModule,
+    ToastModule,
+    ToolbarModule,
+    ButtonModule,
+    TabViewModule
   ],
   providers: [
     provideAnimationsAsync()
@@ -76,3 +90,6 @@ import {TableModule} from 'primeng/table';
 })
 export class AppModule {
 }
+
+//PrimeNg
+export { PrimeIcons };
