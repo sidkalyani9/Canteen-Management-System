@@ -7,6 +7,7 @@ import { AnalyticsComponent } from './admin/analytics/analytics/analytics.compon
 import { RootComponent } from './admin/root/root/root.component';
 import { CouponComponent } from './admin/Coupon-Management/coupon/coupon.component';
 import { MenuComponent } from './user/menu/menu.component';
+import { PickUpStatusEditComponent } from './pick-up/pick-up-status-edit/pick-up-status-edit.component';
 
 const routes: Routes = [
   {
@@ -20,7 +21,13 @@ const routes: Routes = [
       },
       {
         path: "pickupmanagement",
-        component: PickUpManagementComponent
+        component: PickUpManagementComponent,
+        title : "pick-Up"
+      },
+      {
+        path: "pickupmanagement/:id/edit",
+        component: PickUpStatusEditComponent,
+        title : "pick-Up-status-update"
       },
       {
         path: "analytics",

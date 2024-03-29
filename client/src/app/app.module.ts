@@ -29,6 +29,7 @@ import { FormsModule } from '@angular/forms';
 import { AnalyticsComponent } from './admin/analytics/analytics/analytics.component';
 import { RootComponent } from './admin/root/root/root.component';
 import { MenuComponent } from './user/menu/menu.component';
+import { PickUpStatusEditComponent } from './pick-up/pick-up-status-edit/pick-up-status-edit.component';
 
 
 
@@ -44,6 +45,7 @@ import { MenuComponent } from './user/menu/menu.component';
     AnalyticsComponent,
     RootComponent,
     MenuComponent,
+    PickUpStatusEditComponent,
   ],
   imports: [
     BrowserModule,
