@@ -31,10 +31,10 @@
             <p-table 
                 #MostOrderedDataTable
                 [tableStyle]="{'border-radius': '5em'}"
-                [value]="cars" 
+                [value]="dishes" 
                 [paginator]="true" 
                 [rows]="10"
-                [globalFilterFields]="['name','year','brand','color']"
+                [globalFilterFields]="['name','category','quantity']"
                 >
                 <ng-template pTemplate="caption" style="border-radius: 1em;">
                     
@@ -47,18 +47,16 @@
                 </ng-template>
                 <ng-template pTemplate="header">
                     <tr>
-                        <th pSortableColumn="name"><p-sortIcon field="name"></p-sortIcon>Name</th>
-                        <th pSortableColumn="year"><p-sortIcon field="name"></p-sortIcon>Year</th>
-                        <th pSortableColumn="brand"><p-sortIcon field="name"></p-sortIcon>Brand</th>
-                        <th pSortableColumn="color"><p-sortIcon field="name"></p-sortIcon>Color</th>
+                        <th pSortableColumn="name"><p-sortIcon field="name"></p-sortIcon>Dish Name</th>
+                        <th pSortableColumn="year"><p-sortIcon field="name"></p-sortIcon>Category</th>
+                        <th pSortableColumn="brand"><p-sortIcon field="name"></p-sortIcon>Quantity</th>
                     </tr>
                 </ng-template>
-                <ng-template pTemplate="body" let-car>
+                <ng-template pTemplate="body" let-dish>
                     <tr>
-                        <td>{{car.name}}</td>
-                        <td>{{car.year}}</td>
-                        <td>{{car.brand}}</td>
-                        <td>{{car.color}}</td>
+                        <td>{{dish.name}}</td>
+                        <td>{{dish.category}}</td>
+                        <td>{{dish.quantity}}</td>
                     </tr>
                 </ng-template>
                 
