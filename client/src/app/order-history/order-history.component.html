@@ -4,13 +4,13 @@
 
 <!-- date filter  -->
 <div class="date-filter">
-    <div class="dates">
-        <label for="start-date">Filter from Date</label>
+    <p>Filter by date</p>
+    <div class=" dates">
+        <label for="start-date">Start Date</label>
         <input type="date" id="start-date" name="start-date" [(ngModel)]="startDate" (change)="filterByDate()">
     </div>
-
-    <div class="dates">
-        <label for="end-date">To Date</label>
+    <div class=" dates">
+        <label for="end-date">End Date</label>
         <input type="date" id="end-date" name="end-date" [(ngModel)]="endDate" (change)="filterByDate()">
     </div>
 </div>
@@ -20,28 +20,34 @@
 <div class="order-tab-list">
     <ul class="nav nav-pills">
         <li class="nav-item">
-            <button class="nav-link" [class.active]="selectedCategory === 'orderNo'" (click)="showAllOrders()">All
+            <button class="nav-link button" [class.active]="selectedCategory === 'orderNo'"
+                (click)="showAllOrders()">All
                 Orders</button>
         </li>
         <li class="nav-item">
-            <button class="nav-link" [class.active]="selectedCategory === 'orderStatus' && searchQuery === 'Delivered'"
+            <button class="nav-link button"
+                [class.active]="selectedCategory === 'orderStatus' && searchQuery === 'Delivered'"
                 (click)="showCompletedOrders()">Completed Orders</button>
         </li>
         <li class="nav-item">
-            <button class="nav-link" [class.active]="selectedCategory === 'orderStatus' && searchQuery === 'Cancelled'"
+            <button class="nav-link button"
+                [class.active]="selectedCategory === 'orderStatus' && searchQuery === 'Cancelled'"
                 (click)="showCancelledOrders()">Cancelled Orders</button>
         </li>
     </ul>
 </div>
 
 
-<div>
-    <label for="itemsPerPageInput">Items Per Page:</label>
+<!-- items per page  -->
+<div class="itemsPerPage">
+    <label for="itemsPerPageInput">Items Per Page</label>
     <input type="number" id="itemsPerPageInput" [(ngModel)]="itemsPerPage" (change)="changePageSize()">
 </div>
 
-<div>
-    <label for="searchCategory">Search By:</label>
+
+<!-- search  -->
+<div class="search">
+    <label for="searchCategory">Search by :</label>
     <select id="searchCategory" [(ngModel)]="selectedCategory">
         <option *ngFor="let category of searchCategories" [value]="category">{{ category }}</option>
     </select>
@@ -49,6 +55,7 @@
 </div>
 
 
+<!-- table  -->
 <table class="table table-striped">
     <thead>
         <tr>
@@ -74,15 +81,17 @@
     </tbody>
 </table>
 
-<nav aria-label="...">
+
+<!-- pagination  -->
+<div class="pagination-container">
     <ul class="pagination">
         <li class="page-item" [ngClass]="{disabled :currentPage == 1}" style="cursor: pointer;">
             <a class="page-link" (click)="pageClicked(currentPage - 1)">Previous</a>
         </li>
         <li (click)="pageClicked(page)" *ngFor="let page of pages" class="page-item"
             [ngClass]="{'active':page == currentPage}"><a class="page-link">{{page}}</a></li>
-        <!-- <li class="page-item" [ngClass]="{disabled :currentPage == totalPages}" style="cursor: pointer;">
+        <li class="page-item" [ngClass]="{disabled :currentPage == totalPages}" style="cursor: pointer;">
             <a class="page-link" (click)="pageClicked(currentPage + 1)">Next</a>
-        </li> -->
+        </li>
     </ul>
-</nav>
+</div>
