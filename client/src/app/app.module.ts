@@ -32,6 +32,7 @@ import { MenuComponent } from './user/menu/menu.component';
 
 import {CheckboxModule} from 'primeng/checkbox';
 import {TableModule} from 'primeng/table';
+import { CartComponent } from './user/cart/cart.component';
 
 
 
@@ -47,6 +48,7 @@ import {TableModule} from 'primeng/table';
     AnalyticsComponent,
     RootComponent,
     MenuComponent,
+    CartComponent,
   ],
   imports: [
     BrowserModule,
