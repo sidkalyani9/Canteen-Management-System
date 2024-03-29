@@ -31,6 +31,9 @@ import { RootComponent } from './admin/root/root/root.component';
 import { MenuComponent } from './user/menu/menu.component';
 import { PickUpStatusEditComponent } from './pick-up/pick-up-status-edit/pick-up-status-edit.component';
 
+import {CheckboxModule} from 'primeng/checkbox';
+import {TableModule} from 'primeng/table';
+
 
 
 @NgModule({
@@ -53,6 +56,8 @@ import { PickUpStatusEditComponent } from './pick-up/pick-up-status-edit/pick-up
     AppRoutingModule,
     NgbModule,
     FontAwesomeModule,
+
+    //Angular Material Modules
     MatSidenavModule,
     MatIconModule,
     MatListModule,
@@ -60,7 +65,11 @@ import { PickUpStatusEditComponent } from './pick-up/pick-up-status-edit/pick-up
     MatToolbarModule,
     HttpClientModule,
     CommonModule,
-    FormsModule    
+    FormsModule,
+
+    //PrimeNg Modules
+    CheckboxModule,
+    TableModule
   ],
   providers: [
     provideAnimationsAsync()

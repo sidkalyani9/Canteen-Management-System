@@ -37,6 +37,10 @@ const routes: Routes = [
 
         path: 'coupons',
         component: CouponComponent
+      },
+      {
+        path: "order-history",
+        component: OrderHistoryComponent,
       }
     ]
   },
@@ -49,10 +53,6 @@ const routes: Routes = [
       {
         path: "menu",
         component: MenuComponent
-      },
-      {
-        path: "order-history",
-        component: OrderHistoryComponent,
       }
     ]
   },
