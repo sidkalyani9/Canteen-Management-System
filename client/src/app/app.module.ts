@@ -38,7 +38,7 @@ import { ToastModule } from 'primeng/toast';
 import { ToolbarModule } from 'primeng/toolbar';
 import { ButtonModule } from 'primeng/button'; 
 import { TabViewModule } from 'primeng/tabview';
-import { PrimeIcons } from 'primeng/api';
+import { ConfirmationService, MessageService, PrimeIcons } from 'primeng/api';
 
 
 
@@ -84,7 +84,9 @@ import { PrimeIcons } from 'primeng/api';
     TabViewModule
   ],
   providers: [
-    provideAnimationsAsync()
+    provideAnimationsAsync(),
+    ConfirmationService,
+    MessageService
   ],
   bootstrap: [AppComponent]
 })
