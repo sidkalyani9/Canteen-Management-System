@@ -9,6 +9,7 @@ import { CouponComponent } from './admin/Coupon-Management/coupon/coupon.compone
 import { MenuComponent } from './user/menu/menu.component';
 import { MenuManagementComponent } from './admin/Menu-Management/menu-management/menu-management.component';
 import { PickUpStatusEditComponent } from './pick-up/pick-up-status-edit/pick-up-status-edit.component';
+import { UserRoleManagementComponent } from './user-role/user-role-management/user-role-management.component';
 
 const routes: Routes = [
   {
@@ -46,6 +47,11 @@ const routes: Routes = [
       {
         path: "menu-management",
         component:MenuManagementComponent
+      },
+      {
+        path:"user-role",
+        component:UserRoleManagementComponent,
+        title:'User-Role'
       }
     ]
   },
