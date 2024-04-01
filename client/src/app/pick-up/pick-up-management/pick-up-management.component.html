@@ -15,14 +15,10 @@
                 <div class="order_no">order no. :-{{ user.order_no }}</div>
                 <div>Customer name:-{{ user.customer_name }}</div>
                 <div>Mo no:-{{ user.customer_mo_no }}
-                    <button type="button" class="btn btn-primary">
-                        <img src="assets\pick_up_button_logo.webp" class="pick_up_button_logo" alt=""> Pick Up
-                    </button>
+                    <a routerLink="{{user.order_no}}/edit" class="btn btn-primary"> <img
+                            src="assets\pick_up_button_logo.webp" class="pick_up_button_logo" alt=""> Pick Up</a>
                 </div>
             </li>
         </ul>
-
-
-        
     </div>
 </div>
