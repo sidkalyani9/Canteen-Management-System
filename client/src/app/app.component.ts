@@ -21,9 +21,9 @@ export class AppComponent {
     this.router.navigate(['admin'])
   }
 
-  navHome2(){
+  navEditMenu(){
     this.btn = 2;
-    this.router.navigate([''])
+    this.router.navigate(['admin/menu-management'])
   }
 
   navAnalytics(){

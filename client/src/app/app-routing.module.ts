@@ -7,6 +7,7 @@ import { AnalyticsComponent } from './admin/analytics/analytics/analytics.compon
 import { RootComponent } from './admin/root/root/root.component';
 import { CouponComponent } from './admin/Coupon-Management/coupon/coupon.component';
 import { MenuComponent } from './user/menu/menu.component';
+import { MenuManagementComponent } from './admin/Menu-Management/menu-management/menu-management.component';
 import { PickUpStatusEditComponent } from './pick-up/pick-up-status-edit/pick-up-status-edit.component';
 
 const routes: Routes = [
@@ -41,6 +42,10 @@ const routes: Routes = [
       {
         path: "order-history",
         component: OrderHistoryComponent,
+      },
+      {
+        path: "menu-management",
+        component:MenuManagementComponent
       }
     ]
   },
