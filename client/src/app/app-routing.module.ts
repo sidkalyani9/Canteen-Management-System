@@ -34,11 +34,11 @@ const routes: Routes = [
       },
       {
         path: "order-history",
-        component: OrderHistoryComponent,
+        component: OrderHistoryComponent
       },
       {
         path: "menu-management",
-        component:MenuManagementComponent
+        component: MenuManagementComponent
       }
     ]
   },
