@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { PickUpOrderDataService } from '../../service/pick-up-order-data.service';
+import { data } from 'jquery';
 
 @Component({
   selector: 'app-pick-up-status-edit',
@@ -15,7 +16,7 @@ export class PickUpStatusEditComponent implements OnInit{
  
   order_no!: any;
 
-  constructor(private route : ActivatedRoute , private pickUpUserData: PickUpOrderDataService){}
+  constructor(private router:Router,private route : ActivatedRoute , private pickUpUserData: PickUpOrderDataService){}
   ngOnInit(): void {
       this.order_no = this.route.snapshot.paramMap.get('id');
       this.pickUpUserData.getOrder(this.order_no).subscribe((res:any)=>{
@@ -23,11 +24,11 @@ export class PickUpStatusEditComponent implements OnInit{
         this.order=res
       })
   }
-  getData(data:any){
-    this.payment=data.Payment_method
-  }
+ 
 
-  updatePayment(){
+  updatePayment(data:any){
+    
+    this.payment=data.Payment_method
     var inputdata={
       order_no : this.order.order_no,
       customer_name : this.order.customer_name,
@@ -40,6 +41,7 @@ export class PickUpStatusEditComponent implements OnInit{
       next:(res:any)=>{
         console.log(res);
         alert("succesfully updated")
+        this.router.navigateByUrl('/admin/pickupmanagement');
     }
   });
   }
