@@ -8,6 +8,7 @@ import { UserdataService } from '../../service/userdata.service';
 })
 export class UserRoleManagementComponent {
 
+  defaultRole:string ='Admin'
   users!:any;
   constructor(private userDataService:UserdataService){}
 
@@ -20,6 +21,7 @@ export class UserRoleManagementComponent {
       this.users = res;
     });
   }
+  
 }
 
 

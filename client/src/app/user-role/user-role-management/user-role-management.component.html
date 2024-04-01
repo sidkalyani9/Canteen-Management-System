@@ -15,7 +15,7 @@
                             <th>Course</th>
                             <th>Email</th>
                             <th>Phone</th>
-                            <th>Action</th>
+                            <th>Role</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -25,11 +25,7 @@
                             <td>{{item.course}}</td>
                             <td>{{item.email}}</td>
                             <td>{{item.phone}}</td>
-                            <td>
-                                <!-- <a href="/student/{{item.id}}/edit" class="btn btn-success">Edit</a>
-                                    <button type="button" (click)="deleteStudent(item.id)"
-                                        class="btn btn-danger">delete</button> -->
-                            </td>
+                            <td> <a routerLink="{{item.id}}/edit">{{item.role}}</a></td>
                         </tr>
                     </tbody>
                 </table>

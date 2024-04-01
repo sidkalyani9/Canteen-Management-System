@@ -28,12 +28,12 @@ export class PickUpManagementComponent implements OnInit {
   }
 
 
-  data:any={};
+  // data:any={};
 
-  getValue(){
-    console.log(this.data);
+  // getValue(){
+  //   console.log(this.data);
     
-  }
+  // }
   
   // array: any[] = [
   //   {
