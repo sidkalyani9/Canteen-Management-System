@@ -13,20 +13,27 @@ export class PickUpManagementComponent implements OnInit {
 
   pickUpUsers: any[] =[];
 
-  constructor(private pickUpUserData: PickUpOrderDataService) { }
+  constructor(private pickUpOrderDataService:PickUpOrderDataService) { }
   
   ngOnInit(): void {
-    this.pickUpUserData.pickUpUsers().subscribe((data: any) => {
-      this.pickUpUsers = data;
-      console.log(data);
+    this.pickUpUserList();
+  
+  }
+
+  pickUpUserList(){
+    this.pickUpOrderDataService.getOrders().subscribe((res: any) => {
+      this.pickUpUsers = res;
+      console.log(res);
     });
   }
-  data:any={};
 
-  getValue(){
-    console.log(this.data);
+
+  // data:any={};
+
+  // getValue(){
+  //   console.log(this.data);
     
-  }
+  // }
   
   // array: any[] = [
   //   {
