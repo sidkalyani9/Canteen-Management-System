@@ -13,23 +13,18 @@
  }
 
 
-
-
-
-
  /* tab-list  */
  .order-tab-list {
-     margin-top: 50px;
-     margin-left: 40px;
+     margin-top: 2vw;
+     margin-left: 2.5vw;
      width: 100%;
-     margin-bottom: 20px;
+     margin-bottom: 1vw;
  }
 
  .order-tab-list ul {
      border: 3px solid #802f59;
      border-radius: 8px;
      width: 412px;
-
  }
 
  .nav-link:hover {
@@ -40,7 +35,6 @@
      color: #333;
      border-radius: 5px;
      cursor: pointer;
-
  }
 
  .order-tab-list ul li button {
@@ -54,10 +48,12 @@
      border-color: #802f59;
  }
 
+
  /* date filter  */
  .dates {
      float: left;
      margin-right: 10px;
+     margin-top: 50px;
  }
 
  .date-filter {
