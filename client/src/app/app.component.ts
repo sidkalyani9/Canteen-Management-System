@@ -40,15 +40,20 @@ export class AppComponent {
     this.btn = 5;
     this.router.navigate(['admin/coupons'])
   }
+  
+  navOrderHistory(){
+    this.btn = 6;
+    this.router.navigate(['admin/order-history'])
+  }
 
   navUserMenu(){
     this.btn = 7;
     this.router.navigate(['user/menu'])
   }
 
-  navOrderHistory(){
-    this.btn = 6;
-    this.router.navigate(['admin/order-history'])
+  navUserRole(){
+    this.btn=8;
+    this.router.navigate(['admin/user-role'])
   }
 
   navUserCart()
