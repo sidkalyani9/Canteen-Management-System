@@ -1,4 +1,35 @@
-<form (ngSubmit)="updatePayment">
+<div class=" ">
+    <div class="">
+        <div *ngIf="order && order.order_no">
+            <div>{{order.order_no}}</div>
+            <div>{{order.customer_name}}</div>
+            <div>{{order.customer_mo_no}}</div>
 
-<input type="radio" name="gpay" value="gpay">gpay
-</form>
+        </div>
+
+
+        <!-- <form #basicForm="ngForm"  (ngSubmit)="updatePayment(basicForm.value)">
+    <input type="radio" ngModel name="Payment_method" value="gpay">gpay
+    <input type="radio" ngModel name="Payment_method" value="gpay2">gpay2
+    <input type="radio" ngModel name="Payment_method" value="gpay3">gpay3
+    <div class="mb-3">
+        
+        <a routerLink="//admin/pickupmanagement"><button type="submit" class="btn btn-primary">Update </button></a>
+        
+    </div>
+</form> -->
+
+        <form #basicForm="ngForm" (ngSubmit)="updatePayment(basicForm.value)">
+            <input type="radio" ngModel name="Payment_method" value="gpay"> gpay
+            <input type="radio" ngModel name="Payment_method" value="gpay2"> gpay2
+            <input type="radio" ngModel name="Payment_method" value="gpay3"> gpay3
+            <div class="mb-3">
+                <button type="submit" class="btn btn-primary">Update</button>
+            </div>
+        </form>
+
+        <div class="mb-3">
+            <a routerLink="/admin/pickupmanagement">Go to Pickup Management</a>
+        </div>
+    </div>
+</div>
