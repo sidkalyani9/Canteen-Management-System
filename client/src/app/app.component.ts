@@ -24,7 +24,7 @@ export class AppComponent {
     this.btn = linkNumber;
     localStorage.setItem('btn', linkNumber.toString());
   }
-  
+
   navHome(){
     this.onLinkClick(1);
     this.router.navigate(['admin']);
@@ -49,15 +49,15 @@ export class AppComponent {
     this.onLinkClick(5);
     this.router.navigate(['admin/coupons'])
   }
-  
   navUserMenu(){
     this.onLinkClick(6);
     this.router.navigate(['user/menu'])
   }
 
+
   navOrderHistory(){
     this.onLinkClick(7);
     this.router.navigate(['admin/order-history'])
   }
-  
+
 }

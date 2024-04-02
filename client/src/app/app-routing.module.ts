@@ -7,6 +7,7 @@ import { AnalyticsComponent } from './admin/analytics/analytics/analytics.compon
 import { RootComponent } from './admin/root/root/root.component';
 import { CouponComponent } from './admin/Coupon-Management/coupon/coupon.component';
 import { MenuComponent } from './user/menu/menu.component';
+import { CartComponent } from './user/cart/cart.component';
 import { MenuManagementComponent } from './admin/Menu-Management/menu-management/menu-management.component';
 import { PickUpStatusEditComponent } from './pick-up/pick-up-status-edit/pick-up-status-edit.component';
 import { UserRoleManagementComponent } from './user-role/user-role-management/user-role-management.component';
@@ -66,10 +67,14 @@ const routes: Routes = [
     path: "user",
     component: RootComponent,
     children: [
-      // User childers 
+      // User childers
       {
         path: "menu",
         component: MenuComponent
+      },
+      {
+        path: "cart",
+        component: CartComponent
       }
     ]
   },
