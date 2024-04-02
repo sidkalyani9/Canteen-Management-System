@@ -43,6 +43,7 @@ import { TabViewModule } from 'primeng/tabview';
 import { PrimeIcons } from 'primeng/api';
 import { UserRoleManagementComponent } from './user-role/user-role-management/user-role-management.component';
 import { UserRoleEditComponent } from './user-role/user-role-edit/user-role-edit.component';
+import { LoaderComponent } from './partial/loader/loader.component';
 
 
 
@@ -63,6 +64,7 @@ import { UserRoleEditComponent } from './user-role/user-role-edit/user-role-edit
     PickUpStatusEditComponent,
     UserRoleManagementComponent,
     UserRoleEditComponent,
+    LoaderComponent,
   ],
   imports: [
     BrowserModule,

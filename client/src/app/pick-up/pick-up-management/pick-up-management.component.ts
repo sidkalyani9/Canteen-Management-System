@@ -12,6 +12,7 @@ import { PickUpOrderDataService } from '../../service/pick-up-order-data.service
 export class PickUpManagementComponent implements OnInit {
 
   pickUpUsers: any[] =[];
+  isLoading:boolean=false;
 
   constructor(private pickUpOrderDataService:PickUpOrderDataService) { }
   
@@ -21,9 +22,11 @@ export class PickUpManagementComponent implements OnInit {
   }
 
   pickUpUserList(){
+    this.isLoading=true;
     this.pickUpOrderDataService.getOrders().subscribe((res: any) => {
       this.pickUpUsers = res;
       console.log(res);
+      this.isLoading=false;
     });
   }
 
