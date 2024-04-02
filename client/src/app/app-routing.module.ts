@@ -7,6 +7,7 @@ import { AnalyticsComponent } from './admin/analytics/analytics/analytics.compon
 import { RootComponent } from './admin/root/root/root.component';
 import { CouponComponent } from './admin/Coupon-Management/coupon/coupon.component';
 import { MenuComponent } from './user/menu/menu.component';
+import { CartComponent } from './user/cart/cart.component';
 
 const routes: Routes = [
   {
@@ -42,10 +43,14 @@ const routes: Routes = [
     path: "user",
     component: RootComponent,
     children: [
-      // User childers 
+      // User childers
       {
         path: "menu",
         component: MenuComponent
+      },
+      {
+        path: "cart",
+        component: CartComponent
       }
     ]
   },
