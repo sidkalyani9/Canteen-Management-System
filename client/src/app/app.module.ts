@@ -33,6 +33,7 @@ import { PickUpStatusEditComponent } from './pick-up/pick-up-status-edit/pick-up
 
 import {CheckboxModule} from 'primeng/checkbox';
 import {TableModule} from 'primeng/table';
+import { CartComponent } from './user/cart/cart.component';
 import { MenuManagementComponent } from './admin/Menu-Management/menu-management/menu-management.component';
 import { PanelModule } from 'primeng/panel';
 import { ToastModule } from 'primeng/toast';
@@ -57,6 +58,7 @@ import { UserRoleEditComponent } from './user-role/user-role-edit/user-role-edit
     AnalyticsComponent,
     RootComponent,
     MenuComponent,
+    CartComponent,
     MenuManagementComponent,
     PickUpStatusEditComponent,
     UserRoleManagementComponent,

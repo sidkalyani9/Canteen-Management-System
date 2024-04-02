@@ -1,0 +1,181 @@
+body {
+  margin-top: 15px;
+  margin-left: 15px;
+  background: transparent;
+}
+
+.explore h1{
+  color:#802f59;
+  margin-left: 10px;
+  margin-top: 30px;
+  margin-bottom: 20px;
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
+
+}
+
+.cart h1{
+  margin-left: 10px;
+  font-size: 20px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+
+/* cart-items */
+.cart-page{
+  margin-left: 10px;
+  margin-right: 40px;
+  display: flex;
+  flex-direction: row;
+  gap: 10%;
+}
+
+table{
+  width: 65%;
+}
+
+.cart-info{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+th{
+  text-align: left;
+  color: #fff;
+  background: #802f59;
+  font-size: large;
+  font-weight: normal;
+}
+
+.items {
+  background: #fff;
+  border: 1px solid #802f59;
+  border-radius: 100%;
+}
+td{
+  padding: 10px 5px;
+}
+
+td input{
+  width: 40px;
+  height: 30px;
+  padding: 5px;
+}
+
+td a{
+  color: #802f59;
+  font-size: 12px;
+}
+
+td img{
+  width: 100px;
+  height: 100px;
+  margin-right: 10px;
+  border: transparent solid 1px;
+  border-radius: 30%;
+}
+
+.price{
+  display: flex;
+  flex-direction: column;
+  margin-top: -3%;
+  gap: 5%;
+}
+
+.coupon{
+  margin-left: 6.5%;
+}
+
+.coupon .head{
+  text-align: center;
+  width: 150px;
+  color: #fff;
+  background: #802f59;
+  font-size: large;
+  font-weight: normal;
+  padding: 1px auto;
+  margin-bottom: 8px;
+  margin-left: 11%;
+}
+
+.search{
+  height: 18px;
+  width: 45%;
+  font-size: 14px;
+  outline: none;
+}
+
+.apply{
+  justify-content: center;
+  background: #c29baf;
+  padding-top: 3%;
+  display: flex;
+  flex-direction: row;
+  gap: 20%;
+  width: 200px;
+}
+
+.applied p{
+  margin-top: 0%;
+  margin-left: -7.5%;
+  width: 250px;
+  color: rgb(98, 128, 0);
+  font-size: 12px;
+}
+
+.total-price{
+  display: flex;
+  flex-direction: column ;
+}
+
+.total-price p{
+  text-align: center;
+  width: 150px;
+  color: #fff;
+  background: #802f59;
+  font-size: large;
+  font-weight: normal;
+  padding: 1px auto;
+  margin-bottom: 8px;
+  margin-left: 17%;
+  margin-top: 15%;
+}
+
+.total-price table{
+  border-top: 3px solid #802f59;
+  width: 100%;
+  max-width: 400px;
+  border-bottom: 3px solid #802f59;
+}
+
+td:last-child{
+  text-align: right;
+}
+
+th:last-child{
+  text-align: right;
+}
+
+.final{
+  font-size: 18px;
+  width: 250px;
+  background: transparent;
+  margin-left: 3%;
+}
+
+.checkout{
+  margin-top: 0%;
+  margin-left: 18.5%;
+}
+
+.checkout button{
+  text-align: center;
+  width: 150px;
+  color: #fff;
+  background: #802f59;
+  font-size: 20px;
+  font-weight: normal;
+  margin-bottom: 8px;
+}
