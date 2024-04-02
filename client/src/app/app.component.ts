@@ -15,7 +15,7 @@ export class AppComponent {
   title = 'client';
 
   constructor(private router: Router) {}
-  
+
   navHome(){
     this.btn = 1;
     this.router.navigate(['admin'])
@@ -55,5 +55,11 @@ export class AppComponent {
     this.btn=8;
     this.router.navigate(['admin/user-role'])
   }
-  
+
+  navUserCart()
+  {
+    this.btn=10;
+    this.router.navigate(['user/cart'])
+  }
+
 }
