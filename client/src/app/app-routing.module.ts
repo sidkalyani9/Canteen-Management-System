@@ -8,6 +8,10 @@ import { RootComponent } from './admin/root/root/root.component';
 import { CouponComponent } from './admin/Coupon-Management/coupon/coupon.component';
 import { MenuComponent } from './user/menu/menu.component';
 import { CartComponent } from './user/cart/cart.component';
+import { MenuManagementComponent } from './admin/Menu-Management/menu-management/menu-management.component';
+import { PickUpStatusEditComponent } from './pick-up/pick-up-status-edit/pick-up-status-edit.component';
+import { UserRoleManagementComponent } from './user-role/user-role-management/user-role-management.component';
+import { UserRoleEditComponent } from './user-role/user-role-edit/user-role-edit.component';
 
 const routes: Routes = [
   {
@@ -21,7 +25,13 @@ const routes: Routes = [
       },
       {
         path: "pickupmanagement",
-        component: PickUpManagementComponent
+        component: PickUpManagementComponent,
+        title : "pick-Up"
+      },
+      {
+        path: "pickupmanagement/:id/edit",
+        component: PickUpStatusEditComponent,
+        title : "pick-Up-status-update"
       },
       {
         path: "analytics",
@@ -35,6 +45,20 @@ const routes: Routes = [
       {
         path: "order-history",
         component: OrderHistoryComponent,
+      },
+      {
+        path: "menu-management",
+        component:MenuManagementComponent
+      },
+      {
+        path:"user-role",
+        component:UserRoleManagementComponent,
+        title:'User-Role'
+      },
+      {
+        path: "user-role/:id/edit",
+        component: UserRoleEditComponent,
+        title : "user-role-update"
       }
     ]
   },

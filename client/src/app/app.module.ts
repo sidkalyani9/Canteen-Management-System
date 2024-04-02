@@ -29,10 +29,20 @@ import { FormsModule } from '@angular/forms';
 import { AnalyticsComponent } from './admin/analytics/analytics/analytics.component';
 import { RootComponent } from './admin/root/root/root.component';
 import { MenuComponent } from './user/menu/menu.component';
+import { PickUpStatusEditComponent } from './pick-up/pick-up-status-edit/pick-up-status-edit.component';
 
 import {CheckboxModule} from 'primeng/checkbox';
 import {TableModule} from 'primeng/table';
 import { CartComponent } from './user/cart/cart.component';
+import { MenuManagementComponent } from './admin/Menu-Management/menu-management/menu-management.component';
+import { PanelModule } from 'primeng/panel';
+import { ToastModule } from 'primeng/toast';
+import { ToolbarModule } from 'primeng/toolbar';
+import { ButtonModule } from 'primeng/button'; 
+import { TabViewModule } from 'primeng/tabview';
+import { PrimeIcons } from 'primeng/api';
+import { UserRoleManagementComponent } from './user-role/user-role-management/user-role-management.component';
+import { UserRoleEditComponent } from './user-role/user-role-edit/user-role-edit.component';
 
 
 
@@ -49,6 +59,10 @@ import { CartComponent } from './user/cart/cart.component';
     RootComponent,
     MenuComponent,
     CartComponent,
+    MenuManagementComponent,
+    PickUpStatusEditComponent,
+    UserRoleManagementComponent,
+    UserRoleEditComponent,
   ],
   imports: [
     BrowserModule,
@@ -69,7 +83,12 @@ import { CartComponent } from './user/cart/cart.component';
 
     //PrimeNg Modules
     CheckboxModule,
-    TableModule
+    TableModule,
+    PanelModule,
+    ToastModule,
+    ToolbarModule,
+    ButtonModule,
+    TabViewModule
   ],
   providers: [
     provideAnimationsAsync()
@@ -78,3 +97,6 @@ import { CartComponent } from './user/cart/cart.component';
 })
 export class AppModule {
 }
+
+//PrimeNg
+export { PrimeIcons };

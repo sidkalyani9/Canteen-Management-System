@@ -15,24 +15,32 @@ export class AnalyticsComponent implements OnInit {
   public productSegmentPieChart: any;
   public selectedArr=[];
   public searchIcon = faSearch;
-  public cars = [
+  public dishes = [
     {
-      name: "Alto",
-      year: 2012,
-      brand: "Maruti Suzuki",
-      color: "White"
-    },{
-      name: "City",
-      year: 2022,
-      brand: "Honda",
-      color: "Brown"
+      name: "Gujarati Thali",
+      category: "Lunch",
+      quantity: 12,
     },
     {
-      name: "Meteor 350",
-      year: 2021,
-      brand: "Royal Enfield",
-      color: "Matter Black"
-    }
+      name: "Punjabi Thali",
+      category: "Lunch",
+      quantity: 8,
+    },
+    {
+      name: "Samosa",
+      category: "Breakfast",
+      quantity: 7,
+    },
+    {
+      name: "Pav Bhaji",
+      category: "Lunch",
+      quantity: 7,
+    },
+    {
+      name: "Thepla",
+      category: "Lunch",
+      quantity: 5,
+    },
   ]
 
   ngOnInit(): void {
