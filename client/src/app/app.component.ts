@@ -70,43 +70,6 @@ export class AppComponent {
     this.onLinkClick(10);
     this.router.navigate(['user/cart'])
   }
-=======
-  constructor(private router: Router) { }
-
-  navHome() {
-    this.btn = 1;
-    this.router.navigate(['admin'])
-  }
-
-  navEditMenu() {
-    this.btn = 2;
-    this.router.navigate(['admin/menu-management'])
-  }
-
-  navAnalytics() {
-    this.btn = 3;
-    this.router.navigate(['admin/analytics'])
-  }
-
-  navPickup() {
-    this.btn = 4;
-    this.router.navigate(['admin/pickupmanagement'])
-  }
-
-  navCoupon() {
-    this.btn = 5;
-    this.router.navigate(['admin/coupons'])
-  }
-
-  navUserMenu() {
-    this.btn = 7;
-    this.router.navigate(['user/menu'])
-  }
-
-  navOrderHistory() {
-    this.btn = 6;
-    this.router.navigate(['admin/order-history'])
-  }
 
   walletUser(){
     this.btn = 11;
