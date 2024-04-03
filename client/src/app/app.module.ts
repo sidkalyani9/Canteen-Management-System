@@ -48,7 +48,7 @@ import { WalletComponent } from './wallet/wallet.component';
 import { WalletAdminComponent } from './wallet-admin/wallet-admin.component';
 
 
-import { ConfirmationService, MessageService, PrimeIcons } from 'primeng/api';
+import { ConfirmationService, MessageService } from 'primeng/api';
 
 
 
