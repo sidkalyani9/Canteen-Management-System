@@ -1,4 +1,9 @@
 <div class="container">
+    <div *ngIf="isLoading; else elsePickUpEditBlock">
+        <app-loader></app-loader>
+    </div>
+
+    <ng-template #elsePickUpEditBlock>
     <div>
       <div *ngIf="order && order.order_no">
         <div>{{order.order_no}}</div>
@@ -19,5 +24,6 @@
         <a routerLink="/admin/pickupmanagement" class="btn">Back</a>
       </div>
     </div>
+    </ng-template>
   </div>
   

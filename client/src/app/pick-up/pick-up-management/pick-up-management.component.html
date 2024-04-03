@@ -4,11 +4,11 @@
     <div class="d-flex">
 
 
-        <div *ngIf="isLoading; else elseBlock">
+        <div *ngIf="isLoading; else elsePickUpBlock">
             <app-loader></app-loader>
         </div>
 
-        <ng-template #elseBlock>
+        <ng-template #elsePickUpBlock>
             <ul>
                 <li *ngFor="let user of pickUpUsers" class="order-item-box">
                     <div>
@@ -19,9 +19,9 @@
                     <div>Mo no:-{{ user.customer_mo_no }}
                         <div class="w-100 d-flex justify-content-center">
                             <a routerLink="{{user.order_no}}/edit"
-                                class="w-50 btn btn-primary mt-2 d-flex  burgandy border-3">
+                                class="w-50 btn btn-primary mt-2 d-flex  burgandy border-3 justify-content-center align-items-center">
                                 <!-- <img src="assets\pick_up_button_logo.webp" class="pick_up_button_logo" alt=""> -->
-                                <svg fill="currentColor" height="24px" width="24px" version="1.1" id="Capa_1"
+                                <svg fill="currentColor" height="20px" width="20px" version="1.1" id="Capa_1"
                                     xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
                                     viewBox="0 0 483.1 483.1" xml:space="preserve">
                                     <g>
@@ -39,6 +39,6 @@
                 </li>
             </ul>
         </ng-template>
-        
+
     </div>
 </div>
