@@ -1,0 +1,89 @@
+.wallet-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    border: 2px solid #802f59;
+    border-radius: 5px;
+    width: 80%;
+    max-width: 300px;
+    text-align: center;
+    padding: 20px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+}
+
+h2 {
+    color: #802f59;
+    margin-bottom: 20px;
+}
+
+.balance {
+    display: flex;
+    flex-direction: column;
+}
+
+.amount {
+    font-size: 24px;
+    font-weight: bold;
+    color: #802f59;
+}
+
+.input-group {
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.input-group input {
+    padding: 10px;
+    width: 100px;
+    border: 1px solid #ccc;
+    border-radius: 5px 0 0 5px;
+    font-size: 16px;
+}
+
+.input-group button {
+    padding: 11px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+    background-color: #802f59;
+    color: #fff;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.input-group button:hover {
+    background-color: #5a1f40;
+    transform: scale(1.05);
+}
+
+.input-group input:focus {
+    outline: none;
+    border-color: #802f59;
+}
+
+.loader {
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid #802f59;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    animation: spin 1s linear infinite;
+    margin: 0 auto;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}

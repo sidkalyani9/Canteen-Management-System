@@ -29,15 +29,25 @@ import { FormsModule } from '@angular/forms';
 import { AnalyticsComponent } from './admin/analytics/analytics/analytics.component';
 import { RootComponent } from './admin/root/root/root.component';
 import { MenuComponent } from './user/menu/menu.component';
+import { PickUpStatusEditComponent } from './pick-up/pick-up-status-edit/pick-up-status-edit.component';
 
 import {CheckboxModule} from 'primeng/checkbox';
 import {TableModule} from 'primeng/table';
+import { CartComponent } from './user/cart/cart.component';
 import { MenuManagementComponent } from './admin/Menu-Management/menu-management/menu-management.component';
 import { PanelModule } from 'primeng/panel';
 import { ToastModule } from 'primeng/toast';
 import { ToolbarModule } from 'primeng/toolbar';
 import { ButtonModule } from 'primeng/button'; 
 import { TabViewModule } from 'primeng/tabview';
+
+import { PrimeIcons } from 'primeng/api';
+import { UserRoleManagementComponent } from './user-role/user-role-management/user-role-management.component';
+import { UserRoleEditComponent } from './user-role/user-role-edit/user-role-edit.component';
+import { WalletComponent } from './wallet/wallet.component';
+import { WalletAdminComponent } from './wallet-admin/wallet-admin.component';
+
+
 import { ConfirmationService, MessageService, PrimeIcons } from 'primeng/api';
 
 
@@ -54,8 +64,13 @@ import { ConfirmationService, MessageService, PrimeIcons } from 'primeng/api';
     AnalyticsComponent,
     RootComponent,
     MenuComponent,
+    CartComponent,
     MenuManagementComponent,
-
+    PickUpStatusEditComponent,
+    UserRoleManagementComponent,
+    UserRoleEditComponent,
+    WalletComponent,
+    WalletAdminComponent,
   ],
   imports: [
     BrowserModule,
