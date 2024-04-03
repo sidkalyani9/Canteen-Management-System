@@ -1,8 +1,8 @@
 <div class="wallet-container">
     <h2>Admin Wallet</h2>
-    <input type="text" placeholder="Search by ID or Name" [(ngModel)]="searchQuery" (ngModelChange)="search()">
+    <input class="searchbox" type="text" placeholder="Search by ID or Name" [(ngModel)]="searchQuery" (ngModelChange)="search()">
     <label for="pageSize">Page Size:</label>
-    <input type="number" id="pageSize" [(ngModel)]="pageSize" (change)="updateDisplayedCustomers()">
+    <input class="pageSize" type="number" id="pageSize" [(ngModel)]="pageSize" (change)="updateDisplayedCustomers()">
     <table>
         <!-- Table header -->
         <thead>
@@ -19,19 +19,32 @@
                 <td>{{ customer.id }}</td>
                 <td>{{ customer.name }}</td>
                 <td>{{ customer.balance }}</td>
-                <td><button (click)="editWallet(customer)">Edit</button></td>
+                <td>
+                    <button (click)="toggleAddBalance(customer)">Add Balance</button>
+                    <form *ngIf="customer.isAddingBalance" (submit)="saveAddedBalance($event, customer)">
+                        <input type="number" [(ngModel)]="customer.amountToAdd" placeholder="Enter amount to add">
+                        <div class="buttons">
+                            <button type="submit">Save</button>
+                            <button type="button" (click)="cancelAddBalance(customer)">Cancel</button>
+                        </div>
+                    </form>
+                </td>
             </tr>
         </tbody>
     </table>
-    <!-- Pagination with scrollbar -->
+    <!-- Pagination  -->
     <div class="pagination-container">
-        <div class="pagination">
-            <button (click)="prevPage()" [disabled]="currentPage == 1">Previous</button>
-            <div class="page-numbers" [style.max-height]="totalPages > 5 ? '200px' : 'auto'">
+        <div class="pagination" [ngStyle]="{ 'height': totalPages > 5 ? '200px' : 'auto' }">
+            <button (click)="prevPage()" [disabled]="currentPage === 1"
+                [class.disabled]="currentPage === 1">Previous</button>
+            <div class="page-numbers">
                 <button *ngFor="let page of pages" (click)="goToPage(page)" [class.active]="currentPage === page">{{
-                    page }}</button>
+                    page
+                    }}</button>
             </div>
-            <button (click)="nextPage()" [disabled]="currentPage == totalPages">Next</button>
+            <button (click)="nextPage()" [disabled]="currentPage === totalPages"
+                [class.disabled]="currentPage === totalPages">Next</button>
         </div>
     </div>
+
 </div>
