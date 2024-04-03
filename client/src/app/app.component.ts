@@ -14,52 +14,50 @@ export class AppComponent {
   faUser = faUserCircle;
   title = 'client';
 
-  constructor(private router: Router) {}
+  constructor(private router: Router) {
+    // Retrieve the state from localStorage when the component initializes
+    this.btn = parseInt(localStorage.getItem('btn') || '1', 10); // Default to 1 if no value found
+  }
+
+  onLinkClick(linkNumber: number) {
+    // Update the activeLink variable and store it in localStorage
+    this.btn = linkNumber;
+    localStorage.setItem('btn', linkNumber.toString());
+  }
 
   navHome(){
-    this.btn = 1;
-    this.router.navigate(['admin'])
+    this.onLinkClick(1);
+    this.router.navigate(['admin']);
   }
 
   navEditMenu(){
-    this.btn = 2;
+    this.onLinkClick(2);
     this.router.navigate(['admin/menu-management'])
   }
 
   navAnalytics(){
-    this.btn = 3;
+    this.onLinkClick(3);
     this.router.navigate(['admin/analytics'])
   }
 
   navPickup(){
-    this.btn = 4;
+    this.onLinkClick(4);
     this.router.navigate(['admin/pickupmanagement'])
   }
 
   navCoupon(){
-    this.btn = 5;
+    this.onLinkClick(5);
     this.router.navigate(['admin/coupons'])
   }
-  
-  navOrderHistory(){
-    this.btn = 6;
-    this.router.navigate(['admin/order-history'])
-  }
-
   navUserMenu(){
-    this.btn = 7;
+    this.onLinkClick(6);
     this.router.navigate(['user/menu'])
   }
 
-  navUserRole(){
-    this.btn=8;
-    this.router.navigate(['admin/user-role'])
-  }
 
-  navUserCart()
-  {
-    this.btn=10;
-    this.router.navigate(['user/cart'])
+  navOrderHistory(){
+    this.onLinkClick(7);
+    this.router.navigate(['admin/order-history'])
   }
 
 }
