@@ -14,6 +14,63 @@ export class AppComponent {
   faUser = faUserCircle;
   title = 'client';
 
+
+  constructor(private router: Router) {
+    // Retrieve the state from localStorage when the component initializes
+    this.btn = parseInt(localStorage.getItem('btn') || '1', 10); // Default to 1 if no value found
+  }
+
+  onLinkClick(linkNumber: number) {
+    // Update the activeLink variable and store it in localStorage
+    this.btn = linkNumber;
+    localStorage.setItem('btn', linkNumber.toString());
+  }
+
+  navHome(){
+    this.onLinkClick(1);
+    this.router.navigate(['admin']);
+  }
+
+  navEditMenu(){
+    this.onLinkClick(2);
+    this.router.navigate(['admin/menu-management'])
+  }
+
+  navAnalytics(){
+    this.onLinkClick(3);
+    this.router.navigate(['admin/analytics'])
+  }
+
+  navPickup(){
+    this.onLinkClick(4);
+    this.router.navigate(['admin/pickupmanagement'])
+  }
+
+  navCoupon(){
+    this.onLinkClick(5);
+    this.router.navigate(['admin/coupons'])
+  }
+  navUserMenu(){
+    this.onLinkClick(6);
+    this.router.navigate(['user/menu'])
+  }
+
+
+  navOrderHistory(){
+    this.onLinkClick(7);
+    this.router.navigate(['admin/order-history'])
+  }
+
+  navUserRole(){
+    this.onLinkClick(8);
+    this.router.navigate(['admin/user-role'])
+  }
+
+  navUserCart(){
+    this.onLinkClick(10);
+    this.router.navigate(['user/cart'])
+  }
+=======
   constructor(private router: Router) { }
 
   navHome() {
@@ -52,7 +109,7 @@ export class AppComponent {
   }
 
   walletUser(){
-    this.btn = 8;
+    this.btn = 11;
     this.router.navigate(['user/wallet'])
   }
 

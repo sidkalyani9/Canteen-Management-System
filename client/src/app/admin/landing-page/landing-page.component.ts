@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { faIndianRupeeSign, faStar, faPlateWheat } from '@fortawesome/free-solid-svg-icons';
 
