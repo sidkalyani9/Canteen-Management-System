@@ -70,6 +70,10 @@ export class WalletAdminComponent {
 
   ngOnInit() {
     this.updateDisplayedCustomers();
+    this.customers.forEach(customer => {
+      customer.isAddingBalance = false;
+      customer.amountToAdd = null;
+    });
   }
 
   updateDisplayedCustomers() {
@@ -115,7 +119,22 @@ export class WalletAdminComponent {
     this.updateDisplayedCustomers();
   }
 
-  editWallet(customer: any) {
-    console.log('Editing wallet for:', customer);
+  toggleAddBalance(customer: any): void {
+    customer.isAddingBalance = !customer.isAddingBalance;
+    if (customer.isAddingBalance) {
+      customer.amountToAdd = null; 
+    }
   }
+
+  saveAddedBalance(event: Event, customer: any): void {
+    event.preventDefault();
+    customer.balance += customer.amountToAdd;
+    customer.isAddingBalance = false;
+  }
+
+  cancelAddBalance(customer: any): void {
+    customer.isAddingBalance = false;
+    customer.amountToAdd = null;
+  }
+
 }
