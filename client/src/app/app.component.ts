@@ -72,12 +72,12 @@ export class AppComponent {
   }
 
   walletUser(){
-    this.btn = 11;
+    this.onLinkClick(11);
     this.router.navigate(['user/wallet'])
   }
 
   walletAdmin() {
-    this.btn = 9;
+    this.onLinkClick(9);
     this.router.navigate(['admin/wallet'])
   }
 
