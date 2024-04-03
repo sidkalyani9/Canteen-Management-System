@@ -60,4 +60,13 @@ export class AppComponent {
     this.router.navigate(['admin/order-history'])
   }
 
+  navUserRole(){
+    this.onLinkClick(8);
+    this.router.navigate(['admin/user-role'])
+  }
+
+  navUserCart(){
+    this.onLinkClick(10);
+    this.router.navigate(['user/cart'])
+  }
 }
