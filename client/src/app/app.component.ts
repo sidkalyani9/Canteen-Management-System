@@ -51,4 +51,14 @@ export class AppComponent {
     this.router.navigate(['admin/order-history'])
   }
 
+  walletUser(){
+    this.btn = 8;
+    this.router.navigate(['user/wallet'])
+  }
+
+  walletAdmin() {
+    this.btn = 9;
+    this.router.navigate(['admin/wallet'])
+  }
+
 }

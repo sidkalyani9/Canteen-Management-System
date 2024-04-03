@@ -1,0 +1,87 @@
+.wallet-container {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    padding: 20px;
+}
+
+h2 {
+    color: #802f59;
+    margin-bottom: 20px;
+}
+
+input[type="text"],
+input[type="number"] {
+    padding: 8px;
+    margin-bottom: 10px;
+}
+
+button {
+    padding: 8px 16px;
+    background-color: #802f59;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th,
+td {
+    border: 1px solid #ccc;
+    padding: 8px;
+}
+
+th {
+    background-color: #802f59;
+    color: #fff;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.pagination {
+    display: flex;
+    align-items: center;
+}
+
+
+.page-numbers button {
+    margin: 5px;
+    background-color: #fff;
+    color: #802f59;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 5px 10px;
+}
+
+.page-numbers button.active {
+    background-color: #802f59;
+    color: #fff;
+}
+
+.pagination-container {
+    overflow-x: auto;
+    overflow-y: hidden;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+.page-numbers {
+    display: inline-block;
+    white-space: nowrap;
+    margin: 0 5px;
+}
+
+.pagination-container::-webkit-scrollbar {
+    width: 12px;
+}
+
+.pagination-container::-webkit-scrollbar-thumb {
+    background-color: #802f59;
+    border-radius: 10px;
+}

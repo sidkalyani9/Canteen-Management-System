@@ -11,6 +11,8 @@ import { MenuManagementComponent } from './admin/Menu-Management/menu-management
 import { PickUpStatusEditComponent } from './pick-up/pick-up-status-edit/pick-up-status-edit.component';
 import { UserRoleManagementComponent } from './user-role/user-role-management/user-role-management.component';
 import { UserRoleEditComponent } from './user-role/user-role-edit/user-role-edit.component';
+import { WalletComponent } from './wallet/wallet.component';
+import { WalletAdminComponent } from './wallet-admin/wallet-admin.component';
 
 const routes: Routes = [
   {
@@ -58,7 +60,12 @@ const routes: Routes = [
         path: "user-role/:id/edit",
         component: UserRoleEditComponent,
         title : "user-role-update"
-      }
+      },
+      {
+        path: "wallet",
+        component: WalletAdminComponent,
+        title: "wallet"
+      },
     ]
   },
 
@@ -70,7 +77,11 @@ const routes: Routes = [
       {
         path: "menu",
         component: MenuComponent
-      }
+      },
+      {
+        path: "wallet",
+        component: WalletComponent
+      },
     ]
   },
 

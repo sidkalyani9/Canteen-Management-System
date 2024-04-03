@@ -1,0 +1,37 @@
+<div class="wallet-container">
+    <h2>Admin Wallet</h2>
+    <input type="text" placeholder="Search by ID or Name" [(ngModel)]="searchQuery" (ngModelChange)="search()">
+    <label for="pageSize">Page Size:</label>
+    <input type="number" id="pageSize" [(ngModel)]="pageSize" (change)="updateDisplayedCustomers()">
+    <table>
+        <!-- Table header -->
+        <thead>
+            <tr>
+                <th>Customer ID</th>
+                <th>Name</th>
+                <th>Balance</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <!-- Table body -->
+        <tbody>
+            <tr *ngFor="let customer of displayedCustomers">
+                <td>{{ customer.id }}</td>
+                <td>{{ customer.name }}</td>
+                <td>{{ customer.balance }}</td>
+                <td><button (click)="editWallet(customer)">Edit</button></td>
+            </tr>
+        </tbody>
+    </table>
+    <!-- Pagination with scrollbar -->
+    <div class="pagination-container">
+        <div class="pagination">
+            <button (click)="prevPage()" [disabled]="currentPage == 1">Previous</button>
+            <div class="page-numbers" [style.max-height]="totalPages > 5 ? '200px' : 'auto'">
+                <button *ngFor="let page of pages" (click)="goToPage(page)" [class.active]="currentPage === page">{{
+                    page }}</button>
+            </div>
+            <button (click)="nextPage()" [disabled]="currentPage == totalPages">Next</button>
+        </div>
+    </div>
+</div>
