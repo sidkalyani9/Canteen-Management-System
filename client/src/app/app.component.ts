@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import {MatSidenav} from '@angular/material/sidenav';
+import { MatSidenav } from '@angular/material/sidenav';
 import { faBars, faUserCircle } from '@fortawesome/free-solid-svg-icons';
 import { Router } from '@angular/router';
 
@@ -9,10 +9,11 @@ import { Router } from '@angular/router';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  btn=1;
+  btn = 1;
   faBars = faBars;
   faUser = faUserCircle;
   title = 'client';
+
 
   constructor(private router: Router) {
     // Retrieve the state from localStorage when the component initializes
@@ -58,6 +59,26 @@ export class AppComponent {
   navOrderHistory(){
     this.onLinkClick(7);
     this.router.navigate(['admin/order-history'])
+  }
+
+  navUserRole(){
+    this.onLinkClick(8);
+    this.router.navigate(['admin/user-role'])
+  }
+
+  navUserCart(){
+    this.onLinkClick(10);
+    this.router.navigate(['user/cart'])
+  }
+
+  walletUser(){
+    this.onLinkClick(11);
+    this.router.navigate(['user/wallet'])
+  }
+
+  walletAdmin() {
+    this.onLinkClick(9);
+    this.router.navigate(['admin/wallet'])
   }
 
 }
