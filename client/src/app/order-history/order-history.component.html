@@ -2,20 +2,6 @@
 <h1 class="heading text-center">Order history</h1>
 
 
-<!-- date filter  -->
-<div class="date-filter">
-    <p>Filter by date</p>
-    <div class=" dates">
-        <label for="start-date">Start Date</label>
-        <input type="date" id="start-date" name="start-date" [(ngModel)]="startDate" (change)="filterByDate()">
-    </div>
-    <div class=" dates">
-        <label for="end-date">End Date</label>
-        <input type="date" id="end-date" name="end-date" [(ngModel)]="endDate" (change)="filterByDate()">
-    </div>
-</div>
-
-
 <!-- tab-list  -->
 <div class="order-tab-list">
     <ul class="nav nav-pills">
@@ -35,6 +21,20 @@
                 (click)="showCancelledOrders()">Cancelled Orders</button>
         </li>
     </ul>
+</div>
+
+
+<!-- date filter  -->
+<div class="date-filter">
+    <p>Filter by date</p>
+    <div class=" dates">
+        <label for="start-date">Start Date</label>
+        <input type="date" id="start-date" name="start-date" [(ngModel)]="startDate" (change)="filterByDate()">
+    </div>
+    <div class=" dates">
+        <label for="end-date">End Date</label>
+        <input type="date" id="end-date" name="end-date" [(ngModel)]="endDate" (change)="filterByDate()">
+    </div>
 </div>
 
 
