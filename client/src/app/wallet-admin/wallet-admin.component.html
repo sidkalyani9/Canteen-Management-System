@@ -1,8 +1,23 @@
 <div class="wallet-container">
     <h2>Admin Wallet</h2>
-    <input class="searchbox" type="text" placeholder="Search by ID or Name" [(ngModel)]="searchQuery" (ngModelChange)="search()">
-    <label for="pageSize">Page Size:</label>
-    <input class="pageSize" type="number" id="pageSize" [(ngModel)]="pageSize" (change)="updateDisplayedCustomers()">
+    <div class="items">
+        <div class="row">
+            <button class="add-balance-button" (click)="toggleAddAllBalanceForm()">Add Same Amount to All</button>
+            <form class="add-all-form" *ngIf="showAddAllBalanceForm" (submit)="addAllBalance()">
+                <input type="number" [(ngModel)]="amountToAddToAll" placeholder="Enter amount to add">
+                <div class="add-all-buttons">
+                    <button type="submit">Add</button>
+                    <button type="button" (click)="cancelAddAllBalance()">Cancel</button>
+                </div>
+            </form>
+        </div>
+        <input class="searchbox" type="text" placeholder="Search by ID or Name" [(ngModel)]="searchQuery"
+            (ngModelChange)="search()">
+
+        <input class="pageSize" type="number" id="pageSize" [(ngModel)]="pageSize"
+            (change)="updateDisplayedCustomers()">
+        <label for="pageSize">Page Size:</label>
+    </div>
     <table>
         <!-- Table header -->
         <thead>
@@ -21,7 +36,7 @@
                 <td>{{ customer.balance }}</td>
                 <td>
                     <button (click)="toggleAddBalance(customer)">Add Balance</button>
-                    <form *ngIf="customer.isAddingBalance" (submit)="saveAddedBalance($event, customer)">
+                    <form class="form" *ngIf="customer.isAddingBalance" (submit)="saveAddedBalance($event, customer)">
                         <input type="number" [(ngModel)]="customer.amountToAdd" placeholder="Enter amount to add">
                         <div class="buttons">
                             <button type="submit">Save</button>
@@ -39,12 +54,10 @@
                 [class.disabled]="currentPage === 1">Previous</button>
             <div class="page-numbers">
                 <button *ngFor="let page of pages" (click)="goToPage(page)" [class.active]="currentPage === page">{{
-                    page
-                    }}</button>
+                    page }}</button>
             </div>
             <button (click)="nextPage()" [disabled]="currentPage === totalPages"
                 [class.disabled]="currentPage === totalPages">Next</button>
         </div>
     </div>
-
 </div>

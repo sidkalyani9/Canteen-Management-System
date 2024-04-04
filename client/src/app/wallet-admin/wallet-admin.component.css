@@ -105,22 +105,52 @@ tr:nth-child(even) {
     cursor: not-allowed;
 }
 
-form {
+.row {
+    margin-left: 100px;
+}
+
+.form {
     width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
+    border: 3px solid #802f59;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.add-all-form {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border: 3px solid #802f59;
+    justify-content: center;
+    border-radius: 5px;
+    padding: 10px;
 }
 
 
-form input[type="number"] {
+
+.add-all-form input {
+    padding: 10px;
+    width: 70%;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+
+
+
+.form input[type="number"] {
     padding: 8px;
     margin-top: 3px;
     margin-bottom: 12px;
     width: 50%;
 }
 
-form button {
+
+
+.form button {
     padding: 8px 16px;
     background-color: #802f59;
     color: #fff;
@@ -130,15 +160,65 @@ form button {
     transition: background-color 0.3s ease;
 }
 
-form button:hover {
+
+
+.form button:hover {
     background-color: #5a1f40;
 }
 
-form button[type="submit"] {
+.form button[type="submit"] {
     margin-top: 8px;
 }
 
-form button[type="button"] {
+.form button[type="button"] {
     margin-top: 8px;
     margin-left: 8px;
+}
+
+
+
+.wallet-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.add-balance-button {
+    padding: 8px 16px;
+    background-color: #802f59;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 15px;
+}
+
+.add-balance-button:hover {
+    background-color: #5a1f40;
+}
+
+.table-container {
+    width: 100%;
+}
+
+.items {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+}
+
+.add-all-buttons {
+    margin-left: 6px;
+}
+
+.add-all-buttons button:hover {
+    background-color: #5a1f40;
+}
+
+.add-all-buttons button[type="submit"] {
+    margin-right: 10px;
+}
+
+.add-all-buttons button[type="button"] {
+    margin-left: 10px;
 }
