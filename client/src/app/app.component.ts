@@ -51,13 +51,13 @@ export class AppComponent {
     this.router.navigate(['admin/coupons'])
   }
   navUserMenu(){
-    this.onLinkClick(6);
+    this.onLinkClick(7);
     this.router.navigate(['user/menu'])
   }
 
 
   navOrderHistory(){
-    this.onLinkClick(7);
+    this.onLinkClick(6);
     this.router.navigate(['admin/order-history'])
   }
 
