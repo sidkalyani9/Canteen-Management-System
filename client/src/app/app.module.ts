@@ -44,11 +44,11 @@ import { TabViewModule } from 'primeng/tabview';
 import { PrimeIcons } from 'primeng/api';
 import { UserRoleManagementComponent } from './user-role/user-role-management/user-role-management.component';
 import { UserRoleEditComponent } from './user-role/user-role-edit/user-role-edit.component';
+
 import { WalletComponent } from './wallet/wallet.component';
 import { WalletAdminComponent } from './wallet-admin/wallet-admin.component';
-
-
 import { ConfirmationService, MessageService } from 'primeng/api';
+import { LoaderComponent } from './partial/loader/loader.component';
 
 
 
@@ -71,6 +71,7 @@ import { ConfirmationService, MessageService } from 'primeng/api';
     UserRoleEditComponent,
     WalletComponent,
     WalletAdminComponent,
+    LoaderComponent,
   ],
   imports: [
     BrowserModule,
