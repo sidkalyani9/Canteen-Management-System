@@ -1,28 +1,44 @@
 <!-- <a routerLink="pick-up-management">Pick-up</a> -->
 
-
-
-
-
-
 <div class="container">
     <div class="d-flex">
-        <ul>
-            <li *ngFor="let user of pickUpUsers" class="order-item-box">
-                <div>
-                    <img src="assets/user-sample.jpg" class="center user-logo-img">
-                </div>
-                <div class="order_no">order no. :-{{ user.order_no }}</div>
-                <div>Customer name:-{{ user.customer_name }}</div>
-                <div>Mo no:-{{ user.customer_mo_no }}
-                    <button type="button" class="btn btn-primary">
-                        <img src="assets\pick_up_button_logo.webp" class="pick_up_button_logo" alt=""> Pick Up
-                    </button>
-                </div>
-            </li>
-        </ul>
 
 
-        
+        <div *ngIf="isLoading; else elsePickUpBlock">
+            <app-loader></app-loader>
+        </div>
+
+        <ng-template #elsePickUpBlock>
+            <ul>
+                <li *ngFor="let user of pickUpUsers" class="order-item-box">
+                    <div>
+                        <img src="assets/user-sample.jpg" class="center user-logo-img">
+                    </div>
+                    <div class="order_no mt-2 bur">order no. :-{{ user.order_no }}</div>
+                    <div>Customer name:-{{ user.customer_name }}</div>
+                    <div>Mo no:-{{ user.customer_mo_no }}
+                        <div class="w-100 d-flex justify-content-center">
+                            <a routerLink="{{user.order_no}}/edit"
+                                class="w-50 btn btn-primary mt-2 d-flex  burgandy border-3 justify-content-center align-items-center">
+                                <!-- <img src="assets\pick_up_button_logo.webp" class="pick_up_button_logo" alt=""> -->
+                                <svg fill="currentColor" height="20px" width="20px" version="1.1" id="Capa_1"
+                                    xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                    viewBox="0 0 483.1 483.1" xml:space="preserve">
+                                    <g>
+                                        <path
+                                            d="M434.55,418.7l-27.8-313.3c-0.5-6.2-5.7-10.9-12-10.9h-58.6c-0.1-52.1-42.5-94.5-94.6-94.5s-94.5,42.4-94.6,94.5h-58.6
+		                            c-6.2,0-11.4,4.7-12,10.9l-27.8,313.3c0,0.4,0,0.7,0,1.1c0,34.9,32.1,63.3,71.5,63.3h243c39.4,0,71.5-28.4,71.5-63.3
+		                            C434.55,419.4,434.55,419.1,434.55,418.7z M241.55,24c38.9,0,70.5,31.6,70.6,70.5h-141.2C171.05,55.6,202.65,24,241.55,24z
+		                            M363.05,459h-243c-26,0-47.2-17.3-47.5-38.8l26.8-301.7h47.6v42.1c0,6.6,5.4,12,12,12s12-5.4,12-12v-42.1h141.2v42.1
+		                            c0,6.6,5.4,12,12,12s12-5.4,12-12v-42.1h47.6l26.8,301.8C410.25,441.7,389.05,459,363.05,459z" />
+                                    </g>
+                                </svg>
+                                <span class="mx-1 ms-3 text-burgandy fw-bold"> Pick Up</span></a>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </ng-template>
+
     </div>
 </div>

@@ -1,0 +1,33 @@
+.wallet-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    border: 2px solid #802f59;
+    border-radius: 5px;
+    width: 80%;
+    max-width: 300px;
+    text-align: center;
+    padding: 20px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+}
+
+h2 {
+    color: #802f59;
+    margin-bottom: 20px;
+}
+
+.balance {
+    display: flex;
+    flex-direction: column;
+}
+
+.amount {
+    font-size: 24px;
+    font-weight: bold;
+    color: #802f59;
+}

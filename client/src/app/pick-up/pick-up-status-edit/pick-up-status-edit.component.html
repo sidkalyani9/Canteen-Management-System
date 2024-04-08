@@ -1,0 +1,29 @@
+<div class="container">
+    <div *ngIf="isLoading; else elsePickUpEditBlock">
+        <app-loader></app-loader>
+    </div>
+
+    <ng-template #elsePickUpEditBlock>
+    <div>
+      <div *ngIf="order && order.order_no">
+        <div>{{order.order_no}}</div>
+        <div>{{order.customer_name}}</div>
+        <div>{{order.customer_mo_no}}</div>
+      </div>
+  
+      <form #basicForm="ngForm" (ngSubmit)="updatePayment(basicForm.value)">
+        <input type="radio" ngModel name="Payment_method" value="gpay"> gpay
+        <input type="radio" ngModel name="Payment_method" value="gpay2"> gpay2
+        <input type="radio" ngModel name="Payment_method" value="gpay3"> gpay3
+        <div class="mb-3">
+          <button type="submit" class="btn btn-primary">Update</button>
+        </div>
+      </form>
+  
+      <div class="mb-3">
+        <a routerLink="/admin/pickupmanagement" class="btn">Back</a>
+      </div>
+    </div>
+    </ng-template>
+  </div>
+  

@@ -39,7 +39,7 @@ li{
 .order-item-box{
     margin: 20px;
     padding:10px;
-    border: 2px solid black;
+    border: 3px solid #802F59;
     border-radius: 15px;
     width: 25%;
 }
@@ -47,6 +47,7 @@ li{
 .order_no{
     margin-bottom: 10px;
     font-weight: bold;
+    color: #802F59;
 }
 
 .user-logo-img{
@@ -65,3 +66,15 @@ li{
     margin-left: auto;
     margin-right: auto;
 }
+
+.burgandy{
+    background-color: #802F59;
+    border-color: #802F59;
+}
+
+.burgandy:hover{
+    background-color: #ffffff;
+    border: 3px solid #802F59;
+    color: #802F59;
+}
+
