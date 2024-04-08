@@ -1,6 +1,15 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { MatSidenav } from '@angular/material/sidenav';
-import { faBars, faUserCircle } from '@fortawesome/free-solid-svg-icons';
+import {MatSidenav} from '@angular/material/sidenav';
+import { 
+  faBars, 
+  faUserCircle, 
+  faHome, faEdit, 
+  faChartBar, 
+  faPersonWalking, 
+  faPercent, 
+  faHistory,
+  faUserEdit
+} from '@fortawesome/free-solid-svg-icons';
 import { Router } from '@angular/router';
 
 @Component({
@@ -9,9 +18,19 @@ import { Router } from '@angular/router';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  btn = 1;
-  faBars = faBars;
-  faUser = faUserCircle;
+  btn=1;
+  fontIcons = {
+    faBars: faBars,
+    faUser: faUserCircle,
+    homeIcon: faHome,
+    editIcon: faEdit,
+    analyticsIcon: faChartBar,
+    pickupIcon: faPersonWalking,
+    couponIcon: faPercent,
+    historyIcon: faHistory,
+    userRoleIcon: faUserEdit
+  }
+  
   title = 'client';
 
 
