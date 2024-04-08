@@ -35,7 +35,7 @@
                 <td>{{ customer.name }}</td>
                 <td>{{ customer.balance }}</td>
                 <td>
-                    <button (click)="toggleAddBalance(customer)">Add Balance</button>
+                    <button class="addBalance" (click)="toggleAddBalance(customer)">Add Balance</button>
                     <form class="form" *ngIf="customer.isAddingBalance" (submit)="saveAddedBalance($event, customer)">
                         <input type="number" [(ngModel)]="customer.amountToAdd" placeholder="Enter amount to add">
                         <div class="buttons">
