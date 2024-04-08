@@ -1,5 +1,4 @@
 .wallet-container {
-    text-align: center;
     padding: 20px;
 }
 
@@ -74,7 +73,7 @@ tr:nth-child(even) {
 
 .pagination-container {
     overflow-x: auto;
-    overflow-y: hidden;
+    overflow-y: auto;
     height: auto;
     margin-bottom: 10px;
 }
@@ -104,6 +103,8 @@ tr:nth-child(even) {
     color: #666;
     cursor: not-allowed;
 }
+
+
 
 .row {
     margin-left: 100px;
