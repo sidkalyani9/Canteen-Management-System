@@ -40,6 +40,7 @@ import { ToastModule } from 'primeng/toast';
 import { ToolbarModule } from 'primeng/toolbar';
 import { ButtonModule } from 'primeng/button'; 
 import { TabViewModule } from 'primeng/tabview';
+import { DialogModule } from 'primeng/dialog';
 
 import { PrimeIcons } from 'primeng/api';
 import { UserRoleManagementComponent } from './user-role/user-role-management/user-role-management.component';
@@ -96,7 +97,8 @@ import { ConfirmationService, MessageService } from 'primeng/api';
     ToastModule,
     ToolbarModule,
     ButtonModule,
-    TabViewModule
+    TabViewModule,
+    DialogModule
   ],
   providers: [
     provideAnimationsAsync(),
