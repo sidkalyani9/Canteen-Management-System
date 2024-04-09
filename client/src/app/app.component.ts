@@ -76,29 +76,9 @@ export class AppComponent {
     this.router.navigate(['user/menu'])
   }
 
-
   navOrderHistory(){
     this.onLinkClick(7);
     this.router.navigate(['admin/order-history'])
-  }
-  navUserRole(){
-    this.onLinkClick(8);
-    this.router.navigate(['admin/user-role'])
-  }
-
-  navUserCart(){
-    this.onLinkClick(10);
-    this.router.navigate(['user/cart'])
-  }
-
-  walletUser(){
-    this.onLinkClick(11);
-    this.router.navigate(['user/wallet'])
-  }
-
-  walletAdmin() {
-    this.onLinkClick(9);
-    this.router.navigate(['admin/wallet'])
   }
 
   navUserRole(){
