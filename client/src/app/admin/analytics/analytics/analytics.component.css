@@ -100,7 +100,19 @@
     height: 20vh !important;
 } */
 
-.p-element, .p-datatable, .p-datatable-header, .p-component {
+.p-sortable-column{
+    background-color: #802f5931 !important;
+}
+
+tr:nth-child(odd){
+    background-color: #802f5911 !important;
+}
+
+tr:nth-child(even){
+    background-color: #802f5931 !important;
+}
+
+.p-datatable, .p-datatable-header, .p-component {
     border-top-left-radius: 1em !important;
     border-top-right-radius: 1em !important;
 }
@@ -110,6 +122,8 @@
     display: flex !important;
     /* grid-template-columns: 30% 80% !important; */
     align-items: center;
+    background-color: #802f59;
+    color: white;
 }
 
 .searchBox{

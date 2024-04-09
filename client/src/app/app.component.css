@@ -12,9 +12,19 @@
 }
 
 .headerLogo{
-    margin-left: 2%;
+    margin-left: 2% !important;
     margin-top: -0.6% !important;
     width:5vw;
+}
+
+.leftHeader{
+    display: flex;
+    align-items: center;
+}
+
+.leftLogo{
+    margin-left: 1%;
+    align-items: center !important;
 }
 
 .headerRow{
@@ -27,6 +37,12 @@
 .menuIcon{
     color: white;
     font-size:1.5vw;
+}
+
+.utensilIcon{
+    color: white;
+    font-size:1.25vw !important;
+    margin-left: 2%;
 }
 
 .headerRight{
