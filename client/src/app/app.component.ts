@@ -76,7 +76,6 @@ export class AppComponent {
     this.router.navigate(['user/menu'])
   }
 
-
   navOrderHistory(){
     this.onLinkClick(7);
     this.router.navigate(['admin/order-history'])
