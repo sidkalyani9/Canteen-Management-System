@@ -54,4 +54,7 @@ public class WalletHistory {
     public void setCreatedAt(Date createdAt) {
         this.createdAt = createdAt;
     }
+
+    public WalletHistory() {
+    }
 }
