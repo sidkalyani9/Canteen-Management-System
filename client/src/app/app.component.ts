@@ -8,7 +8,8 @@ import {
   faPersonWalking, 
   faPercent, 
   faHistory,
-  faUserEdit
+  faUserEdit,
+  faUtensils
 } from '@fortawesome/free-solid-svg-icons';
 import { Router } from '@angular/router';
 
@@ -22,6 +23,7 @@ export class AppComponent {
   fontIcons = {
     faBars: faBars,
     faUser: faUserCircle,
+    utensilIcon: faUtensils,
     homeIcon: faHome,
     editIcon: faEdit,
     analyticsIcon: faChartBar,
@@ -73,7 +75,6 @@ export class AppComponent {
     this.onLinkClick(6);
     this.router.navigate(['user/menu'])
   }
-
 
   navOrderHistory(){
     this.onLinkClick(7);
