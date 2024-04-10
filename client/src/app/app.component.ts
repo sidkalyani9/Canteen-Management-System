@@ -99,5 +99,9 @@ export class AppComponent {
     this.onLinkClick(9);
     this.router.navigate(['admin/wallet'])
   }
+  orderManagement() {
+    this.onLinkClick(12);
+    this.router.navigate(['admin/order-management'])
+  }
 
 }
