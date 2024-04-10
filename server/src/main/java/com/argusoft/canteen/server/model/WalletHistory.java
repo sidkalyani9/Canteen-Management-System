@@ -15,8 +15,8 @@ public class WalletHistory {
     @Column(name = "wallet_uuid", updatable = false, nullable = false)
     private UUID walletUuid;
 
-    @Column(name = "user_uuid")
-    private UUID userUuid;
+    @Column(name = "EmployeeId")
+    private String EmployeeId;
 
     @Column(name = "amount")
     private float amount;
@@ -31,12 +31,12 @@ public class WalletHistory {
         this.walletUuid = walletUuid;
     }
 
-    public UUID getUserUuid() {
-        return userUuid;
+    public String getEmployeeId() {
+        return EmployeeId;
     }
 
-    public void setUserUuid(UUID userUuid) {
-        this.userUuid = userUuid;
+    public void setEmployeeId(String employeeId) {
+        EmployeeId = employeeId;
     }
 
     public float getAmount() {
@@ -53,8 +53,5 @@ public class WalletHistory {
 
     public void setCreatedAt(Date createdAt) {
         this.createdAt = createdAt;
-    }
-
-    public WalletHistory() {
     }
 }
