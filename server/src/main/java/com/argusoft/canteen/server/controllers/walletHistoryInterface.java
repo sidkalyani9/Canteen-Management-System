@@ -7,8 +7,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import java.util.List;
 import java.util.Map;
 
-public interface walletController {
-    public ResponseEntity<WalletHistory> getEmployeeWalletHistory(@RequestBody Map<String, Object> requestBody);
+public interface walletHistoryInterface {
+    public ResponseEntity<List<WalletHistory>> getEmployeeWalletHistory(@RequestBody Map<String, Object> requestBody);
     public ResponseEntity<List<WalletHistory>> getAllWalletHistory();
     public ResponseEntity<WalletHistory> addToEmployeeWallet(@RequestBody WalletHistory wallet);
     public ResponseEntity<WalletHistory> removeFromEmployeeWallet(@RequestBody WalletHistory wallet);
