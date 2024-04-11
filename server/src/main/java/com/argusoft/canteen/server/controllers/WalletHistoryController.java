@@ -4,12 +4,11 @@ import com.argusoft.canteen.server.model.WalletHistory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Map;
+
 import com.argusoft.canteen.server.service.walletHistoryService;
 
 @RestController
@@ -24,17 +23,34 @@ public class WalletHistoryController implements walletHistoryInterface {
         this.walletService = service;
     }
     @Override
-    public ResponseEntity<WalletHistory> getEmployeeWalletHistory(Map<String, Object> requestBody) {
-        return null;
+    @GetMapping("/getEmployeeWalletHistory")
+    public ResponseEntity<List<WalletHistory>> getEmployeeWalletHistory(Map<String, Object> requestBody) {
+        try{
+            List<WalletHistory> empWalletList = walletService.fetchEmployeeWalletHistory(requestBody.get("employeeId").toString());
+            return new ResponseEntity<>(empWalletList,HttpStatus.OK);
+        }
+        catch (Exception e){
+            System.out.println(e.getMessage());
+            return new ResponseEntity<>(null,HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+
     }
 
     @Override
+    @GetMapping("/getAllWalletHistory")
     public ResponseEntity<List<WalletHistory>> getAllWalletHistory() {
-        return null;
+        try{
+            return new ResponseEntity<>(walletService.fetchAllWalletHistory(),HttpStatus.OK);
+        }
+        catch (Exception e){
+            System.out.println(e.getMessage());
+            return new ResponseEntity<>(null,HttpStatus.INTERNAL_SERVER_ERROR);
+        }
     }
 
     @Override
-    public ResponseEntity<WalletHistory> addToEmployeeWallet(WalletHistory wallet) {
+    @PostMapping("/add")
+    public ResponseEntity<WalletHistory> addToEmployeeWallet(@RequestBody WalletHistory wallet) {
         WalletHistory returnedWallet = walletService.insertToWallet(wallet);
         return new ResponseEntity<>(returnedWallet, HttpStatus.OK);
     }

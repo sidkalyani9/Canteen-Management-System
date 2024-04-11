@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Map;
 
 public interface walletHistoryInterface {
-    public ResponseEntity<WalletHistory> getEmployeeWalletHistory(@RequestBody Map<String, Object> requestBody);
+    public ResponseEntity<List<WalletHistory>> getEmployeeWalletHistory(@RequestBody Map<String, Object> requestBody);
     public ResponseEntity<List<WalletHistory>> getAllWalletHistory();
     public ResponseEntity<WalletHistory> addToEmployeeWallet(@RequestBody WalletHistory wallet);
     public ResponseEntity<WalletHistory> removeFromEmployeeWallet(@RequestBody WalletHistory wallet);
