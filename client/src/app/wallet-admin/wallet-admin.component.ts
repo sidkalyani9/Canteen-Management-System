@@ -67,6 +67,8 @@ export class WalletAdminComponent {
   currentPage: number = 1;
   totalPages: number = 1;
   pages: number[] = [];
+  amountToAddToAll: any;
+  showAddAllBalanceForm: boolean = false;
 
   ngOnInit() {
     this.updateDisplayedCustomers();
@@ -122,7 +124,7 @@ export class WalletAdminComponent {
   toggleAddBalance(customer: any): void {
     customer.isAddingBalance = !customer.isAddingBalance;
     if (customer.isAddingBalance) {
-      customer.amountToAdd = null; 
+      customer.amountToAdd = null;
     }
   }
 
@@ -137,4 +139,24 @@ export class WalletAdminComponent {
     customer.amountToAdd = null;
   }
 
+  toggleAddAllBalanceForm(): void {
+    this.showAddAllBalanceForm = !this.showAddAllBalanceForm;
+    if (this.showAddAllBalanceForm) {
+      this.amountToAddToAll = null;
+    }
+  }
+
+  addAllBalance(): void {
+    if (this.amountToAddToAll != null) {
+      this.customers.forEach(customer => {
+        customer.balance += this.amountToAddToAll;
+      });
+      this.showAddAllBalanceForm = false;
+    }
+  }
+
+  cancelAddAllBalance(): void {
+    this.showAddAllBalanceForm = false;
+    this.amountToAddToAll = null;
+  }
 }
