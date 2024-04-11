@@ -49,6 +49,7 @@ import { WalletComponent } from './wallet/wallet.component';
 import { WalletAdminComponent } from './wallet-admin/wallet-admin.component';
 import { ConfirmationService, MessageService } from 'primeng/api';
 import { LoaderComponent } from './partial/loader/loader.component';
+import { OrderManagementComponent } from './order-management/order-management.component';
 
 
 
@@ -72,6 +73,7 @@ import { LoaderComponent } from './partial/loader/loader.component';
     WalletComponent,
     WalletAdminComponent,
     LoaderComponent,
+    OrderManagementComponent,
   ],
   imports: [
     BrowserModule,
