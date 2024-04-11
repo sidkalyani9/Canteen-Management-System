@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Component, OnInit,ViewEncapsulation } from '@angular/core';
-import { PickUpOrderDataService } from '../service/pick-up-order-data.service';
+import { PickUpOrderDataService } from '../../service/pick-up-order-data.service';
 
 
 @Component({
@@ -12,14 +12,31 @@ import { PickUpOrderDataService } from '../service/pick-up-order-data.service';
 export class PickUpManagementComponent implements OnInit {
 
   pickUpUsers: any[] =[];
+  isLoading:boolean=false;
 
-  constructor(private pickUpUserData: PickUpOrderDataService) { }
+  constructor(private pickUpOrderDataService:PickUpOrderDataService) { }
   
   ngOnInit(): void {
-    this.pickUpUserData.pickUpUsers().subscribe((data: any) => {
-      this.pickUpUsers = data;
+    this.pickUpUserList();
+  
+  }
+
+  pickUpUserList(){
+    this.isLoading=true;
+    this.pickUpOrderDataService.getOrders().subscribe((res: any) => {
+      this.pickUpUsers = res;
+      console.log(res);
+      this.isLoading=false;
     });
   }
+
+
+  // data:any={};
+
+  // getValue(){
+  //   console.log(this.data);
+    
+  // }
   
   // array: any[] = [
   //   {

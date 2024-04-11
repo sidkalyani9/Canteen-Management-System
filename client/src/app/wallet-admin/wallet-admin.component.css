@@ -1,0 +1,224 @@
+.wallet-container {
+    text-align: center;
+    padding: 20px;
+}
+
+.searchbox,
+.pageSize {
+    padding: 8px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.searchbox:focus,
+.pageSize:focus {
+    outline: none;
+    border-color: #802f59;
+    box-shadow: 0 0 0 2px #c587a7;
+}
+
+h2 {
+    color: #802f59;
+    margin-bottom: 20px;
+}
+
+
+button {
+    padding: 8px 16px;
+    background-color: #802f59;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th,
+td {
+    border: 1px solid #ccc;
+    padding: 8px;
+}
+
+th {
+    background-color: #802f59;
+    color: #fff;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+
+.pagination {
+    display: flex;
+    align-items: center;
+}
+
+
+.page-numbers button {
+    margin: 5px;
+    background-color: #fff;
+    color: #802f59;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 5px 10px;
+}
+
+.pagination-container {
+    overflow-x: auto;
+    overflow-y: hidden;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+.page-numbers {
+    display: inline-block;
+    white-space: nowrap;
+    margin: 0 5px;
+}
+
+.pagination-container::-webkit-scrollbar {
+    width: 12px;
+}
+
+.pagination-container::-webkit-scrollbar-thumb {
+    background-color: #802f59;
+    border-radius: 10px;
+}
+
+.pagination button.active {
+    background-color: #802f59;
+    color: #fff;
+}
+
+.pagination button.disabled {
+    background-color: #ccc;
+    color: #666;
+    cursor: not-allowed;
+}
+
+.row {
+    margin-left: 100px;
+}
+
+.form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 3px solid #802f59;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.add-all-form {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border: 3px solid #802f59;
+    justify-content: center;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+
+
+.add-all-form input {
+    padding: 10px;
+    width: 70%;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+
+
+
+.form input[type="number"] {
+    padding: 8px;
+    margin-top: 3px;
+    margin-bottom: 12px;
+    width: 50%;
+}
+
+
+
+.form button {
+    padding: 8px 16px;
+    background-color: #802f59;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+
+
+.form button:hover {
+    background-color: #5a1f40;
+}
+
+.form button[type="submit"] {
+    margin-top: 8px;
+}
+
+.form button[type="button"] {
+    margin-top: 8px;
+    margin-left: 8px;
+}
+
+
+
+.wallet-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.add-balance-button {
+    padding: 8px 16px;
+    background-color: #802f59;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 15px;
+}
+
+.add-balance-button:hover {
+    background-color: #5a1f40;
+}
+
+.table-container {
+    width: 100%;
+}
+
+.items {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+}
+
+.add-all-buttons {
+    margin-left: 6px;
+}
+
+.add-all-buttons button:hover {
+    background-color: #5a1f40;
+}
+
+.add-all-buttons button[type="submit"] {
+    margin-right: 10px;
+}
+
+.add-all-buttons button[type="button"] {
+    margin-left: 10px;
+}

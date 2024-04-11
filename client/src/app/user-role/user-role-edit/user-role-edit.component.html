@@ -1,0 +1,58 @@
+
+    <select id="Role" name="role" [(ngModel)]="defaultRole">
+        <option value="user">User</option>
+        <option value="staff">Staff</option>
+        <option value="admin">Admin</option>
+      </select>
+      
+    
+
+
+
+  <!-- There are two dropdowns to show multi-menu support -->
+
+<div class="center">
+  <div class="container">
+    <div class="setting-description">
+      <div class="setting-description-text" style="margin-left: 15px">
+        <h6>Description</h6>
+      </div>
+    </div>
+    <form #basicForm="ngForm" (ngSubmit)="updateRole(basicForm.value)">
+    <div class="wrapper-dropdown" id="dropdown">
+      <span class="selected-display" id="destination">Pick an option!</span>
+      <svg class="arrow" id="drp-arrow" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="transition-all ml-auto rotate-180">
+        <path d="M7 14.5l5-5 5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+      </svg>
+      <ul class="dropdown">
+        <li class="item">Option 1</li>
+        <li class="item">Option 2</li>
+        <li class="item">Option 3</li>
+        <li class="item">Option 4</li>
+      </ul>
+
+      <button type="submit">Submit</button>
+    </div>
+  </form>
+
+    <br>
+
+    <div class="setting-description">
+      <div class="setting-description-text" style="margin-left: 15px">
+        <h6>Description</h6>
+      </div>
+    </div>
+    <div class="wrapper-dropdown" id="dropdown">
+      <span class="selected-display" id="destination">Pick a different option!</span>
+      <svg class="arrow" id="drp-arrow" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="transition-all ml-auto rotate-180">
+        <path d="M7 14.5l5-5 5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+      </svg>
+      <ul class="dropdown">
+        <li class="item">Special Option 1</li>
+        <li class="item">Special Option 2</li>
+        <li class="item">Special Option 3</li>
+        <li class="item">Special Option 4</li>
+      </ul>
+    </div>
+  </div>
+</div>

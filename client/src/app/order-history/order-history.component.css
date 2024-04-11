@@ -1,0 +1,252 @@
+ /* heading  */
+ .heading {
+     font-size: 2vw;
+     font-weight: bold;
+     border: 2px solid #802f59 !important;
+     border-radius: 20vw;
+     max-width: 500px;
+     width: 50vw;
+     margin-top: 1vw;
+     padding: 1vw;
+     box-shadow: 1vw 1vw 1vw #802f59;
+     margin-inline: auto;
+ }
+
+
+ /* tab-list  */
+ .order-tab-list {
+     margin-top: 2vw;
+     margin-left: 2.5vw;
+     width: 100%;
+     margin-bottom: 1vw;
+ }
+
+ .order-tab-list ul {
+     border: 3px solid #802f59;
+     border-radius: 8px;
+     width: 412px;
+ }
+
+ .nav-link:hover {
+     background-color: #b17b97;
+ }
+
+ .nav-link {
+     color: #333;
+     border-radius: 5px;
+     cursor: pointer;
+ }
+
+ .order-tab-list ul li button {
+     padding-top: 15px;
+     padding-bottom: 15px;
+ }
+
+ .button.active {
+     background-color: #802f59;
+     color: #fff;
+     border-color: #802f59;
+ }
+
+
+ /* date filter  */
+ .dates {
+     float: left;
+     margin-right: 10px;
+ }
+
+ .date-filter {
+     position: absolute;
+     margin-top: 50px;
+     display: flex;
+     justify-content: space-between;
+     margin-left: 915px;
+     margin-top: 10px;
+ }
+
+ .date-filter p {
+     margin-top: 39px;
+     display: flex;
+     justify-content: center;
+     font-size: 16px;
+     border: 1px solid #802f59;
+     padding: 6px;
+     border-radius: 4px;
+     font-weight: bold;
+     margin-right: 10px;
+ }
+
+ .dates label {
+     display: flex;
+     justify-content: center;
+     margin-bottom: 5px;
+     font-size: 16px;
+     border: 1px solid #802f59;
+     padding: 6px;
+     border-radius: 4px;
+     font-weight: bold;
+ }
+
+ .dates input[type="date"] {
+     width: 100%;
+     padding: 6px 12px;
+     font-size: 14px;
+     line-height: 1.5;
+     color: #495057;
+     background-color: #fff;
+     background-clip: padding-box;
+     border: 1px solid #802f59;
+     border-radius: 4px;
+     transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+ }
+
+ .dates input[type="date"]:focus {
+     outline: none;
+     border-color: #802f59;
+     box-shadow: 0 0 0 0.2rem #945776;
+ }
+
+
+ /* items per page  */
+ .itemsPerPage {
+     margin-left: 45px;
+ }
+
+ .itemsPerPage label {
+     margin-right: 10px;
+     font-size: 16px;
+     border: 1px solid #802f59;
+     padding: 4px;
+     border-radius: 4px;
+     font-weight: bold;
+ }
+
+ .itemsPerPage input {
+     padding: 5px;
+     font-size: 16px;
+     border: 1px solid #ccc;
+     border-radius: 5px;
+ }
+
+ .itemsPerPage input:focus {
+     outline: none;
+     border-color: #802f59;
+     box-shadow: 0 0 0 2px #c587a7;
+ }
+
+
+ /* search  */
+ .search {
+     display: flex;
+     align-items: center;
+     margin-bottom: 20px;
+     margin-left: 45px;
+ }
+
+ .search label {
+     margin-right: 10px;
+     font-weight: bold;
+     font-size: 16px;
+     border: 1px solid #802f59;
+     padding: 6px;
+     border-radius: 4px;
+     margin-top: 6px;
+ }
+
+ .search select,
+ .search input {
+     padding: 8px;
+     font-size: 16px;
+     border: 1px solid #ccc;
+     border-radius: 5px;
+     margin-right: 10px;
+ }
+
+ .search select:focus,
+ .search input:focus {
+     outline: none;
+     border-color: #802f59;
+     box-shadow: 0 0 0 2px #c587a7;
+ }
+
+
+ /* table  */
+ .table {
+
+     margin-left: 40px;
+     width: 95%;
+ }
+
+ .table th,
+ .table td {
+     padding: 10px;
+     border: 1px solid #ddd;
+     text-align: center;
+ }
+
+ .table th {
+     font-weight: bold;
+     background-color: #802f59;
+     color: white;
+ }
+
+
+ /* pagination  */
+ .pagination-container {
+     display: flex;
+     justify-content: flex-start;
+     padding: 20px;
+     box-sizing: border-box;
+     overflow-x: auto;
+     margin-left: 17px;
+ }
+
+ .pagination-container::-webkit-scrollbar {
+     width: 10px;
+ }
+
+ .pagination-container::-webkit-scrollbar-thumb {
+     background-color: #802f59;
+     border-radius: 20px;
+ }
+
+ .pagination-container::-webkit-scrollbar-track {
+     background-color: #fff;
+ }
+
+ .pagination {
+     list-style: none;
+     padding: 0;
+     display: flex;
+ }
+
+ .page-item {
+     margin: 0 5px;
+ }
+
+ .page-link {
+     display: block;
+     padding: 8px 12px;
+     text-decoration: none;
+     border: 1px solid #802f59;
+     border-radius: 5px;
+     transition: background-color 0.3s ease;
+ }
+
+ .page-link:hover {
+     background-color: #8d4e6f;
+     color: #fff;
+ }
+
+ .page-item.disabled .page-link {
+     pointer-events: none;
+     background-color: #f2f2f2;
+     color: #888;
+     border-color: #ccc;
+ }
+
+ .page-item.active .page-link {
+     background-color: #802f59;
+     color: #fff;
+     border-color: #7f4764;
+ }
