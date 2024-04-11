@@ -63,7 +63,7 @@ export class WalletAdminComponent {
 
   displayedCustomers: any[] = [];
   searchQuery: string = '';
-  pageSize: number = 5;
+  pageSize: number = 10;
   currentPage: number = 1;
   totalPages: number = 1;
   pages: number[] = [];
