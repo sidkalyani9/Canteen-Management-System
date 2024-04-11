@@ -3,8 +3,10 @@
 
 .menu{
   /* float:left; */
-  width:66%;
+  width:800px;
   display: inline-block;
+  height: 900px;
+  overflow: auto;
 
 }
 .menu-categories{
@@ -17,16 +19,13 @@
 }
 
 .cart{
+  position: absolute;
   display:inline-block;
   width: 30%;
   /* justify-content: right; */
   /* align-items: right; */
 }
 
-.user-details{
-  float:right;
-  
-}
 
 .btn{
   padding: 10px;
@@ -35,7 +34,8 @@
 
 }
 .user-details{
-  position:absolute;
-  top: 1200px;
-  right: 100px;
+  display: flex;
+  margin-top: 100px;
+  align-items: center;
+  justify-content: center;
 }
