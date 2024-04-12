@@ -1,6 +1,6 @@
-package com.argusoft.canteen.server.Services;
+package com.argusoft.canteen.server.service;
 
-import com.argusoft.canteen.server.jpa.CouponJpa;
+import com.argusoft.canteen.server.repo.CouponJpa;
 import com.argusoft.canteen.server.model.Coupon;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -17,7 +17,7 @@ public class CouponService {
     }
     //CRUD FUNCTIONS
     public Coupon addCoupon(Coupon coupon){
-        coupon.setCouponCode(UUID.randomUUID().toString());
+        coupon.setCouponCode(UUID.randomUUID().toString().substring(0,5));
         return CouponJpa.save(coupon);
     }
     public Coupon updateCoupon(Coupon coupon){
