@@ -1,6 +1,16 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { MatSidenav } from '@angular/material/sidenav';
-import { faBars, faUserCircle } from '@fortawesome/free-solid-svg-icons';
+import {MatSidenav} from '@angular/material/sidenav';
+import { 
+  faBars, 
+  faUserCircle, 
+  faHome, faEdit, 
+  faChartBar, 
+  faPersonWalking, 
+  faPercent, 
+  faHistory,
+  faUserEdit,
+  faUtensils
+} from '@fortawesome/free-solid-svg-icons';
 import { Router } from '@angular/router';
 
 @Component({
@@ -9,9 +19,20 @@ import { Router } from '@angular/router';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  btn = 1;
-  faBars = faBars;
-  faUser = faUserCircle;
+  btn=1;
+  fontIcons = {
+    faBars: faBars,
+    faUser: faUserCircle,
+    utensilIcon: faUtensils,
+    homeIcon: faHome,
+    editIcon: faEdit,
+    analyticsIcon: faChartBar,
+    pickupIcon: faPersonWalking,
+    couponIcon: faPercent,
+    historyIcon: faHistory,
+    userRoleIcon: faUserEdit
+  }
+  
   title = 'client';
 
 
@@ -51,13 +72,12 @@ export class AppComponent {
     this.router.navigate(['admin/coupons'])
   }
   navUserMenu(){
-    this.onLinkClick(6);
+    this.onLinkClick(7);
     this.router.navigate(['user/menu'])
   }
 
-
   navOrderHistory(){
-    this.onLinkClick(7);
+    this.onLinkClick(6);
     this.router.navigate(['admin/order-history'])
   }
 
@@ -79,6 +99,10 @@ export class AppComponent {
   walletAdmin() {
     this.onLinkClick(9);
     this.router.navigate(['admin/wallet'])
+  }
+  orderManagement() {
+    this.onLinkClick(12);
+    this.router.navigate(['admin/order-management'])
   }
 
 }
