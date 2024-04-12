@@ -1,0 +1,32 @@
+<div class="menu">
+    <app-menu></app-menu>
+</div>
+<div class="cart">
+    <app-cart></app-cart>
+</div>
+
+<div class="user-details">
+    <h2>User Details:</h2>
+    <form>
+        <label for="name">Name:</label><br>
+        <input type="text" id="name" name="name"><br><br>
+        <label for="email">Email:</label><br>
+        <input type="email" id="email" name="email"><br><br>
+        <label for="contact">Phone No:</label><br>
+        <input type="text" id="contact" name="contact">
+        <br><br>
+        <h2>Payment Mode:
+        </h2>
+        <input type="radio" id="wallet" name="payment" value="wallet">
+        <label for="wallet">Wallet</label><br>
+        <input type="radio" id="cash" name="payment" value="cash">
+        <label for="cash">Cash</label><br>
+        <input type="radio" id="upi" name="payment" value="upi">
+        <label for="upi">UPI</label>
+        <br><br>
+        <div class="btn">
+        <button (click)="submit()">Place Order</button>
+    </div>
+    </form>
+
+</div>
