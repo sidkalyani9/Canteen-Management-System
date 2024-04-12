@@ -57,7 +57,10 @@
             <span [ngClass]="{active: btn==11}">Wallet</span>
           </button>
           <button mat-list-item class="routerBtn" [ngClass]="{active: btn==9}" (click)="walletAdmin()">
-            <span [ngClass]="{active: btn==9}">Wallet-admin</span>
+            <span [ngClass]=  "{active: btn==9}">Wallet-admin</span>
+          </button>
+          <button mat-list-item class="routerBtn" [ngClass]="{active: btn==12}" (click)="orderManagement()">
+            <span [ngClass]="{active: btn==12}">Order Management</span>
           </button>
           <!-- <button mat-list-item class="routerBtn" [ngClass]="{active: btn==5}">Staff Management</button> -->
         </mat-nav-list>
