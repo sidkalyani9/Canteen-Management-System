@@ -60,6 +60,7 @@ tr:nth-child(even) {
 .pagination {
     display: flex;
     align-items: center;
+
 }
 
 
