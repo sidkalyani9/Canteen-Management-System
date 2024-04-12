@@ -2,24 +2,57 @@ import { Component, OnInit } from '@angular/core';
 import { ConfirmationService } from 'primeng/api';
 import { MessageService } from 'primeng/api';
 
+import { Dish } from '../Dish';
+
 @Component({
   selector: 'app-menu-management',
   templateUrl: './menu-management.component.html',
   styleUrl: './menu-management.component.css'
 })
+
 export class MenuManagementComponent implements OnInit {
-  selectedProducts: any[];
-  product: any;
+  selectedDishes: any[];
+  dish: any;
   submitted: boolean;
-  productDialog: boolean;
+  dishDialog: boolean;
 
   title = 'PrimeNg';
   menuItems: any[];
   category:any[];
+  categoryName:any[];
   
   
   
   constructor( private messageService: MessageService, private confirmationService: ConfirmationService){}
+  editProduct(dish: Dish) {
+    this.dish = { ...dish };
+    this.dishDialog = true;
+}
+
+
+deleteProduct(item: any) {
+ 
+}
+openNew() {
+  this.dish = {};
+  this.submitted = false;
+  this.dishDialog = true;
+}
+
+deleteSelectedProducts() {
+  this.confirmationService.confirm({
+      message: 'Are you sure you want to delete the selected dishes?',
+      header: 'Confirm',
+      icon: 'pi pi-exclamation-triangle',
+      accept: () => {
+          this.menuItems = this.menuItems.filter(val => !this.selectedDishes.includes(val));
+          this.selectedDishes;
+          this.messageService.add({severity:'success', summary: 'Successful', detail: 'Dish Deleted', life: 3000});
+      }
+  });
+}
+
+
   ngOnInit(): void {
       
       this.category=[
@@ -30,59 +63,45 @@ export class MenuManagementComponent implements OnInit {
       this.menuItems=
       [
         {
-          Id: 1,
           name: 'Vadapav',
+          categoryName:'Snacks',
           price: '40'
         },
         {
-          Id: 2,
+          
           name: 'Maggie',
+          categoryName:'Snacks',
           price: '55'
         },
         {
-          Id: 3,
-          name: 'Frankie',
+          
+          name: 'Paneer Tikka Masala',
+          categoryName:'Lunch',
           price: '45'
         },
         {
-          Id: 4,
-          name: 'Maska Bun',
-          price: '35'
+         
+          name: 'Malai kofta',
+          categoryName:'Lunch',
+          price: '55'
         },
         {
-          Id: 5,
+          
           name: 'Sandwich',
+          categoryName:'Breakfast',
           price: '65'
+        },
+        {
+          
+          name: 'Poha',
+          categoryName:'Breakfast',
+          price: '25'
         }
         
       ];
   }
-  editProduct(item: any) {
-   
-}
-deleteProduct(item: any) {
- 
-}
-openNew() {
-  this.product = {Id:'4', name:"Product 4", price:400};
-  this.submitted = false;
-  this.productDialog = true;
-}
-
-deleteSelectedProducts() {
-  this.confirmationService.confirm({
-      message: 'Are you sure you want to delete the selected dishes?',
-      header: 'Confirm',
-      icon: 'pi pi-exclamation-triangle',
-      accept: () => {
-          this.menuItems = this.menuItems.filter(val => !this.selectedProducts.includes(val));
-          this.selectedProducts;
-          this.messageService.add({severity:'success', summary: 'Successful', detail: 'Dish Deleted', life: 3000});
-      }
-  });
-}
-
   
+   
 }
 
   
