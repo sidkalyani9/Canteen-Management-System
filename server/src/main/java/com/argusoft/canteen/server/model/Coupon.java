@@ -1,21 +1,56 @@
 package com.argusoft.canteen.server.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 import java.util.Date;
 @Entity
 @Table(name="Coupons")
 public class Coupon {
 @Id
+@GeneratedValue(strategy = GenerationType.AUTO)
+@Column(nullable=false ,updatable=false)
+
     private int couponId;
+    @Column(nullable=false )
     private String couponName;
+    @Column(nullable=false )
     private Date activeTill;
+    @Column(nullable=false )
     private String description ;
+    @Column(nullable=false )
     private String discountType;
+    @Column(nullable=false )
     private long deductionAmount;
+    @Column(nullable=false )
     private  long minValue;
+    @Column(nullable=false )
+    private String couponCode;
+
+    @Override
+    public String toString() {
+        return "Coupon{" +
+                "couponId=" + couponId +
+                ", couponName='" + couponName + '\'' +
+                ", activeTill=" + activeTill +
+                ", description='" + description + '\'' +
+                ", discountType='" + discountType + '\'' +
+                ", deductionAmount=" + deductionAmount +
+                ", minValue=" + minValue +
+                ", couponCode=" + couponCode +
+                '}';
+    }
+
+    public String getCouponCode() {
+        return couponCode;
+    }
+
+    public Coupon(int couponCode) {
+        this.couponCode = String.valueOf(couponCode);
+    }
+
+    public void setCouponCode(String couponCode) {
+        this.couponCode = couponCode;
+    }
 
     public int getCouponId() {
         return couponId;
@@ -71,19 +106,6 @@ public class Coupon {
 
     public void setMinValue(long minValue) {
         this.minValue = minValue;
-    }
-
-    @Override
-    public String toString() {
-        return "Coupon{" +
-                "couponId=" + couponId +
-                ", couponName='" + couponName + '\'' +
-                ", activeTill=" + activeTill +
-                ", description='" + description + '\'' +
-                ", discountType='" + discountType + '\'' +
-                ", deductionAmount=" + deductionAmount +
-                ", minValue=" + minValue +
-                '}';
     }
 
     public Coupon(int couponId, String couponName, Date activeTill, String description, String discountType, long deductionAmount, long minValue) {
