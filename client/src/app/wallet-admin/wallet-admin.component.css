@@ -76,6 +76,8 @@ tr:nth-child(even) {
 .pagination-container {
     overflow-x: auto;
     overflow-y: auto;
+    overflow-x: scroll !important;
+    width: 100% !important;
     height: auto;
     margin-bottom: 10px;
 }
