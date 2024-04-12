@@ -1,0 +1,41 @@
+/* Add your styles here */
+/* For example: */
+
+.menu{
+  /* float:left; */
+  width:800px;
+  display: inline-block;
+  height: 900px;
+  overflow: auto;
+
+}
+.menu-categories{
+  display:flex;
+  flex-direction: column  ;
+  flex-wrap: wrap;
+  justify-content: center;
+  
+  /* width: 50%; */
+}
+
+.cart{
+  position: absolute;
+  display:inline-block;
+  width: 30%;
+  /* justify-content: right; */
+  /* align-items: right; */
+}
+
+
+.btn{
+  padding: 10px;
+  border-radius: 20px;
+  /* background-color: green; */
+
+}
+.user-details{
+  display: flex;
+  margin-top: 100px;
+  align-items: center;
+  justify-content: center;
+}
