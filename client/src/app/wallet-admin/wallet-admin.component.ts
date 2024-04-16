@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { WalletService } from '../service/wallet/wallet.service';
+import { Subject, takeUntil } from 'rxjs';
 
 @Component({
   selector: 'app-wallet-admin',
@@ -6,6 +8,9 @@ import { Component } from '@angular/core';
   styleUrl: './wallet-admin.component.css'
 })
 export class WalletAdminComponent {
+
+  constructor(private _walletService:WalletService) {}
+  public $destroyWalletSubject = new Subject<void>();
 
   customers: any[] = [
     { id: 1, name: 'John Doe', balance: 1000 },
@@ -69,6 +74,7 @@ export class WalletAdminComponent {
   pages: number[] = [];
   amountToAddToAll: any;
   showAddAllBalanceForm: boolean = false;
+  walletDetails: any[] = [];
 
   ngOnInit() {
     this.updateDisplayedCustomers();
@@ -76,7 +82,10 @@ export class WalletAdminComponent {
       customer.isAddingBalance = false;
       customer.amountToAdd = null;
     });
+    
   }
+
+  
 
   updateDisplayedCustomers() {
     let filteredCustomers = this.customers;
