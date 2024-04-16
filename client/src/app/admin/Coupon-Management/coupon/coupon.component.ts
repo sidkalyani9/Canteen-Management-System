@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Coupons } from './Coupons';
+import { CouponService } from '../Coupon.Service';
 
 @Component({
   selector: 'app-coupon',
@@ -6,7 +8,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrl: './coupon.component.css',
 })
 export class CouponComponent implements OnInit {
-
+    public coupons:Coupons[]=[];
+    constructor(private couponService:CouponService) { }
+    ngOnInit(): void { this.getallCoupons();}
+ public getallCoupons():void {
+   this.couponService.getallCoupons().subscribe({
+    next: (response:Coupons[])=> {this.coupons=response,console.log(this.coupons)},
+   
+    error: (error)=> console.log('Error'),
+    complete: () => console.log("complete")
+ });
+  }
 
   // ---------------------------------------------------------------------------------------
   // edit modal functions
@@ -72,6 +84,6 @@ export class CouponComponent implements OnInit {
    
     }
 
-  ngOnInit(): void { }
+  
 
 }
