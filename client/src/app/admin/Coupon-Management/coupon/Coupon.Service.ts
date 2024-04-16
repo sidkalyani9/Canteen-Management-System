@@ -1,6 +1,6 @@
 import { HttpClient } from "@angular/common/http";
 import { Observable } from "rxjs";
-import { Coupons } from "./coupon/Coupons";
+import { Coupons } from "./Coupons";
 import { Injectable } from "@angular/core";
 @Injectable({
     providedIn:'root'

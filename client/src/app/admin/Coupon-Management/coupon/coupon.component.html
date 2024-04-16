@@ -140,7 +140,7 @@
                 ">
               Add Coupon
             </h2>
-            <form #addCoupon="ngForm" (ngSubmit)="addcoupon(addCoupon.value)"
+            <form #addCoupon="ngForm" (ngSubmit)="addcoupon(addCoupon)"
               style="display: flex; flex-direction: column">
               <label for="couponName" style="font-weight: bold">Name of Coupon:</label>
               <br />
@@ -190,7 +190,7 @@
                     margin-bottom: 15px;
                     border: 1px solid #ccc;
                     border-radius: 5px;
-                  " pattern="\d+(\.\d+)?%" title="Please enter a valid percentage value (e.g., 10%)." />
+                  "  />
               <br />
               <label for="minValue" style="font-weight: bold">Min Value:</label>
               <br />
