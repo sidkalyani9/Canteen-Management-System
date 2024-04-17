@@ -60,6 +60,7 @@ tr:nth-child(even) {
 .pagination {
     display: flex;
     align-items: center;
+
 }
 
 
@@ -73,9 +74,10 @@ tr:nth-child(even) {
 }
 
 .pagination-container {
+ overflow-x: auto;
+    overflow-y: auto;
     overflow-x: scroll !important;
     width: 100% !important;
-    /* overflow-y: auto; */
     height: auto;
     margin-bottom: 10px;
 }
@@ -224,4 +226,13 @@ tr:nth-child(even) {
 
 .add-all-buttons button[type="button"] {
     margin-left: 10px;
+}
+
+.addBalance {
+    width: 38% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    margin-inline: auto !important;
+    margin-bottom: 5px;
 }
