@@ -14,6 +14,7 @@ import { UserRoleManagementComponent } from './user-role/user-role-management/us
 import { UserRoleEditComponent } from './user-role/user-role-edit/user-role-edit.component';
 import { WalletComponent } from './wallet/wallet.component';
 import { WalletAdminComponent } from './wallet-admin/wallet-admin.component';
+import { OrderManagementComponent } from './order-management/order-management.component';
 
 const routes: Routes = [
   {
@@ -66,6 +67,11 @@ const routes: Routes = [
         path: "wallet",
         component: WalletAdminComponent,
         title: "wallet"
+      },
+      {
+        path: "order-management",
+        component: OrderManagementComponent,
+        title: "order-management"
       },
     ]
   },

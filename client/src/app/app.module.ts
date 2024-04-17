@@ -40,6 +40,7 @@ import { ToastModule } from 'primeng/toast';
 import { ToolbarModule } from 'primeng/toolbar';
 import { ButtonModule } from 'primeng/button'; 
 import { TabViewModule } from 'primeng/tabview';
+import { DialogModule } from 'primeng/dialog';
 
 import { PrimeIcons } from 'primeng/api';
 import { UserRoleManagementComponent } from './user-role/user-role-management/user-role-management.component';
@@ -49,6 +50,7 @@ import { WalletComponent } from './wallet/wallet.component';
 import { WalletAdminComponent } from './wallet-admin/wallet-admin.component';
 import { ConfirmationService, MessageService } from 'primeng/api';
 import { LoaderComponent } from './partial/loader/loader.component';
+import { OrderManagementComponent } from './order-management/order-management.component';
 
 
 
@@ -72,6 +74,7 @@ import { LoaderComponent } from './partial/loader/loader.component';
     WalletComponent,
     WalletAdminComponent,
     LoaderComponent,
+    OrderManagementComponent,
   ],
   imports: [
     BrowserModule,
@@ -97,7 +100,8 @@ import { LoaderComponent } from './partial/loader/loader.component';
     ToastModule,
     ToolbarModule,
     ButtonModule,
-    TabViewModule
+    TabViewModule,
+    DialogModule
   ],
   providers: [
     provideAnimationsAsync(),

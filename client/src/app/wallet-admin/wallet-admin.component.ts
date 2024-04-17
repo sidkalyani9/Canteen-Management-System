@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { WalletService } from '../service/wallet/wallet.service';
+import { Subject, takeUntil } from 'rxjs';
 
 @Component({
   selector: 'app-wallet-admin',
@@ -6,6 +8,9 @@ import { Component } from '@angular/core';
   styleUrl: './wallet-admin.component.css'
 })
 export class WalletAdminComponent {
+
+  constructor(private _walletService:WalletService) {}
+  public $destroyWalletSubject = new Subject<void>();
 
   customers: any[] = [
     { id: 1, name: 'John Doe', balance: 1000 },
@@ -63,10 +68,13 @@ export class WalletAdminComponent {
 
   displayedCustomers: any[] = [];
   searchQuery: string = '';
-  pageSize: number = 5;
+  pageSize: number = 10;
   currentPage: number = 1;
   totalPages: number = 1;
   pages: number[] = [];
+  amountToAddToAll: any;
+  showAddAllBalanceForm: boolean = false;
+  walletDetails: any[] = [];
 
   ngOnInit() {
     this.updateDisplayedCustomers();
@@ -74,7 +82,10 @@ export class WalletAdminComponent {
       customer.isAddingBalance = false;
       customer.amountToAdd = null;
     });
+    
   }
+
+  
 
   updateDisplayedCustomers() {
     let filteredCustomers = this.customers;
@@ -122,7 +133,7 @@ export class WalletAdminComponent {
   toggleAddBalance(customer: any): void {
     customer.isAddingBalance = !customer.isAddingBalance;
     if (customer.isAddingBalance) {
-      customer.amountToAdd = null; 
+      customer.amountToAdd = null;
     }
   }
 
@@ -137,4 +148,24 @@ export class WalletAdminComponent {
     customer.amountToAdd = null;
   }
 
+  toggleAddAllBalanceForm(): void {
+    this.showAddAllBalanceForm = !this.showAddAllBalanceForm;
+    if (this.showAddAllBalanceForm) {
+      this.amountToAddToAll = null;
+    }
+  }
+
+  addAllBalance(): void {
+    if (this.amountToAddToAll != null) {
+      this.customers.forEach(customer => {
+        customer.balance += this.amountToAddToAll;
+      });
+      this.showAddAllBalanceForm = false;
+    }
+  }
+
+  cancelAddAllBalance(): void {
+    this.showAddAllBalanceForm = false;
+    this.amountToAddToAll = null;
+  }
 }

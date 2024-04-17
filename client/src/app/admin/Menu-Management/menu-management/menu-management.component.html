@@ -1,9 +1,48 @@
+<p-dialog [(visible)]="dishDialog" [style]="{width: '450px'}" header="Dish Details" [modal]="true"
+    styleClass="p-fluid">
+
+    <ng-template pTemplate="content">
+        <div class="p-field">
+            <label for="name">Name: &nbsp;</label>
+            <input type="text" pInputText id="name" [(ngModel)]="dish.name" required autofocus />
+            <small class="p-invalid" *ngIf="submitted && !dish.name">Name is required.</small>
+        </div>
+
+        <div class="field">
+            <label class="mb-3">Category</label>
+            <div class="formgrid grid">
+                <div class="field-radiobutton col-6">
+                    <p-radioButton id="category1" name="category" value="Breakfast" [(ngModel)]="dish.categoryName"></p-radioButton>
+                    <label for="category1">Breakfast</label>
+                </div>
+                <div class="field-radiobutton col-6">
+                    <p-radioButton id="category2" name="category" value="Lunch" [(ngModel)]="dish.categoryName"></p-radioButton>
+                    <label for="category2">Lunch</label>
+                </div>
+                <div class="field-radiobutton col-6">
+                    <p-radioButton id="category3" name="category" value="Snacks" [(ngModel)]="dish.categoryName"></p-radioButton>
+                    <label for="category3">Snacks</label>
+                </div>
+               
+            </div>
+        </div>
+
+        <div class="formgrid grid">
+            <div class="field col">
+                <label for="price">Price</label>
+                <p-inputNumber id="price" [(ngModel)]="dish.price" mode="currency" currency="USD" locale="en-US"></p-inputNumber>
+            </div>
+        </div>
+    </ng-template>
+</p-dialog>
+
 <div>
     <div style="display: flex; justify-content: left;">
         <p-tabView>
             <p-tabPanel header="Edit Dishes">
                 <p-toolbar>
                     <ng-template pTemplate="left">
+                        
                     </ng-template>
 
 
@@ -13,12 +52,12 @@
                             (click)="openNew()"></button>
                         &nbsp;<button pButton pRipple label="Delete" icon="pi pi-trash" class="p-button-danger"
                             (click)="deleteSelectedProducts()"
-                            [disabled]="!selectedProducts || !selectedProducts.length"></button>
+                            [disabled]="!selectedDishes || !selectedDishes.length"></button>
 
                     </ng-template>
                 </p-toolbar>
 
-
+                
                 <p-table [value]="menuItems" [tableStyle]="{ 'min-width': '50rem' }">
 
                     <ng-template pTemplate="header" let-columns>
@@ -26,8 +65,9 @@
                             <th style="width: 4rem">
                                 <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
                             </th>
-                            <th>Id</th>
+                            
                             <th>Dish Name</th>
+                            <th pSortableColumn="categoryName" style="width:20%">Category <p-sortIcon field="name"></p-sortIcon></th>
                             <th>Price</th>
                             <th>Actions</th>
 
@@ -39,16 +79,17 @@
                             <td>
                                 <p-tableCheckbox [value]="menuItems"></p-tableCheckbox>
                             </td>
-                            <td>{{menuItems.Id}}</td>
+                            
                             <td>{{menuItems.name}}</td>
+                            <td>{{menuItems.categoryName}}</td>
                             <td>{{menuItems.price}}</td>
 
                             <td>
                                 <button pButton pRipple icon="pi pi-pencil"
                                     class="p-button-rounded p-button-success mr-2"
-                                    (click)="editProduct(product)"></button>&nbsp;
+                                    (click)="editProduct(dish)"></button>&nbsp;
                                 <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-warning"
-                                    (click)="deleteProduct(product)"></button>
+                                    (click)="deleteProduct(dish)"></button>
                             </td>
                         </tr>
                     </ng-template>
@@ -64,7 +105,7 @@
 
                 <p-table #dt [value]="menuItems" [rows]="1" [paginator]="true"
                     [globalFilterFields]="['name','country.name','representative.name','status']"
-                    [tableStyle]="{'min-width': '75rem'}" [(selection)]="selectedProducts" [rowHover]="true"
+                    [tableStyle]="{'min-width': '75rem'}" [(selection)]="selectedDishes" [rowHover]="true"
                     dataKey="id" currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
                     [showCurrentPageReport]="true">
                 </p-table>
@@ -81,7 +122,7 @@
                             (click)="openNew()"></button>
                         &nbsp;<button pButton pRipple label="Delete" icon="pi pi-trash" class="p-button-danger"
                             (click)="deleteSelectedProducts()"
-                            [disabled]="!selectedProducts || !selectedProducts.length"></button>
+                            [disabled]="!selectedDishes || !selectedDishes.length"></button>
 
                     </ng-template>
                 </p-toolbar>
@@ -112,9 +153,9 @@
                             <td>
                                 <button pButton pRipple icon="pi pi-pencil"
                                     class="p-button-rounded p-button-success mr-2"
-                                    (click)="editProduct(product)"></button>&nbsp;
+                                    (click)="editProduct(dish)"></button>&nbsp;
                                 <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-warning"
-                                    (click)="deleteProduct(product)"></button>
+                                    (click)="deleteProduct(dish)"></button>
                             </td>
                         </tr>
                     </ng-template>
