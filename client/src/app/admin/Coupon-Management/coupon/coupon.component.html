@@ -10,8 +10,9 @@
  display: flex;
  justify-content: space-between;
  align-items: center;
+ height: fit-content;
 " class="shadow-sm p-3 mb-5 bg-body-tertiary rounded">
-    <h1 style="margin-left: 0;">Coupons</h1>
+    <h1 style="margin-left: 0;font-weight: bold;margin-top: 20px; ">COUPONS</h1>
     <button
     type="button"
     class="btn btn-primary"
@@ -31,32 +32,33 @@
 </div>
 
 <!-- //coupon icons -->
+
 <div style="margin-left: 30px; margin-right: 30px">
   <div class="container">
     <div class="row">
-      <div class="col-lg-4">
-        <div class="card card-margin">
+      <div  *ngFor="let coupon of coupons" class="col-lg-3">
+        <div  class="card card-margin" style="width: fit-content;">
           <div class="card-header no-border">
-            <h5 class="card-title">Percentage</h5>
+            <h5 class="card-title">{{coupon.discountType}}</h5>
           </div>
           <div class="card-body pt-0">
             <div class="widget-49">
               <div class="widget-49-title-wrapper">
                 <div class="widget-49-date-primary">
-                  <span class="widget-49-date-day">25%</span>
+                  <span class="widget-49-date-day">{{coupon.deductionAmount}}%</span>
                   <span class="widget-49-date-month">OFF</span>
                 </div>
                 <div class="widget-49-meeting-info">
                   <span class="widget-49-pro-title"
-                    >ON MIN Rs.500 ORDER</span
+                    >On Min Rs.{{coupon.minValue}} Order</span
                   >
                   <span class="widget-49-pro-title"
-                    >ACTIVE TILL:25 MARCH,2024</span
+                    >ACTIVE TILL:{{coupon.activeTill | date:'dd-MM-yyyy'}}</span
                   >
                 </div>
               </div>
-              <div style="margin-top: 10px">
-                <p>Description of coupon in brief nknknol</p>
+              <div style="margin-top: 10px ">
+                <p style="font-weight: bold; color: #333">{{coupon.description}}</p>
               </div>
               <div style="text-align: center; margin-top: 30px">
                 <button
@@ -85,345 +87,6 @@
                   "
                   (click)="deleteModal()"
                   
-                >
-                  DELETE
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-4">
-        <div class="card card-margin">
-          <div class="card-header no-border">
-            <h5 class="card-title">Percentage</h5>
-          </div>
-          <div class="card-body pt-0">
-            <div class="widget-49">
-              <div class="widget-49-title-wrapper">
-                <div class="widget-49-date-primary">
-                  <span class="widget-49-date-day">25%</span>
-                  <span class="widget-49-date-month">OFF</span>
-                </div>
-                <div class="widget-49-meeting-info">
-                  <span class="widget-49-pro-title"
-                    >ON MIN Rs.500 ORDER</span
-                  >
-                  <span class="widget-49-pro-title"
-                    >ACTIVE TILL:25 MARCH,2024</span
-                  >
-                </div>
-              </div>
-              <div>
-                <h4>Description of coupon in brief nknknol</h4>
-              </div>
-              <div style="text-align: center">
-                <button
-                  type="button"
-                  class="btn btn-primary"
-                  style="
-                    background-color: #802f59;
-                    border: 0;
-                    border-radius: 5px;
-                    width: 2.5cm;
-                    margin-right: 20px;
-                  "
-                >
-                  EDIT
-                </button>
-                <button
-                  type="button"
-                  class="btn btn-primary"
-                  style="
-                    background-color: #802f59;
-                    border: 0;
-                    border-radius: 5px;
-                    width: 2.5cm;
-                    margin-left: 20px;
-                  "
-                >
-                  DELETE
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-lg-4">
-        <div class="card card-margin">
-          <div class="card-header no-border">
-            <h5 class="card-title">Percentage</h5>
-          </div>
-          <div class="card-body pt-0">
-            <div class="widget-49">
-              <div class="widget-49-title-wrapper">
-                <div class="widget-49-date-primary">
-                  <span class="widget-49-date-day">25%</span>
-                  <span class="widget-49-date-month">OFF</span>
-                </div>
-                <div class="widget-49-meeting-info">
-                  <span class="widget-49-pro-title"
-                    >ON MIN Rs.500 ORDER</span
-                  >
-                  <span class="widget-49-pro-title"
-                    >ACTIVE TILL:25 MARCH,2024</span
-                  >
-                </div>
-              </div>
-              <div>
-                <h4>Description of coupon in brief nknknol</h4>
-              </div>
-              <div style="text-align: center">
-                <button
-                  type="button"
-                  class="btn btn-primary"
-                  style="
-                    background-color: #802f59;
-                    border: 0;
-                    border-radius: 5px;
-                    width: 2.5cm;
-                    margin-right: 20px;
-                  "
-                >
-                  EDIT
-                </button>
-                <button
-                  type="button"
-                  class="btn btn-primary"
-                  style="
-                    background-color: #802f59;
-                    border: 0;
-                    border-radius: 5px;
-                    width: 2.5cm;
-                    margin-left: 20px;
-                  "
-                >
-                  DELETE
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-lg-4">
-        <div class="card card-margin">
-          <div class="card-header no-border">
-            <h5 class="card-title">Percentage</h5>
-          </div>
-          <div class="card-body pt-0">
-            <div class="widget-49">
-              <div class="widget-49-title-wrapper">
-                <div class="widget-49-date-primary">
-                  <span class="widget-49-date-day">25%</span>
-                  <span class="widget-49-date-month">OFF</span>
-                </div>
-                <div class="widget-49-meeting-info">
-                  <span class="widget-49-pro-title"
-                    >ON MIN Rs.500 ORDER</span
-                  >
-                  <span class="widget-49-pro-title"
-                    >ACTIVE TILL:25 MARCH,2024</span
-                  >
-                </div>
-              </div>
-              <div>
-                <h4>Description of coupon in brief nknknol</h4>
-              </div>
-              <div style="text-align: center">
-                <button
-                  type="button"
-                  class="btn btn-primary"
-                  style="
-                    background-color: #802f59;
-                    border: 0;
-                    border-radius: 5px;
-                    width: 2.5cm;
-                    margin-right: 20px;
-                  "
-                >
-                  EDIT
-                </button>
-                <button
-                  type="button"
-                  class="btn btn-primary"
-                  style="
-                    background-color: #802f59;
-                    border: 0;
-                    border-radius: 5px;
-                    width: 2.5cm;
-                    margin-left: 20px;
-                  "
-                >
-                  DELETE
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-lg-4">
-        <div class="card card-margin">
-          <div class="card-header no-border">
-            <h5 class="card-title">Percentage</h5>
-          </div>
-          <div class="card-body pt-0">
-            <div class="widget-49">
-              <div class="widget-49-title-wrapper">
-                <div class="widget-49-date-primary">
-                  <span class="widget-49-date-day">25%</span>
-                  <span class="widget-49-date-month">OFF</span>
-                </div>
-                <div class="widget-49-meeting-info">
-                  <span class="widget-49-pro-title"
-                    >ON MIN Rs.500 ORDER</span
-                  >
-                  <span class="widget-49-pro-title"
-                    >ACTIVE TILL:25 MARCH,2024</span
-                  >
-                </div>
-              </div>
-              <div>
-                <h4>Description of coupon in brief nknknol</h4>
-              </div>
-              <div style="text-align: center">
-                <button
-                  type="button"
-                  class="btn btn-primary"
-                  style="
-                    background-color: #802f59;
-                    border: 0;
-                    border-radius: 5px;
-                    width: 2.5cm;
-                    margin-right: 20px;
-                  "
-                >
-                  EDIT
-                </button>
-                <button
-                  type="button"
-                  class="btn btn-primary"
-                  style="
-                    background-color: #802f59;
-                    border: 0;
-                    border-radius: 5px;
-                    width: 2.5cm;
-                    margin-left: 20px;
-                  "
-                >
-                  DELETE
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-4">
-        <div class="card card-margin">
-          <div class="card-header no-border">
-            <h5 class="card-title">Percentage</h5>
-          </div>
-          <div class="card-body pt-0">
-            <div class="widget-49">
-              <div class="widget-49-title-wrapper">
-                <div class="widget-49-date-primary">
-                  <span class="widget-49-date-day">25%</span>
-                  <span class="widget-49-date-month">OFF</span>
-                </div>
-                <div class="widget-49-meeting-info">
-                  <span class="widget-49-pro-title"
-                    >ON MIN Rs.500 ORDER</span
-                  >
-                  <span class="widget-49-pro-title"
-                    >ACTIVE TILL:25 MARCH,2024</span
-                  >
-                </div>
-              </div>
-              <div>
-                <h4>Description of coupon in brief nknknol</h4>
-              </div>
-              <div style="text-align: center">
-                <button
-                  type="button"
-                  class="btn btn-primary"
-                  style="
-                    background-color: #802f59;
-                    border: 0;
-                    border-radius: 5px;
-                    width: 2.5cm;
-                    margin-right: 20px;
-                  "
-                >
-                  EDIT
-                </button>
-                <button
-                  type="button"
-                  class="btn btn-primary"
-                  style="
-                    background-color: #802f59;
-                    border: 0;
-                    border-radius: 5px;
-                    width: 2.5cm;
-                    margin-left: 20px;
-                  "
-                >
-                  DELETE
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-4">
-        <div class="card card-margin">
-          <div class="card-header no-border">
-            <h5 class="card-title">Percentage</h5>
-          </div>
-          <div class="card-body pt-0">
-            <div class="widget-49">
-              <div class="widget-49-title-wrapper">
-                <div class="widget-49-date-primary">
-                  <span class="widget-49-date-day">25%</span>
-                  <span class="widget-49-date-month">OFF</span>
-                </div>
-                <div class="widget-49-meeting-info">
-                  <span class="widget-49-pro-title"
-                    >ON MIN Rs.500 ORDER</span
-                  >
-                  <span class="widget-49-pro-title"
-                    >ACTIVE TILL:25 MARCH,2024</span
-                  >
-                </div>
-              </div>
-              <div>
-                <h4>Description of coupon in brief nknknol</h4>
-              </div>
-              <div style="text-align: center">
-                <button
-                  type="button"
-                  class="btn btn-primary"
-                  style="
-                    background-color: #802f59;
-                    border: 0;
-                    border-radius: 5px;
-                    width: 2.5cm;
-                    margin-right: 20px;
-                  "
-                >
-                  EDIT
-                </button>
-                <button
-                  type="button"
-                  class="btn btn-primary"
-                  style="
-                    background-color: #802f59;
-                    border: 0;
-                    border-radius: 5px;
-                    width: 2.5cm;
-                    margin-left: 20px;
-                  "
                 >
                   DELETE
                 </button>
@@ -477,7 +140,7 @@
                 ">
               Add Coupon
             </h2>
-            <form #addCoupon="ngForm" (ngSubmit)="addcoupon(addCoupon.value)"
+            <form #addCoupon="ngForm" (ngSubmit)="addcoupon(addCoupon)"
               style="display: flex; flex-direction: column">
               <label for="couponName" style="font-weight: bold">Name of Coupon:</label>
               <br />
@@ -527,7 +190,7 @@
                     margin-bottom: 15px;
                     border: 1px solid #ccc;
                     border-radius: 5px;
-                  " pattern="\d+(\.\d+)?%" title="Please enter a valid percentage value (e.g., 10%)." />
+                  "  />
               <br />
               <label for="minValue" style="font-weight: bold">Min Value:</label>
               <br />
