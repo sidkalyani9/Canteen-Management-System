@@ -5,7 +5,7 @@
   /* float:left; */
   width:800px;
   display: inline-block;
-  height: 900px;
+  height: 1400px;
   overflow: auto;
 
 }
@@ -21,7 +21,7 @@
 .cart{
   position: absolute;
   display:inline-block;
-  width: 30%;
+  width: 20%;
   /* justify-content: right; */
   /* align-items: right; */
 }
@@ -34,8 +34,14 @@
 
 }
 .user-details{
-  display: flex;
-  margin-top: 100px;
+  position:absolute;
+  padding:10px;
+  display:inline-block;
+  margin-top: 80px;
+  margin-right: 20px;
+  right:0;
+  top:900px;
+  width:20%;
   align-items: center;
   justify-content: center;
 }
