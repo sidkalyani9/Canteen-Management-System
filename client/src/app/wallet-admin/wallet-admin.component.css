@@ -227,3 +227,12 @@ tr:nth-child(even) {
 .add-all-buttons button[type="button"] {
     margin-left: 10px;
 }
+
+.addBalance {
+    width: 38% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    margin-inline: auto !important;
+    margin-bottom: 5px;
+}
