@@ -23,8 +23,8 @@ public class WalletHistoryController implements walletHistoryInterface {
         this.walletService = service;
     }
     @Override
-    @GetMapping("/getEmployeeWalletHistory")
-    public ResponseEntity<List<WalletHistory>> getEmployeeWalletHistory(Map<String, Object> requestBody) {
+    @PutMapping("/getEmployeeWalletHistory")
+    public ResponseEntity<List<WalletHistory>> getEmployeeWalletHistory(@RequestBody Map<String, Object> requestBody) {
         try{
             List<WalletHistory> empWalletList = walletService.fetchEmployeeWalletHistory(requestBody.get("employeeId").toString());
             return new ResponseEntity<>(empWalletList,HttpStatus.OK);
@@ -55,8 +55,7 @@ public class WalletHistoryController implements walletHistoryInterface {
         return new ResponseEntity<>(returnedWallet, HttpStatus.OK);
     }
 
-    @Override
-    public ResponseEntity<WalletHistory> removeFromEmployeeWallet(WalletHistory wallet) {
-        return null;
-    }
+//    @Override
+//    public ResponseEntity<WalletHistory> deductFromUserWallet(WalletHistory wallet, float amount) {
+//    }
 }
