@@ -42,4 +42,11 @@ public class walletHistoryService {
         return null;
     }
 
+//    public void deleteFromWallet(WalletHistory wallet, float amount){
+//        float insertAmount = amount * -1;
+//        wallet.setAmount(insertAmount);
+//        walletRepo.save(wallet);
+//        return;
+//    }
+
 }
