@@ -15,8 +15,14 @@ import { UserRoleEditComponent } from './user-role/user-role-edit/user-role-edit
 import { WalletComponent } from './wallet/wallet.component';
 import { WalletAdminComponent } from './wallet-admin/wallet-admin.component';
 import { OrderManagementComponent } from './order-management/order-management.component';
+import { LoginComponent } from './login/login/login.component';
+
 
 const routes: Routes = [
+  {
+    path:"login",
+    component: LoginComponent
+  },
   {
     path: "admin",
     component: RootComponent,
