@@ -14,8 +14,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import canteenmanagement.models.walletAdmin;
-import canteenmanagement.service.walletAdminService;
+import com.argusoft.canteen.server.model.walletAdmin;
+import com.argusoft.canteen.server.service.walletAdminService;
+
+
 
 @RestController
 @RequestMapping("/wallet-admin")
