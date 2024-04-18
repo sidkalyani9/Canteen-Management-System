@@ -35,7 +35,7 @@ const routes: Routes = [
     children: [
       // Admin's Child Routes
       {
-        path: "landing",
+        path: "",
         component: LandingPageComponent
       },
       {
