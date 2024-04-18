@@ -1,14 +1,78 @@
-<ul class="navList">
-    <li class="navListItem">
-        <a routerLink="admin" class="navBtn">Home</a>
-    </li>
-    <li class="navListItem">
-        <a routerLink="admin" class="navBtn">Home</a>
-    </li>
-    <li class="navListItem">
-        <a routerLink="admin" class="navBtn">Home</a>
-    </li>
-    <li class="navListItem">
-        <a routerLink="admin" class="navBtn">Home</a>
-    </li>
-</ul>
+<div class="mainApp">
+  <!-- Header -->
+  <mat-toolbar class="header">
+    <mat-toolbar-row class="headerRow">
+      <div class="leftHeader">
+        <button mat-icon-button (click)="sidenav.toggle();" class="Button">
+          <fa-icon [icon]="fontIcons.faBars" class="menuIcon"></fa-icon>
+        </button>
+        <div class="leftLogo">
+          <img src="assets/logo.png" alt="Argusoft Logo" class="headerLogo">
+          <fa-icon [icon]="fontIcons.utensilIcon" class="utensilIcon"></fa-icon>
+        </div>
+      </div>
+      <div class="headerRight">
+        <fa-icon [icon]="fontIcons.faUser" class="userIcon"></fa-icon>
+      </div>
+
+    </mat-toolbar-row>
+  </mat-toolbar>
+
+
+  <!-- Main Body -->
+
+    <mat-sidenav-container class="mainBody">
+      <!-- Navigation Bar on the left -->
+      <mat-sidenav #sidenav class="navbar" opened="true" mode="side">
+        <mat-nav-list class="routerList">
+
+          <button mat-list-item class="routerBtn" [ngClass]="{active: btn==1}" (click)="navHome()">
+            <span [ngClass]="{active: btn==1}"><fa-icon [icon]="fontIcons.homeIcon" ></fa-icon> Home</span>
+          </button>
+          <button mat-list-item class="routerBtn" [ngClass]="{active: btn==2}" (click)="navEditMenu()">
+            <span [ngClass]="{active: btn==2}"><fa-icon [icon]="fontIcons.editIcon" class=""></fa-icon> Edit Menu</span>
+          </button>
+          <button mat-list-item class="routerBtn" [ngClass]="{active: btn==3}" (click)="navAnalytics()">
+            <span [ngClass]="{active: btn==3}"><fa-icon [icon]="fontIcons.analyticsIcon" class=""></fa-icon> Analytics</span>
+          </button>
+          <button mat-list-item class="routerBtn" [ngClass]="{active: btn==4}" (click)="navPickup()">
+            <span [ngClass]="{active: btn==4}"><fa-icon [icon]="fontIcons.pickupIcon" class=""></fa-icon> Order Pickup</span>
+          </button>
+          <button mat-list-item class="routerBtn" [ngClass]="{active: btn==5}" (click)="navCoupon()">
+            <span [ngClass]="{active: btn==5}"><fa-icon [icon]="fontIcons.couponIcon" class=""></fa-icon> Coupons</span>
+          </button>
+          <button mat-list-item class="routerBtn" [ngClass]="{active: btn==7}" (click)="navOrderHistory()">
+            <span [ngClass]="{active: btn==7}"><fa-icon [icon]="fontIcons.historyIcon" class=""></fa-icon> Order History</span>
+          </button>
+          <button mat-list-item class="routerBtn" [ngClass]="{active: btn==8}" (click)="navUserRole()">
+            <span [ngClass]="{active: btn==8}"><fa-icon [icon]="fontIcons.userRoleIcon" class=""></fa-icon> User-Role</span>
+          </button>
+          <button mat-list-item class="routerBtn" [ngClass]="{active: btn==6}" (click)="navUserMenu()">
+            <span [ngClass]="{active: btn==6}">Menu</span>
+          </button>
+          <button mat-list-item class="routerBtn" [ngClass]="{active: btn==10}" (click)="navUserCart()">
+            <span [ngClass]="{active: btn==10}">Cart</span>
+          </button>
+          <button mat-list-item class="routerBtn" [ngClass]="{active: btn==11}" (click)="walletUser()">
+            <span [ngClass]="{active: btn==11}">Wallet</span>
+          </button>
+          <button mat-list-item class="routerBtn" [ngClass]="{active: btn==9}" (click)="walletAdmin()">
+            <span [ngClass]=  "{active: btn==9}">Wallet-admin</span>
+          </button>
+          <button mat-list-item class="routerBtn" [ngClass]="{active: btn==12}" (click)="orderManagement()">
+            <span [ngClass]="{active: btn==12}">Order Management</span>
+          </button>
+          <!-- <button mat-list-item class="routerBtn" [ngClass]="{active: btn==5}">Staff Management</button> -->
+        </mat-nav-list>
+      </mat-sidenav>
+      <!-- Components on the right -->
+      <mat-sidenav-content class="routerOutlet">
+        <router-outlet></router-outlet>
+      </mat-sidenav-content>
+
+    </mat-sidenav-container>
+
+  
+
+</div>
+

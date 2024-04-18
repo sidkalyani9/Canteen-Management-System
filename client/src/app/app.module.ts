@@ -58,6 +58,7 @@ import { SocialLoginModule, SocialAuthServiceConfig, GoogleSigninButtonModule } 
 import {
   GoogleLoginProvider
 } from '@abacritt/angularx-social-login';
+import { SecondroutingModule } from './navbar/navbar/secondrouting.module';
 
 @NgModule({
   declarations: [
@@ -110,7 +111,9 @@ import {
     ToolbarModule,
     ButtonModule,
     TabViewModule,
-    DialogModule
+    DialogModule,
+
+    SecondroutingModule
   ],
   providers: [
     {

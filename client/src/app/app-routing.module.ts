@@ -16,20 +16,26 @@ import { WalletComponent } from './wallet/wallet.component';
 import { WalletAdminComponent } from './wallet-admin/wallet-admin.component';
 import { OrderManagementComponent } from './order-management/order-management.component';
 import { LoginComponent } from './login/login/login.component';
+import { NavbarComponent } from './navbar/navbar/navbar.component';
 
 
 const routes: Routes = [
+  {
+    path:'',
+    redirectTo:'login',
+    pathMatch:'full'
+  },
   {
     path:"login",
     component: LoginComponent
   },
   {
     path: "admin",
-    component: RootComponent,
+    component: NavbarComponent,
     children: [
       // Admin's Child Routes
       {
-        path: "",
+        path: "landing",
         component: LandingPageComponent
       },
       {
