@@ -1,32 +1,119 @@
-.navList{
-    height: 100%;
-    padding: 0;
-    margin:0;
-    list-style-type: none;
+.mainApp{
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
 }
 
-.navListItem{
-    margin: 13% 0% 20% 0;
-    color: black;
-    text-decoration: none;
-    text-align: center;
-
-}
-.navBtn{
-    border-radius: 10px;
+.header{
+    height: 10% !important;
     background-color: #802f59;
-    font-size: 1.4vw;
-    padding: 7% 30%;
-    text-decoration: none;
+    align-items: center;
+    padding: 0% 1%;
+}
+
+.headerLogo{
+    margin-left: 2% !important;
+    margin-top: -0.6% !important;
+    width:5vw;
+}
+
+.leftHeader{
+    display: flex;
+    align-items: center;
+}
+
+.leftLogo{
+    margin-left: 1%;
+    align-items: center !important;
+}
+
+.headerRow{
+    display: grid;
+    grid-template-columns: 80% 20%;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.menuIcon{
     color: white;
+    font-size:1.5vw;
+}
+
+.utensilIcon{
+    color: white;
+    font-size:1.25vw !important;
+    margin-left: 2%;
+}
+
+.headerRight{
+    margin-left: auto;
+}
+.userIcon{
+    color:white;
+    margin-left: auto;
+    font-size:3vh !important;
+}
+
+.mainBody{
+    display: flex;
+    flex-grow: 1;
+}
+
+.navbar{
+    background-color: white;
+    width: 15%;
+    box-shadow: 2px 0px 10px 0px grey;
+}
+
+.appNavBar{
+    padding: 0;
+    height: 100%;
+    width: 100%;
+}
+
+.routerList{
+    padding:2% 10%;
+    color: white !important;
+}
+
+button{
+    border: 0;
+}
+
+.active{
+    background-color: #802f59 !important;
+    color: white !important;
+    text-align: center;
+    height:7.5vh !important;
+    border-radius: 1cap;
+    margin: 15% 0%;
     transition: 0.5s;
 }
 
-.navBtn:hover {
-    text-decoration: none;
-    color: white;
-    border-radius: 10px;
-    background-color: #5d2140;
-    font-size: 1.4vw;
-    padding: 7% 30%;
+.routerBtn{
+    background-color: white;
+    text-align: center;
+    height:7.5vh !important;
+    border-radius: 1cap;
+    margin: 15% 0%;
+    transition: 0.5s;
+}
+
+.routerBtn:hover {
+    background-color: #591b3b;
+    color: white !important;
+    text-align: center;
+    height:7.5vh !important;
+    border-radius: 1cap;
+    margin: 15% 0%;
+}
+
+.routerText{
+    color: black;
+}
+
+.routerOutlet{
+    overflow: scroll;
+    width: 100%;
+    background-color: rgb(229, 229, 229);
 }

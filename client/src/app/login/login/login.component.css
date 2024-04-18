@@ -1,0 +1,96 @@
+.loginBlock{
+    display: grid;
+    grid-template-columns: 35% auto;
+    width:70%;
+    height: 80vh !important;
+    align-items: center;    
+    margin: auto auto;
+    padding-top: 0%;
+    border-radius: 10px;
+    box-shadow: 1px 1px 20px 1px #0a0a0a; 
+    background: linear-gradient(to right, 
+    #9c406f 35.7%,
+    white 10%
+  );
+}
+
+.body{
+    display: flex;
+    margin-top: -6.5vh;
+    padding-top: 3%;
+    margin-left: -1vh;
+    height:106.5% !important;
+    background: linear-gradient(to right, 
+    #802f59 40%,
+    white 10%
+  );
+}
+
+.leftBlock{
+     /* position: absolute;
+     top: 45%; */
+    /* left: -3.5%; */
+    /* padding-left: 4%;  */
+    display: flex;
+    align-items: center !important;
+    justify-content: center;
+    margin-top: 0%;
+    width: 100% !important;
+    /* margin: auto; */
+    height: 100% !important;
+    /* margin: auto auto !important; */
+    /* padding-top: 2%; */
+}
+
+.welcomeTextBlock{
+    font-size: 1.2vw;
+    text-align: center;
+    top:85%;
+    left:19%;
+    width:15vw; 
+    height:30vh;
+    position: absolute;
+    color: white;
+}
+
+.utensilIcon{
+    font-size: 4.3vw;
+    color: white !important;
+}
+
+.logo{
+    width:80%;
+}
+
+.rightBlock{
+    display: grid;
+    grid-template-rows: 50% 30%;
+    align-items:  center !important;
+    justify-content: center !important;
+    color: #0a0a0a;
+    height: 20% !important;
+    width: 100% !important;
+}
+
+.loginHeading{
+    width: 100% !important;
+}
+
+.loginBtn{
+    display: flex;
+    /* height: 50%; */
+    /* width:100%; */
+    font-size: 1.1vw;
+    /* padding: 1%; */
+    align-items: center;
+    justify-content: center;
+    /* border: 1 solid black; */
+    scale: 130%;
+}
+
+.googleLogo{
+    width:20px;
+    height:20px;
+    margin-bottom: -4.5px;
+    padding: 0% 4%;
+}
