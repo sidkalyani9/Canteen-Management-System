@@ -15,8 +15,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import canteenmanagement.models.Order;
-import canteenmanagement.service.OrderService;
+import com.argusoft.canteen.server.model.Order;
+import com.argusoft.canteen.server.service.OrderService;
+
+
 
 @RestController
 @RequestMapping("/orders")
