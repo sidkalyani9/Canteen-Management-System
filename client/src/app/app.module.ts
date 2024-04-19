@@ -51,8 +51,14 @@ import { WalletAdminComponent } from './wallet-admin/wallet-admin.component';
 import { ConfirmationService, MessageService } from 'primeng/api';
 import { LoaderComponent } from './partial/loader/loader.component';
 import { OrderManagementComponent } from './order-management/order-management.component';
+import { LoginComponent } from './login/login/login.component';
 
-
+//Google OAuth
+import { SocialLoginModule, SocialAuthServiceConfig, GoogleSigninButtonModule } from '@abacritt/angularx-social-login';
+import {
+  GoogleLoginProvider
+} from '@abacritt/angularx-social-login';
+import { SecondroutingModule } from './navbar/navbar/secondrouting.module';
 
 @NgModule({
   declarations: [
@@ -75,8 +81,12 @@ import { OrderManagementComponent } from './order-management/order-management.co
     WalletAdminComponent,
     LoaderComponent,
     OrderManagementComponent,
+    LoginComponent,
   ],
   imports: [
+    SocialLoginModule,
+    GoogleSigninButtonModule,
+
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
@@ -101,9 +111,28 @@ import { OrderManagementComponent } from './order-management/order-management.co
     ToolbarModule,
     ButtonModule,
     TabViewModule,
-    DialogModule
+    DialogModule,
+
+    SecondroutingModule
   ],
   providers: [
+    {
+      provide: 'SocialAuthServiceConfig',
+      useValue: {
+        autoLogin: false,
+        providers: [
+          {
+            id: GoogleLoginProvider.PROVIDER_ID,
+            provider: new GoogleLoginProvider(
+              '920986533505-5jg8ra13nsh35h45f4v3osd3dou6lkqs.apps.googleusercontent.com'
+            )
+          },
+        ],
+        onError: (err) => {
+          console.error(err);
+        }
+      } as SocialAuthServiceConfig,
+    },
     provideAnimationsAsync(),
     ConfirmationService,
     MessageService

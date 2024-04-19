@@ -7,6 +7,8 @@ import java.util.Optional;
 import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -28,26 +30,29 @@ public class OrderController {
 	private OrderService service;
 	
 	@GetMapping("/getAllOrders")
-	public List<Order> getAllOrders(){
-		return service.getAllOrders();
-	}
+	 public ResponseEntity<List<Order>> getAllOrders() {
+        List<Order> orders = service.getAllOrders();
+        return new ResponseEntity<>(orders, HttpStatus.OK);
+    }
 	
 	@PostMapping("/addOrder")
-	public Order addOrder(@RequestBody Order order) {
-		order.setOrderUuid(UUID.randomUUID());
-//		order.setCreatedAt(new Date());
-		return service.addOrder(order);
-	}
+	public ResponseEntity<Order> addOrder(@RequestBody Order order) {
+        order.setOrderUuid(UUID.randomUUID());
+        Order addedOrder = service.addOrder(order);
+        return new ResponseEntity<>(addedOrder, HttpStatus.CREATED);
+    }
 	
 	@DeleteMapping("/delete/{orderUuid}")
-	public void deleteOrder(@PathVariable UUID orderUuid) {
+	 public ResponseEntity<String> deleteOrder(@PathVariable UUID orderUuid) {
 		service.deleteOrder(orderUuid);
-	}
+        return new ResponseEntity<>("order deleted successfully", HttpStatus.NO_CONTENT);
+    }
 	
 	@GetMapping("/getOrderById/{orderUuidId}")
-	public Optional<Order> findOrderById(@PathVariable UUID orderUuidId) {
-		return service.findOrderById(orderUuidId);
-		
+	public ResponseEntity<Order> findOrderById(@PathVariable UUID orderUuidId) {
+        Optional<Order> optionalOrder = service.findOrderById(orderUuidId);
+        return optionalOrder.map(order -> new ResponseEntity<>(order, HttpStatus.OK))
+                .orElseGet(() -> new ResponseEntity<>(HttpStatus.NOT_FOUND));
 	}
 	
 	
