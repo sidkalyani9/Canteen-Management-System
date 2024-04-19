@@ -7,9 +7,8 @@ import java.util.UUID;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import canteenmanagement.models.walletAdmin;
-import canteenmanagement.repos.walletAdminRepo;
-
+import com.argusoft.canteen.server.model.walletAdmin;
+import com.argusoft.canteen.server.repo.walletAdminRepo;
 
 
 @Service

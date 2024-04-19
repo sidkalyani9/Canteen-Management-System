@@ -7,8 +7,11 @@ import java.util.UUID;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import canteenmanagement.models.Order;
-import canteenmanagement.repos.OrderRepo;
+import com.argusoft.canteen.server.model.Order;
+import com.argusoft.canteen.server.repo.OrderRepo;
+
+
+
 
 @Service
 public class OrderService {
