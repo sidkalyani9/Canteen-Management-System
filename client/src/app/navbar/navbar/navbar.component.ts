@@ -9,7 +9,10 @@ import {
   faPercent, 
   faHistory,
   faUserEdit,
-  faUtensils
+  faUtensils,
+  faBookOpen,
+  faCartShopping,
+  faWallet
 } from '@fortawesome/free-solid-svg-icons';
 import { Router } from '@angular/router';
 
@@ -30,7 +33,10 @@ export class NavbarComponent {
     pickupIcon: faPersonWalking,
     couponIcon: faPercent,
     historyIcon: faHistory,
-    userRoleIcon: faUserEdit
+    userRoleIcon: faUserEdit,
+    menuIcon: faBookOpen,
+    cartIcon: faCartShopping,
+    walletIcon: faWallet
   }
   
   title = 'client';
