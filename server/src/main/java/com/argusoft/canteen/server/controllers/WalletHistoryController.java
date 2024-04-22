@@ -75,9 +75,11 @@ public class WalletHistoryController implements walletHistoryInterface {
         } catch (Exception e) {
             return new ResponseEntity<>(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
         }
+    }
     
 
 //    @Override
 //    public ResponseEntity<WalletHistory> deductFromUserWallet(WalletHistory wallet, float amount) {
 //    }
 }
+
