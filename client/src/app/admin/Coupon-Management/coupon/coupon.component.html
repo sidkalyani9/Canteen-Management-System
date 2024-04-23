@@ -37,28 +37,28 @@
   <div class="container">
     <div class="row">
       <div  *ngFor="let coupon of coupons" class="col-lg-3">
-        <div  class="card card-margin" style="width: fit-content;">
+        <div  class="card card-margin" style="width: fit-content;" *ngIf="coupon">
           <div class="card-header no-border">
-            <h5 class="card-title">{{coupon.discountType}}</h5>
+            <h5 class="card-title">{{coupon?.discountType}}</h5>
           </div>
           <div class="card-body pt-0">
             <div class="widget-49">
               <div class="widget-49-title-wrapper">
                 <div class="widget-49-date-primary">
-                  <span class="widget-49-date-day">{{coupon.deductionAmount}}%</span>
+                  <span class="widget-49-date-day">{{coupon?.deductionAmount}}%</span>
                   <span class="widget-49-date-month">OFF</span>
                 </div>
                 <div class="widget-49-meeting-info">
                   <span class="widget-49-pro-title"
-                    >On Min Rs.{{coupon.minValue}} Order</span
+                    >On Min Rs.{{coupon?.minValue}} Order</span
                   >
                   <span class="widget-49-pro-title"
-                    >ACTIVE TILL:{{coupon.activeTill | date:'dd-MM-yyyy'}}</span
+                    >ACTIVE TILL:{{coupon?.activeTill | date:'dd-MM-yyyy'}}</span
                   >
                 </div>
               </div>
               <div style="margin-top: 10px ">
-                <p style="font-weight: bold; color: #333">{{coupon.description}}</p>
+                <p style="font-weight: bold; color: #333">{{coupon?.description}}</p>
               </div>
               <div style="text-align: center; margin-top: 30px">
                 <button
@@ -71,7 +71,7 @@
                     width: 2.5cm;
                     margin-right: 20px;
                   "
-                  (click)="editModal()"
+                  (click)="editModal(coupon)"
                 >
                   EDIT
                 </button>
@@ -259,83 +259,82 @@
                   margin-bottom: 20px;
                   margin-top: 0;
                 ">
-              Add Coupon
+              Edit Coupon
             </h2>
-            <form #editCoupon="ngForm" (ngSubmit)="editcoupon(editCoupon.value)"
-              style="display: flex; flex-direction: column">
-              <label for="couponName" style="font-weight: bold">Name of Coupon:</label>
-              <br />
-              <input type="text" name="couponName" ngModel required style="
-                    padding: 10px;
-                    margin-bottom: 15px;
-                    border: 1px solid #ccc;
-                    border-radius: 5px;
-                  " />
-              <br />
+            <form #editCoupon="ngForm" (ngSubmit)="editcoupon(editCoupon)"
+            style="display: flex; flex-direction: column">
+            <label for="couponName" style="font-weight: bold">Name of Coupon:</label>
+            <br />
+            <input type="text" name="couponName" [(ngModel)]="editCouponvalue.couponName" required style="
+                  padding: 10px;
+                  margin-bottom: 15px;
+                  border: 1px solid #ccc;
+                  border-radius: 5px;
+                " />
+            <br />
 
-              <label for="activeTill" style="font-weight: bold">Active Till:</label>
-              <br />
-              <input type="date" ngModel name="activeTill" required style="
-                    padding: 10px;
-                    margin-bottom: 15px;
-                    border: 1px solid #ccc;
+            <label for="activeTill" style="font-weight: bold">Active Till:</label>
+            <br />
+            <input type="date" [(ngModel)]="editCouponvalue.activeTill" name="activeTill" required style="
+                  padding: 10px;
+                  margin-bottom: 15px;
+                  border: 1px solid #ccc;
+                  border-radius: 5px;
+                " />
+            <br />
+            <label for="description" style="font-weight: bold">Description:</label>
+            <br />
+            <textarea [(ngModel)]="editCouponvalue.description" name="description" rows="4" placeholder="Add a brief description of the coupon"
+              cols="50" required style="
+                  padding: 10px;
+                  margin-bottom: 15px;
+                  border: 1px solid #ccc;
+                  border-radius: 5px;
+                "></textarea>
+            <br />
+            <label for="discountType" style="font-weight: bold">Discount Type:</label>
+            <br />
+            <select [(ngModel)]="editCouponvalue.discountType" name="discountType" required style="
+                  padding: 10px;
+                  margin-bottom: 15px;
+                  border: 1px solid #ccc;
+                  border-radius: 5px;
+                ">
+              <option value="flat">Flat</option>
+              <option value="percentage">Percentage</option>
+            </select>
+            <br />
+            <label for="deductionAmount" style="font-weight: bold">Deduction Amount (%):</label>
+            <br />
+            <input type="text" [(ngModel)]="editCouponvalue.deductionAmount" name="deductionAmount" required style="
+                  padding: 10px;
+                  margin-bottom: 15px;
+                  border: 1px solid #ccc;
+                  border-radius: 5px;
+                "  />
+            <br />
+            <label for="minValue" style="font-weight: bold">Min Value:</label>
+            <br />
+            <input type="number" [(ngModel)]="editCouponvalue.minValue" name="minValue" min="100" required style="
+                  padding: 10px;
+                  margin-bottom: 15px;
+                  border: 1px solid #ccc;
+                  border-radius: 5px;
+                " />
+            <br />
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="closeaddmodal()">
+                Close
+              </button>
+              <button type="submit" style="
+                    background-color: #802f59;
+                    border: 0;
                     border-radius: 5px;
-                  " />
-              <br />
-              <label for="description" style="font-weight: bold">Description:</label>
-              <br />
-              <textarea ngModel name="description" rows="4" placeholder="Add a brief description of the coupon"
-                cols="50" required style="
-                    padding: 10px;
-                    margin-bottom: 15px;
-                    border: 1px solid #ccc;
-                    border-radius: 5px;
-                  "></textarea>
-              <br />
-              <label for="discountType" style="font-weight: bold">Discount Type:</label>
-              <br />
-              <select ngModel name="discountType" required style="
-                    padding: 10px;
-                    margin-bottom: 15px;
-                    border: 1px solid #ccc;
-                    border-radius: 5px;
-                  ">
-                <option value="flat">Flat</option>
-                <option value="percentage">Percentage</option>
-              </select>
-              <br />
-              <label for="deductionAmount" style="font-weight: bold">Deduction Amount (%):</label>
-              <br />
-              <input type="text" ngModel name="deductionAmount" required style="
-                    padding: 10px;
-                    margin-bottom: 15px;
-                    border: 1px solid #ccc;
-                    border-radius: 5px;
-                  " pattern="\d+(\.\d+)?%" title="Please enter a valid percentage value (e.g., 10%)." />
-              <br />
-              <label for="minValue" style="font-weight: bold">Min Value:</label>
-              <br />
-              <input type="number" ngModel name="minValue" min="100" required style="
-                    padding: 10px;
-                    margin-bottom: 15px;
-                    border: 1px solid #ccc;
-                    border-radius: 5px;
-                  " />
-              <br />
-              <!-- <input type="submit" value="Submit" style="background-color: #007bff; color: #fff; border: none; cursor: pointer; padding: 10px; border-radius: 5px;"> -->
-              <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="closeeditmodal()">
-                  Close
-                </button>
-                <button type="submit" style="
-                      background-color: #802f59;
-                      border: 0;
-                      border-radius: 5px;
-                    " class="btn btn-primary" [disabled]="addCoupon.invalid">
-                  Save
-                </button>
-              </div>
-            </form>
+                  " class="btn btn-primary" [disabled]="addCoupon.invalid">
+                Save
+              </button>
+            </div>
+          </form>
           </div>
         </body>
       </div>
