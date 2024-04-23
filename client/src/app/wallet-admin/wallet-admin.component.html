@@ -4,7 +4,7 @@
         <div class="row">
             <button class="add-balance-button" (click)="toggleAddAllBalanceForm()">Add Same Amount to All</button>
             <form class="add-all-form" *ngIf="showAddAllBalanceForm" (submit)="addAllBalance()">
-                <input type="number" [(ngModel)]="amountToAddToAll" placeholder="Enter amount to add">
+                <input type="number" [(ngModel)]="amountToAddToAll" placeholder="Enter amount to add" name="amountToAdd">
                 <div class="add-all-buttons">
                     <button type="submit">Add</button>
                     <button type="button" (click)="cancelAddAllBalance()">Cancel</button>

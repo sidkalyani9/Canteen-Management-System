@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { WalletService } from '../service/wallet/wallet.service';
-import { Subject, takeUntil } from 'rxjs';
+import { Observable, Subject, takeUntil } from 'rxjs';
 
 @Component({
   selector: 'app-wallet-admin',
@@ -9,7 +9,7 @@ import { Subject, takeUntil } from 'rxjs';
 })
 export class WalletAdminComponent {
 
-  constructor(private _walletService:WalletService) {}
+  constructor(private _walletService: WalletService) { }
   public $destroyWalletSubject = new Subject<void>();
 
   customers: any[] = [
@@ -82,10 +82,10 @@ export class WalletAdminComponent {
       customer.isAddingBalance = false;
       customer.amountToAdd = null;
     });
-    
+
   }
 
-  
+
 
   updateDisplayedCustomers() {
     let filteredCustomers = this.customers;
@@ -155,13 +155,16 @@ export class WalletAdminComponent {
     }
   }
 
-  addAllBalance(): void {
-    if (this.amountToAddToAll != null) {
-      this.customers.forEach(customer => {
-        customer.balance += this.amountToAddToAll;
-      });
-      this.showAddAllBalanceForm = false;
-    }
+  addAllBalance():void {
+
+    this._walletService.addAmountToAll(this.amountToAddToAll).subscribe(response => {
+      console.log(response);
+    },
+      error => {
+        console.log(error);
+    });
+    this.showAddAllBalanceForm = false;
+    this.amountToAddToAll = null;
   }
 
   cancelAddAllBalance(): void {
