@@ -10,17 +10,16 @@ import { NgForm } from '@angular/forms';
 })
 export class CouponComponent implements OnInit {
   public coupons: Coupons[] = [];
-  public editCouponvalue: Coupons;
+  public editCouponvalue: Coupons= {couponName: "",  description: "",activeTill:new Date(),discountType: "",deductionAmount:0,minValue:0};
   constructor(private couponService: CouponService) { }
   ngOnInit(): void { this.getallCoupons(); 
-    this.editCouponvalue={couponName: "",  description: "",activeTill:new Date(),discountType: "",deductionAmount:0,minValue:0};
+    // this.editCouponvalue={couponName: "",  description: "",activeTill:new Date(),discountType: "",deductionAmount:0,minValue:0};
   }
   //get all coupons
   public getallCoupons(): void {
     this.couponService.getallCoupons().subscribe({
-      next: (response: Coupons[]) => { this.coupons = response, console.log(this.coupons) },
-      error: (error) => console.log('Error'),
-      complete: () => console.log("complete")
+      next: (response: Coupons[]) => { this.coupons = response },
+      error: (error) => console.log('Error')
     });
   }
 
@@ -29,8 +28,7 @@ export class CouponComponent implements OnInit {
   editModal(coupon : Coupons): void { 
    
     this.editCouponvalue=coupon;  
-    console.log("edit coupon");
-    console.log(this.editCouponvalue);
+   
     const modal = document.getElementById('editCouponModal');
     if (modal != null) {
       modal.style.display = 'block'; 
@@ -43,6 +41,7 @@ export class CouponComponent implements OnInit {
     const modal = document.getElementById('editCouponModal');
     if (modal != null) {
       modal.style.display = 'none';
+      this.getallCoupons();
     }
   }
   // ----------------------------------------------------------------------------------------
@@ -96,7 +95,6 @@ export class CouponComponent implements OnInit {
   editcoupon(coupon : NgForm):void {
     this.couponService.updateCoupon(coupon.value).subscribe((data: any) =>{     
       console.log("Update Successful");
-     this.getallCoupons();
       this.closeeditmodal();
     });
   }
