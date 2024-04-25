@@ -90,7 +90,7 @@ const routes: Routes = [
 
   {
     path: "user",
-    component: RootComponent,
+    component: NavbarComponent,
     children: [
       // User childers
       {
