@@ -66,6 +66,8 @@ export class WalletAdminComponent {
   ];
 
 
+
+  allUsers: any[] = [];
   displayedCustomers: any[] = [];
   searchQuery: string = '';
   pageSize: number = 10;
@@ -74,78 +76,151 @@ export class WalletAdminComponent {
   pages: number[] = [];
   amountToAddToAll: any;
   showAddAllBalanceForm: boolean = false;
+  showAddToUserBalanceForm: boolean = false;
   walletDetails: any[] = [];
+  employeeId: string = '';
+  amountToAddToUser: number = 0;
 
   ngOnInit() {
-    this.updateDisplayedCustomers();
-    this.customers.forEach(customer => {
-      customer.isAddingBalance = false;
-      customer.amountToAdd = null;
-    });
+    this.updateDisplayedUsers();
+    this.fetchAllUsersWallet();
+  }
 
+  fetchAllUsersWallet(): void {
+    this._walletService.getAllUserWallet().subscribe((allUsers: any[]) => {
+      this.allUsers = allUsers;
+      console.log(this.allUsers);
+
+    });
   }
 
 
 
-  updateDisplayedCustomers() {
-    let filteredCustomers = this.customers;
+  // updateDisplayedUsers() {
+  //   let filteredUsers = this.allUsers;
 
-    if (this.searchQuery) {
-      filteredCustomers = this.customers.filter(customer => {
+  //   if (this.searchQuery) {
+  //     filteredUsers = this.allUsers.filter(user => {
+  //       return (
+  //         user.employeeId.toString().includes(this.searchQuery.toLowerCase()) ||
+  //         user.uname.toLowerCase().includes(this.searchQuery.toLowerCase())
+  //       );
+  //     });
+  //   }
+
+  //   this.totalPages = Math.ceil(filteredUsers.length / this.pageSize);
+  //   this.pages = Array.from({ length: this.totalPages }, (_, i) => i + 1);
+
+  //   const startIndex = (this.currentPage - 1) * this.pageSize;
+  //   this.displayedCustomers = filteredUsers.slice(startIndex, startIndex + this.pageSize);
+  // }
+
+  updateDisplayedUsers() {
+    let filteredUsers = this.allUsers;
+
+    if (this.searchQuery.trim() !== '') {
+      const lowerCaseQuery = this.searchQuery.toLowerCase().trim();
+      filteredUsers = this.allUsers.filter(user => {
         return (
-          customer.id.toString().includes(this.searchQuery.toLowerCase()) ||
-          customer.name.toLowerCase().includes(this.searchQuery.toLowerCase())
+          user.employeeId.toString().includes(lowerCaseQuery) ||
+          user.uname.toLowerCase().includes(lowerCaseQuery)
         );
       });
     }
 
-    this.totalPages = Math.ceil(filteredCustomers.length / this.pageSize);
+    this.totalPages = Math.ceil(filteredUsers.length / this.pageSize);
     this.pages = Array.from({ length: this.totalPages }, (_, i) => i + 1);
 
     const startIndex = (this.currentPage - 1) * this.pageSize;
-    this.displayedCustomers = filteredCustomers.slice(startIndex, startIndex + this.pageSize);
+    this.displayedCustomers = filteredUsers.slice(startIndex, startIndex + this.pageSize);
   }
+
 
   search() {
     this.currentPage = 1;
-    this.updateDisplayedCustomers();
+    this.updateDisplayedUsers();
   }
 
   prevPage() {
     if (this.currentPage > 1) {
       this.currentPage--;
-      this.updateDisplayedCustomers();
+      this.updateDisplayedUsers();
     }
   }
 
   nextPage() {
     if (this.currentPage < this.totalPages) {
       this.currentPage++;
-      this.updateDisplayedCustomers();
+      this.updateDisplayedUsers();
     }
   }
 
   goToPage(page: number) {
     this.currentPage = page;
-    this.updateDisplayedCustomers();
+    this.updateDisplayedUsers();
   }
 
-  toggleAddBalance(customer: any): void {
-    customer.isAddingBalance = !customer.isAddingBalance;
-    if (customer.isAddingBalance) {
-      customer.amountToAdd = null;
+  toggleAddBalance(user: any): void {
+    this.showAddToUserBalanceForm = true;
+    this.employeeId = user.employeeId;
+    console.log(this.employeeId);
+    console.log(user);
+  }
+
+
+
+
+  saveAddedBalance(): void {
+
+    if (this.employeeId != null && this.amountToAddToUser > 0) {
+      this._walletService.addAmountToUser(this.employeeId, this.amountToAddToUser).subscribe((Response) => {
+        console.log(Response);
+
+      })
     }
+    console.log(this.employeeId);
+    console.log(this.amountToAddToUser);
+    this.showAddToUserBalanceForm = false;
+    this.amountToAddToUser = 0;
+
+    // window.location.reload();
+    this.reloadPage();
+
   }
 
-  saveAddedBalance(event: Event, customer: any): void {
-    event.preventDefault();
-    customer.balance += customer.amountToAdd;
-    customer.isAddingBalance = false;
+  reloadPage() {
+    this.fetchAllUsersWallet();
+    window.location.reload();
+
+
+
   }
+
+  // async saveAddedBalance(): Promise<void> {
+  //   if (this.employeeId != null && this.amountToAddToUser > 0) {
+  //     try {
+  //       const response = this._walletService.addAmountToUser(this.employeeId, this.amountToAddToUser).toPromise();
+  //       console.log(response);
+
+  //       // Fetch all users' wallets after adding amount to a user
+  //       await this.fetchAllUsersWallet();
+
+  //       // Reset form state
+  //       this.showAddToUserBalanceForm = false;
+  //       this.amountToAddToUser = 0;
+
+  //     } catch (error) {
+  //       console.error('Error adding amount to user:', error);
+  //       // Handle error (e.g., display error message)
+  //     }
+  //   } else {
+  //     console.warn('Invalid employeeId or amount to add.');
+  //   }
+  // }
+
 
   cancelAddBalance(customer: any): void {
-    customer.isAddingBalance = false;
-    customer.amountToAdd = null;
+    this.showAddToUserBalanceForm = false;
   }
 
   toggleAddAllBalanceForm(): void {
@@ -155,16 +230,17 @@ export class WalletAdminComponent {
     }
   }
 
-  addAllBalance():void {
+  addAllBalance(): void {
 
-    this._walletService.addAmountToAll(this.amountToAddToAll).subscribe(response => {
+    this._walletService.addAmountToAll(this.amountToAddToAll).subscribe((response) => {
       console.log(response);
     },
       error => {
         console.log(error);
-    });
+      });
     this.showAddAllBalanceForm = false;
     this.amountToAddToAll = null;
+    this.fetchAllUsersWallet();
   }
 
   cancelAddAllBalance(): void {

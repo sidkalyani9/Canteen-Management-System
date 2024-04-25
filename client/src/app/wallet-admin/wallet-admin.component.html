@@ -4,7 +4,8 @@
         <div class="row">
             <button class="add-balance-button" (click)="toggleAddAllBalanceForm()">Add Same Amount to All</button>
             <form class="add-all-form" *ngIf="showAddAllBalanceForm" (submit)="addAllBalance()">
-                <input type="number" [(ngModel)]="amountToAddToAll" placeholder="Enter amount to add" name="amountToAdd">
+                <input type="number" [(ngModel)]="amountToAddToAll" placeholder="Enter amount to add"
+                    name="amountToAdd">
                 <div class="add-all-buttons">
                     <button type="submit">Add</button>
                     <button type="button" (click)="cancelAddAllBalance()">Cancel</button>
@@ -12,17 +13,17 @@
             </form>
         </div>
         <input class="searchbox" type="text" placeholder="Search by ID or Name" [(ngModel)]="searchQuery"
-            (ngModelChange)="search()">
+            (ngModelChange)="search()" name="searchbox">
 
         <input class="pageSize" type="number" id="pageSize" [(ngModel)]="pageSize"
-            (change)="updateDisplayedCustomers()">
+            (change)="updateDisplayedUsers()">
         <label for="pageSize">Page Size:</label>
     </div>
     <table>
         <!-- Table header -->
         <thead>
             <tr>
-                <th>Customer ID</th>
+                <th>Employee ID</th>
                 <th>Name</th>
                 <th>Balance</th>
                 <th>Action</th>
@@ -30,17 +31,17 @@
         </thead>
         <!-- Table body -->
         <tbody>
-            <tr *ngFor="let customer of displayedCustomers">
-                <td>{{ customer.id }}</td>
-                <td>{{ customer.name }}</td>
-                <td>{{ customer.balance }}</td>
+            <tr *ngFor="let user of allUsers">
+                <td>{{ user.employeeId }}</td>
+                <td>{{ user.uname }}</td>
+                <td>{{ user.wallet_amount}}</td>
                 <td>
-                    <button class="addBalance" (click)="toggleAddBalance(customer)">Add Balance</button>
-                    <form class="form" *ngIf="customer.isAddingBalance" (submit)="saveAddedBalance($event, customer)">
-                        <input type="number" [(ngModel)]="customer.amountToAdd" placeholder="Enter amount to add">
+                    <button class="addBalance" (click)="toggleAddBalance(user)">Add Balance</button>
+                    <form class="form" *ngIf="showAddToUserBalanceForm" (submit)="saveAddedBalance()">
+                        <input type="number" [(ngModel)]="amountToAddToUser" placeholder="Enter amount to add" name="amountToAddToUser">
                         <div class="buttons">
                             <button type="submit">Save</button>
-                            <button type="button" (click)="cancelAddBalance(customer)">Cancel</button>
+                            <button type="button" (click)="cancelAddBalance(user)">Cancel</button>
                         </div>
                     </form>
                 </td>
