@@ -116,6 +116,23 @@ export class UserRoleManagementComponent {
     this.currentPage = 1;
     this.calculateTotalPages();
   }
+
+  
+changeUserRole(newRole: string, user: any): void {
+  user.role = newRole;
+  this.userDataService.updateUser(user, user.id).subscribe({
+    next: (res: any) => {
+      console.log(`User role updated: ${user.name} (${user.id}) is now ${user.role}`);
+      user.role = newRole;
+      
+      this.getUserList();
+    },
+    error: (error: any) => {
+      console.log("hi4")
+      console.error(`Error updating user role: ${error}`);
+    }
+  });
+}
 }
 
 
