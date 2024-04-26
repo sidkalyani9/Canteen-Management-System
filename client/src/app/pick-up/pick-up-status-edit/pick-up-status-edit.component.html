@@ -49,9 +49,9 @@
           </div>
         </div>
         <form #basicForm="ngForm" (ngSubmit)="updatePayment(basicForm.value)">
-          <div><input type="radio" ngModel name="Payment_method" value="gpay"> gpay</div>
-          <div><input type="radio" ngModel name="Payment_method" value="gpay2"> gpay2</div>
-          <div><input type="radio" ngModel name="Payment_method" value="gpay3"> gpay3</div>
+          <div><input type="radio" ngModel name="Payment_method" value="gpay" checked> gpay</div>
+          <div><input type="radio" ngModel name="Payment_method" value="gpay2" > gpay2</div>
+          <div><input type="radio" ngModel name="Payment_method" value="gpay3" > gpay3</div>
           <div class="mb-3">
             <button type="submit" class="btn btn-primary">Update</button>
 

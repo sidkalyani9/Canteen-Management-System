@@ -38,19 +38,25 @@ export class UserRoleManagementComponent {
   searchCategories: string[] = ['id', 'name','role','phone','email'];
 
 
-  showAllOrders() {
+  showAll() {
     this.searchQuery = '';
     this.selectedCategory = 'role';
     this.calculateTotalPages();
   }
 
-  showCompletedOrders() {
+  showAllAdmins() {
     this.searchQuery = 'admin';
     this.selectedCategory = 'role';
     this.calculateTotalPages();
   }
 
-  showCancelledOrders() {
+  showAllStaffs(){
+    this.searchQuery = 'staff';
+    this.selectedCategory = 'role';
+    this.calculateTotalPages();
+  }
+
+  showAllUsers() {
     this.searchQuery = 'user';
     this.selectedCategory = 'role';
     this.calculateTotalPages();

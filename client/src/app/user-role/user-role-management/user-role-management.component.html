@@ -1,27 +1,31 @@
+<div class="container">
 <div>
-    <div class="mt-5 container">
+    <div class="mt-1 container">
         <div class="card">
             <div class="card-header">
-                <h4>
-                    User Role
-                </h4>
+                <h1 _ngcontent-ng-c2042703737="" class="heading text-center">User Role</h1>
                 <!-- tab-list -->
                 <div class="order-tab-list">
                     <ul class="nav nav-pills">
                         <li class="nav-item">
-                            <button class="nav-link button" [class.active]="selectedCategory === 'id'"
-                                (click)="showAllOrders()">All
-                                Orders</button>
+                            <button class="nav-link button" 
+                            [class.active]="selectedCategory === 'role' && searchQuery === ''"
+                                (click)="showAll()">All User</button>
                         </li>
                         <li class="nav-item">
                             <button class="nav-link button"
                                 [class.active]="selectedCategory === 'role' && searchQuery === 'admin'"
-                                (click)="showCompletedOrders()">Completed Orders</button>
+                                (click)="showAllAdmins()">admin</button>
+                        </li>
+                        <li class="nav-item">
+                            <button class="nav-link button"
+                                [class.active]="selectedCategory === 'role' && searchQuery === 'staff'"
+                                (click)="showAllStaffs()">staff</button>
                         </li>
                         <li class="nav-item">
                             <button class="nav-link button"
                                 [class.active]="selectedCategory === 'role' && searchQuery === 'user'"
-                                (click)="showCancelledOrders()">Cancelled Orders</button>
+                                (click)="showAllUsers()">user</button>
                         </li>
                     </ul>
                 </div>
@@ -84,4 +88,6 @@
         </div>
 
     </div>
+</div>
+
 </div>
