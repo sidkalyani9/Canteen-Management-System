@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Coupons } from './Coupons';
 import { CouponService } from './Coupon.Service';
 import { NgForm } from '@angular/forms';
+import { error } from 'jquery';
 
 @Component({
   selector: 'app-coupon',
@@ -10,7 +11,9 @@ import { NgForm } from '@angular/forms';
 })
 export class CouponComponent implements OnInit {
   public coupons: Coupons[] = [];
-  public editCouponvalue: Coupons= {couponName: "",  description: "",activeTill:new Date(),discountType: "",deductionAmount:0,minValue:0};
+  public editCouponvalue: Coupons= {couponName: "",  description: "",activeTill:new Date(),discountType: "",deductionAmount:0,minValue:0,couponId:0};
+  public deleteCouponvalue: Coupons= {couponName:"",  description: "",activeTill:new Date(),discountType: "",deductionAmount:0,minValue:0,couponId:0};
+
   constructor(private couponService: CouponService) { }
   ngOnInit(): void { this.getallCoupons(); 
     // this.editCouponvalue={couponName: "",  description: "",activeTill:new Date(),discountType: "",deductionAmount:0,minValue:0};
@@ -65,7 +68,8 @@ export class CouponComponent implements OnInit {
   }
   // -------------------------------------------------------------------------------------
   //delete modal functions
-  deleteModal(): void {
+  deleteModal(coupon:Coupons): void {
+    this.deleteCouponvalue=coupon;
     const modal = document.getElementById('deleteCouponModal');
     if (modal != null) {
       modal.style.display = 'block';
@@ -89,8 +93,12 @@ export class CouponComponent implements OnInit {
       couponform.resetForm();
     });
   }
-  deleteCoupon() {
-
+  deleteCoupon(couponId:number) {
+    this.couponService.deleteCoupon(couponId).subscribe(()=>{
+      this.getallCoupons();
+      this.closeDeleteModal();
+      
+    });
   }
   editcoupon(coupon : NgForm):void {
     this.couponService.updateCoupon(coupon.value).subscribe((data: any) =>{     

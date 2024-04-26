@@ -85,7 +85,7 @@
                     width: 2.5cm;
                     margin-left: 20px;
                   "
-                  (click)="deleteModal()"
+                  (click)="deleteModal(coupon)"
                   
                 >
                   DELETE
@@ -350,11 +350,11 @@
         <h1 class="modal-title fs-5" id="exampleModalLabel">Delete Coupon</h1>
       </div>
       <div class="modal-body">
-        Are you sure you want to delete this coupon? 
+        Are you sure you want to delete coupon : {{deleteCouponvalue.couponName}} ? 
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="closeDeleteModal()">Cancel</button>
-        <button type="button" class="btn btn-primary" (click)="deleteCoupon()">Delete</button>
+        <button type="button" class="btn btn-primary" (click)="deleteCoupon(deleteCouponvalue.couponId)">Delete</button>
       </div>
     </div>
   </div>
