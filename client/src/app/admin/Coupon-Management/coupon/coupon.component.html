@@ -36,29 +36,30 @@
 <div style="margin-left: 30px; margin-right: 30px">
   <div class="container">
     <div class="row">
-      <div  *ngFor="let coupon of coupons" class="col-lg-3">
+      <div  *ngFor="let coupon of coupons" class="col-lg-3" >
         <div  class="card card-margin" style="width: fit-content;" *ngIf="coupon">
           <div class="card-header no-border">
-            <h5 class="card-title">{{coupon?.discountType}}</h5>
+            <h5 class="card-title" style="font-weight: bold;">On Min Rs.{{coupon?.minValue}}</h5>
+
           </div>
           <div class="card-body pt-0">
             <div class="widget-49">
               <div class="widget-49-title-wrapper">
-                <div class="widget-49-date-primary">
-                  <span class="widget-49-date-day">{{coupon?.deductionAmount}}%</span>
+                <div class="widget-49-date-primary" style="font-weight: bold;">
+                  <span class="widget-49-date-day">{{setdiscountSymbol(coupon)}}{{rupee}}{{coupon?.deductionAmount}}{{percentage}}</span>
                   <span class="widget-49-date-month">OFF</span>
                 </div>
-                <div class="widget-49-meeting-info">
+                <div class="widget-49-meeting-info" style="font-weight: bold;">
                   <span class="widget-49-pro-title"
-                    >On Min Rs.{{coupon?.minValue}} Order</span
+                    >Code : {{coupon?.couponCode}}</span
                   >
                   <span class="widget-49-pro-title"
-                    >ACTIVE TILL:{{coupon?.activeTill | date:'dd-MM-yyyy'}}</span
+                    >Active Till : {{coupon?.activeTill | date:'dd-MM-yyyy'}}</span
                   >
                 </div>
               </div>
               <div style="margin-top: 10px ">
-                <p style="font-weight: bold; color: #333">{{coupon?.description}}</p>
+                <p style="font-weight: bold; color: #333">► {{coupon?.description}}</p>
               </div>
               <div style="text-align: center; margin-top: 30px">
                 <button
@@ -106,7 +107,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
-          (click)="closeaddmodal()"></button>
+          (click)="closeaddmodal(addCoupon)"></button>
       </div>
       <div class="modal-body"  >
         
@@ -154,7 +155,7 @@
 
               <label for="activeTill" style="font-weight: bold">Active Till:</label>
               <br />
-              <input type="date" ngModel name="activeTill" required style="
+              <input type="date" ngModel name="activeTill"  required style="
                     padding: 10px;
                     margin-bottom: 15px;
                     border: 1px solid #ccc;
@@ -183,27 +184,26 @@
                 <option value="percentage">Percentage</option>
               </select>
               <br />
-              <label for="deductionAmount" style="font-weight: bold">Deduction Amount (%):</label>
+              <label for="deductionAmount" style="font-weight: bold">Deduction Amount :</label>
               <br />
               <input type="text" ngModel name="deductionAmount" required style="
                     padding: 10px;
                     margin-bottom: 15px;
                     border: 1px solid #ccc;
                     border-radius: 5px;
-                  "  />
+                  " />
               <br />
               <label for="minValue" style="font-weight: bold">Min Value:</label>
               <br />
-              <input type="number" ngModel name="minValue" min="100" required style="
+              <input type="number" ngModel name="minValue"  required style="
                     padding: 10px;
                     margin-bottom: 15px;
                     border: 1px solid #ccc;
                     border-radius: 5px;
                   " />
               <br />
-              <!-- <input type="submit" value="Submit" style="background-color: #007bff; color: #fff; border: none; cursor: pointer; padding: 10px; border-radius: 5px;"> -->
               <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="closeaddmodal()">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="closeaddmodal(addCoupon)">
                   Close
                 </button>
                 <button type="submit" style="
@@ -304,7 +304,7 @@
               <option value="percentage">Percentage</option>
             </select>
             <br />
-            <label for="deductionAmount" style="font-weight: bold">Deduction Amount (%):</label>
+            <label for="deductionAmount" style="font-weight: bold">Deduction Amount :</label>
             <br />
             <input type="text" [(ngModel)]="editCouponvalue.deductionAmount" name="deductionAmount" required style="
                   padding: 10px;
@@ -315,7 +315,7 @@
             <br />
             <label for="minValue" style="font-weight: bold">Min Value:</label>
             <br />
-            <input type="number" [(ngModel)]="editCouponvalue.minValue" name="minValue" min="100" required style="
+            <input type="number" [(ngModel)]="editCouponvalue.minValue" name="minValue"  required style="
                   padding: 10px;
                   margin-bottom: 15px;
                   border: 1px solid #ccc;

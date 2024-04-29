@@ -6,5 +6,6 @@ export interface Coupons{
     deductionAmount:number;
     minValue:number;
     couponId : number;
+    couponCode:string;
 
 }
