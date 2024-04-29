@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Coupons } from './Coupons';
 import { CouponService } from './Coupon.Service';
 import { NgForm } from '@angular/forms';
-import { DatePipe } from '@angular/common';
+
 @Component({
   selector: 'app-coupon',
   templateUrl: './coupon.component.html',
