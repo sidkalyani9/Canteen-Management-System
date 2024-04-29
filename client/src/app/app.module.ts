@@ -59,6 +59,7 @@ import {
   GoogleLoginProvider
 } from '@abacritt/angularx-social-login';
 import { SecondroutingModule } from './navbar/navbar/secondrouting.module';
+import { CouponService } from './admin/Coupon-Management/coupon/Coupon.Service';
 
 @NgModule({
   declarations: [
@@ -82,6 +83,7 @@ import { SecondroutingModule } from './navbar/navbar/secondrouting.module';
     LoaderComponent,
     OrderManagementComponent,
     LoginComponent,
+    
   ],
   imports: [
     SocialLoginModule,
@@ -135,7 +137,8 @@ import { SecondroutingModule } from './navbar/navbar/secondrouting.module';
     },
     provideAnimationsAsync(),
     ConfirmationService,
-    MessageService
+    MessageService,
+    CouponService
   ],
   bootstrap: [AppComponent]
 })

@@ -1,113 +1,163 @@
 <body>
-<!-- cart items -->
+  <!-- cart items -->
 
-<div class="explore">
-  <h1> < Explore more....</h1>
-</div>
-<div class="your cart">
-  <h1>🛒  YOUR CART </h1>
-</div>
-
-<div class="small-container cart-page">
-
-  <table>
-    <tr>
-      <th>Product</th>
-      <th>Quantity</th>
-      <th>Subtotal</th>
-    </tr>
-    <tr class="items">
-      <td>
-        <div class="cart-info">
-          <img src="assets/sandwich.jpg">
-          <div>
-            <p>Sandwich: <span style="font-size: 15px;">Fresh vegetable, tasty sandwich</span> </p>
-            <small>Price: Rs 50.00</small>
-            <br>
-            <a href="">Remove</a>
-          </div>
-        </div>
-      </td>
-      <td><input type="number" value = "1"></td>
-      <td>Rs 50.00</td>
-    </tr>
-    <br>
-    <tr class="items">
-      <td>
-        <div class="cart-info">
-          <img src="assets/coffee.jpg">
-          <div>
-            <p>Coffee</p>
-            <small>Price: Rs 20.00</small>
-            <br>
-            <a href="">Remove</a>
-          </div>
-        </div>
-      </td>
-      <td><input type="number" value = "1"></td>
-      <td>Rs 20.00</td>
-    </tr>
-
-    <br>
-
-    <tr class="items">
-      <td>
-        <div class="cart-info">
-          <img src="assets/thali.jpg">
-          <div>
-            <p>Thali</p>
-            <small>Price: Rs 80.00</small>
-            <br>
-            <a href="">Remove</a>
-          </div>
-        </div>
-      </td>
-      <td><input type="number" value = "1"></td>
-      <td>Rs 80.00</td>
-    </tr>
-
-  </table>
-
-  <div class="price">
-<!-- //coupon------------------------------------------------------------------------ -->
-  <div class="coupon">
-    <div class="head">
-      <p>Apply coupons</p>
-    </div>
-    <div class="apply">
-      <input type="text" class="search" placeholder="Enter Code">
-      <button style="font-size: 13px; background: transparent; border: none">APPLY</button>
-    </div>
-    <div class="applied">
-      <p>Prome Code <span style="color: black; text-decoration: underline;">NEW10FL</span> Applied | <button style="color: rgb(98, 128, 0); font-size: 10px; border: none; background: transparent">Remove</button></p>
-      <p>Promo Code <span style="color: black; text-decoration: underline;">FRES50Z</span> Applied | <button style="color: rgb(98, 128, 0); font-size: 10px; border: none; background: transparent">Remove</button></p>
-      </div>
-
+  <div class="your cart">
+    <h1>🛒 YOUR CART </h1>
   </div>
-<!-- ---------------------------------------------------------------------------------- -->
-  <div class="total-price">
-    <p>Order Summary</p>
+
+  <div class="small-container cart-page">
 
     <table>
       <tr>
-        <td>Subtotal</td>
-        <td>Rs 150.00</td>
+        <th>Product</th>
+        <th>Quantity</th>
+        <th>Subtotal</th>
       </tr>
-      <tr>
-        <td>Coupon discount</td>
-        <td>Rs 15.00</td>
+      <tr class="items">
+        <td>
+          <div class="cart-info">
+            <img src="assets/sandwich.jpg">
+            <div>
+              <p>Sandwich: <span style="font-size: 15px;">Fresh vegetable, tasty sandwich</span> </p>
+              <small>Price: Rs 50.00</small>
+              <br>
+              <a href="">Remove</a>
+            </div>
+          </div>
+        </td>
+        <td><input type="number" value="1"></td>
+        <td>Rs 50.00</td>
       </tr>
+      <br>
+      <tr class="items">
+        <td>
+          <div class="cart-info">
+            <img src="assets/coffee.jpg">
+            <div>
+              <p>Coffee</p>
+              <small>Price: Rs 20.00</small>
+              <br>
+              <a href="">Remove</a>
+            </div>
+          </div>
+        </td>
+        <td><input type="number" value="1"></td>
+        <td>Rs 20.00</td>
+      </tr>
+
+      <br>
+
+      <tr class="items">
+        <td>
+          <div class="cart-info">
+            <img src="assets/thali.jpg">
+            <div>
+              <p>Thali</p>
+              <small>Price: Rs 80.00</small>
+              <br>
+              <a href="">Remove</a>
+            </div>
+          </div>
+        </td>
+        <td><input type="number" value="1"></td>
+        <td>Rs 80.00</td>
+      </tr>
+
     </table>
-  </div>
-    <div class="final">
-      <p style="color: #802f59; font-weight: bold;"> Total amount: <Span style="font-size: 20px; color: black"> 💰Rs135.00</Span></p>
-    </div>
 
-    <div class="checkout">
-      <button>Checkout</button>
-    </div>
 
-  </div>
-</div>
+    <div class="price">
+
+      <!-- //coupon------------------------------------------------------------------------ -->
+      <div class="coupon">
+        <div class="head">
+          <p>Coupons</p>
+        </div>
+        <div>
+          <button type="button" class="btn btn-link" style="color: #802f59;" (click)="showCoupons()">Show Available
+            Coupons</button>
+        </div>
+      </div>
+
+      <!-- <show coupon modal---->
+        <div id="showCoupons" class="modal" tabindex="-1" style="background-color: rgba(0, 0, 0, 0.5);">
+          <div class="modal-dialog " style="max-width: 65%;">
+            <div class="modal-content ">
+              <div class="modal-header ">
+                <h1 class="modal-title" style="margin-top: 10px;">Available Coupons</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click)="closeshowCoupon()"></button>
+              </div>
+              <div class="modal-body">
+                <div class="row ">
+                  <div *ngFor="let coupon of coupons" class="col-lg-4 ">
+                    <div class="card card-margin" style="width: fit-content; border: 1px solid rgba(0, 0, 0, 0.125); border-radius: 0.5rem; box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.30);">
+                      <div class="card-header no-border">
+                        <h5 class="card-title" style="font-weight: bold;">On Min Rs.{{coupon?.minValue}}</h5>
+                      </div>
+                      <div class="card-body pt-0">
+                        <div class="widget-49">
+                          <div class="widget-49-title-wrapper">
+                            <div class="widget-49-date-primary" style="font-weight: bold;">
+                              <span class="widget-49-date-day">{{setdiscountSymbol(coupon)}}{{rupee}}{{coupon?.deductionAmount}}{{percentage}}</span>
+                              <span class="widget-49-date-month">OFF</span>
+                            </div>
+                            <div class="widget-49-meeting-info" style="font-weight: bold;">
+                              <span class="widget-49-pro-title">Code : {{coupon?.couponCode}}</span>
+                              <span class="widget-49-pro-title">Active Till : {{coupon?.activeTill | date:'dd-MM-yyyy'}}</span>
+                            </div>
+                          </div>
+                          <div style="margin-top: 10px ">
+                            <p style="font-weight: bold; color: #333">► {{coupon?.description}}</p>
+                          </div>
+                          <div style="text-align: center; margin-top: 30px">
+                            <button type="button" class="btn btn-primary" style="
+                                background-color: #802f59;
+                                border: 0;
+                                border-radius: 5px;
+                                width: 2.5cm;
+                              ">
+                              EDIT
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+             
+            </div>
+          </div>
+        </div>
+        
+
+        <!-- ---------------------------------------------------------------------------------- -->
+        <div class="total-price">
+          <p>Order Summary</p>
+
+
+
+          <table>
+            <tr>
+              <td>Subtotal</td>
+              <td>Rs 150.00</td>
+            </tr>
+            <tr>
+              <td>Coupon discount</td>
+              <td>Rs 15.00</td>
+            </tr>
+          </table>
+        </div>
+        <div class="final">
+          <p style="color: #802f59; font-weight: bold;"> Total amount: <Span style="font-size: 20px; color: black">
+              💰Rs135.00</Span></p>
+        </div>
+
+        <div class="checkout">
+          <button>Checkout</button>
+        </div>
+
+      </div>
+    </div>
 
 </body>

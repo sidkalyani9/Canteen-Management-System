@@ -17,7 +17,9 @@ export class CouponComponent implements OnInit {
   rupee: string = "";
   percentage: string = "";
 
-  constructor(private couponService: CouponService) {}
+
+  constructor(private couponService: CouponService ) {}
+
   ngOnInit(): void {
     this.getallCoupons();
     this.deleteExpiredCoupons();
