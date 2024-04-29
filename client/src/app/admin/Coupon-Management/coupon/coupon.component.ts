@@ -2,8 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Coupons } from './Coupons';
 import { CouponService } from './Coupon.Service';
 import { NgForm } from '@angular/forms';
-import { Alert } from 'bootstrap';
-
+import { DatePipe } from '@angular/common';
 @Component({
   selector: 'app-coupon',
   templateUrl: './coupon.component.html',
@@ -17,7 +16,7 @@ export class CouponComponent implements OnInit {
   rupee: string = "";
   percentage: string = "";
 
-  constructor(private couponService: CouponService) {}
+  constructor(private couponService: CouponService ) {}
   ngOnInit(): void {
     this.getallCoupons();
     this.deleteExpiredCoupons();
