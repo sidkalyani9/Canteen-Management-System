@@ -17,10 +17,13 @@ import java.util.UUID;
 public class walletHistoryService {
 
     private final walletHistoryRepo walletRepo;
+    private final UserRepo userRepo;
+    
 
     @Autowired
-    public walletHistoryService(walletHistoryRepo walletRepo){
+    public walletHistoryService(walletHistoryRepo walletRepo, UserRepo userRepo){
         this.walletRepo = walletRepo;
+        this.userRepo  = userRepo;
     }
 
     public List<WalletHistory> fetchEmployeeWalletHistory(String emp_id){
@@ -40,6 +43,48 @@ public class walletHistoryService {
             System.out.println(e.getMessage());
         }
         return null;
+    }
+
+    public void addAmountToAllUsersWallet(int amountToAdd) {
+        List<canteenUser> allUsers = userRepo.findAll();
+        for (canteenUser user : allUsers) {
+            
+            String empId = user.getEmployeeId();
+
+            WalletHistory walletEntry = new WalletHistory();
+            walletEntry.setWalletUuid(UUID.randomUUID());
+            walletEntry.setEmployeeId(user.getEmployeeId());
+            walletEntry.setAmount(amountToAdd);
+            walletEntry.setCreatedAt(new Date());
+            walletEntry.setEmployeeId(empId);
+
+            walletRepo.save(walletEntry);
+            
+            user.setWallet_amount(amountToAdd + user.getWallet_amount());
+            user.setUpdated_at(new Date());
+            
+            userRepo.save(user);
+        }
+    }
+    
+    public void addAmountToUserWallet(String employeeId, int amountToAdd) {
+    	Optional<canteenUser> user = userRepo.findByEmployeeId(employeeId);
+    	if (user.isPresent()) {
+    		canteenUser canteenUser = user.get();
+    		
+    		WalletHistory walletEntry = new WalletHistory();
+    		walletEntry.setWalletUuid(UUID.randomUUID());
+    		walletEntry.setEmployeeId(employeeId);
+    		walletEntry.setAmount(amountToAdd);
+    		walletEntry.setCreatedAt(new Date());
+    		
+    		walletRepo.save(walletEntry);
+    		
+    		canteenUser.setWallet_amount(amountToAdd + canteenUser.getWallet_amount());
+    		canteenUser.setUpdated_at(new Date());
+    		
+    		userRepo.save(canteenUser);
+    	}
     }
 
 //    public void deleteFromWallet(WalletHistory wallet, float amount){
