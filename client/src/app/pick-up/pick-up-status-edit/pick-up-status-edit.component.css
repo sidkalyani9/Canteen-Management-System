@@ -1,9 +1,24 @@
 /* Style the container */
 .container {
-    margin: 20px;
+    /* margin: 20px; */
     padding: 20px;
-    border: 1px solid #ccc;
+    padding-top: 50px;
+    /* border: 1px solid #ccc; */
     border-radius: 5px;
+    display: flex;
+    justify-content: center;
+  }
+
+  .card{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .card-title{
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
   
   /* Style the form */
@@ -14,6 +29,11 @@
   /* Style the radio buttons */
   input[type="radio"] {
     margin-right: 10px;
+  }
+
+  .bold{
+    font-weight: bold;
+    font-size: larger;
   }
   
   /* Style the submit button */
@@ -32,6 +52,10 @@
   }
   
   /* Style the link button */
+
+  .btn{
+    margin: 10px;
+  }
   a.btn {
     background-color: #28a745;
     color: #fff;
@@ -46,4 +70,14 @@
   a.btn:hover {
     background-color: #218838;
   }
+
+  .user-logo-img{
+    height: 150px;
+    width: 150px;
+}
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
   
