@@ -9,6 +9,8 @@ import org.springframework.stereotype.Service;
 
 import com.argusoft.canteen.server.repo.UserRepo;
 import com.argusoft.canteen.server.repo.walletHistoryRepo;
+import com.argusoft.canteen.server.repo.UserRepo;
+import com.argusoft.canteen.server.model.canteenUser;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
