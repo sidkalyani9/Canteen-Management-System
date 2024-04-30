@@ -1,5 +1,6 @@
 package com.argusoft.canteen.server.service;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
@@ -42,6 +43,11 @@ public class OrderService {
             throw new RuntimeException("Order not found with id: " + orderId);
         }
     }
+
+	public float fetchSales(){
+		float todaySales = repo.fetchTodaySales();
+		return todaySales;
+	}
 	
 	
 	
