@@ -169,7 +169,7 @@ export class WalletAdminComponent {
   }
 
   saveAddedBalance(): void {
-    
+
     if (this.employeeId != null && this.amountToAddToUser > 0) {
       this._walletService.addAmountToUser(this.employeeId, this.amountToAddToUser).subscribe((Response) => {
         console.log(Response);
@@ -179,14 +179,27 @@ export class WalletAdminComponent {
         error => {
           console.log(error);
         });
+
+
     }
     console.log(this.employeeId);
     console.log(this.amountToAddToUser);
+
+
+    // this.reloadPage();
+
+    const userToUpdate = this.allUsers.find(user => user.employeeId === this.employeeId);
+
+    if (userToUpdate) {
+      userToUpdate.wallet_amount += this.amountToAddToUser;
+      console.log(`Updated amount for user with employee code ${this.employeeId} to ${this.employeeId}`);
+    } else {
+      console.log(`User with employee code ${this.employeeId} not found`);
+    }
+
     this.showAddToUserBalanceForm = false;
     this.amountToAddToUser = 0;
     this.employeeId = "";
-
-    this.reloadPage();
 
   }
 
@@ -194,8 +207,8 @@ export class WalletAdminComponent {
     this.subscription.unsubscribe();
     this.fetchAllUsersWallet();
     setTimeout(function () {
-      window.location.reload();
-    }, 0);
+    window.location.reload();
+    },300);
   }
 
 
@@ -228,6 +241,8 @@ export class WalletAdminComponent {
   cancelAddAllBalance(): void {
     this.showAddAllBalanceForm = false;
   }
+
+
 
 
 }
