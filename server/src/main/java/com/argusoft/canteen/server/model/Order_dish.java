@@ -22,19 +22,19 @@ public class Order_dish {
     @Column(name = "qty")
     private int qty;
 
-    public int getOrderUuid() {
-        return orderUuid;
-    }
+    // public int getOrderUuid() {
+    //     return orderUuid;
+    // }
 
-    public void setOrderUuid(int orderUuid) {
-        this.orderUuid = orderUuid;
-    }
+    // public void setOrderUuid(int orderUuid) {
+    //     this.orderUuid = orderUuid;
+    // }
 
-    public List<Integer> getDishUuid() {
-        return dishUuid;
-    }
+    // public List<Integer> getDishUuid() {
+    //     return dishUuid;
+    // }
 
-    public void setDishUuid(List<Integer> dishUuid) {
-        this.dishUuid = dishUuid;
-    }
+    // public void setDishUuid(List<Integer> dishUuid) {
+    //     this.dishUuid = dishUuid;
+    // }
 }
