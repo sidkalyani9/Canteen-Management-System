@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { WalletService } from '../service/wallet/wallet.service';
-import { Observable, Subject, takeUntil } from 'rxjs';
+import { Observable, Subject, Subscription, takeUntil } from 'rxjs';
 
 @Component({
   selector: 'app-wallet-admin',
@@ -81,16 +81,17 @@ export class WalletAdminComponent {
   employeeId: string = '';
   amountToAddToUser: number = 0;
 
+  private subscription: Subscription;
+
   ngOnInit() {
     this.updateDisplayedUsers();
     this.fetchAllUsersWallet();
   }
 
   fetchAllUsersWallet(): void {
-    this._walletService.getAllUserWallet().subscribe((allUsers: any[]) => {
+    this.subscription = this._walletService.getAllUserWallet().subscribe((allUsers: any[]) => {
       this.allUsers = allUsers;
       console.log(this.allUsers);
-
     });
   }
 
@@ -190,6 +191,7 @@ export class WalletAdminComponent {
   }
 
   reloadPage() {
+    this.subscription.unsubscribe();
     this.fetchAllUsersWallet();
     setTimeout(function () {
       window.location.reload();
@@ -226,4 +228,6 @@ export class WalletAdminComponent {
   cancelAddAllBalance(): void {
     this.showAddAllBalanceForm = false;
   }
+
+
 }
