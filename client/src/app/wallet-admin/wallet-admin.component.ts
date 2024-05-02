@@ -171,52 +171,35 @@ export class WalletAdminComponent {
 
 
   saveAddedBalance(): void {
-
+    
     if (this.employeeId != null && this.amountToAddToUser > 0) {
       this._walletService.addAmountToUser(this.employeeId, this.amountToAddToUser).subscribe((Response) => {
         console.log(Response);
 
-      })
+      }
+        ,
+        error => {
+          console.log(error);
+        });
     }
     console.log(this.employeeId);
     console.log(this.amountToAddToUser);
     this.showAddToUserBalanceForm = false;
     this.amountToAddToUser = 0;
+    this.employeeId = "";
 
-    // window.location.reload();
     this.reloadPage();
 
   }
 
   reloadPage() {
     this.fetchAllUsersWallet();
-    window.location.reload();
-
-
-
+    setTimeout(function () {
+      window.location.reload();
+    }, 200);
   }
 
-  // async saveAddedBalance(): Promise<void> {
-  //   if (this.employeeId != null && this.amountToAddToUser > 0) {
-  //     try {
-  //       const response = this._walletService.addAmountToUser(this.employeeId, this.amountToAddToUser).toPromise();
-  //       console.log(response);
 
-  //       // Fetch all users' wallets after adding amount to a user
-  //       await this.fetchAllUsersWallet();
-
-  //       // Reset form state
-  //       this.showAddToUserBalanceForm = false;
-  //       this.amountToAddToUser = 0;
-
-  //     } catch (error) {
-  //       console.error('Error adding amount to user:', error);
-  //       // Handle error (e.g., display error message)
-  //     }
-  //   } else {
-  //     console.warn('Invalid employeeId or amount to add.');
-  //   }
-  // }
 
 
   cancelAddBalance(customer: any): void {
@@ -240,11 +223,10 @@ export class WalletAdminComponent {
       });
     this.showAddAllBalanceForm = false;
     this.amountToAddToAll = null;
-    this.fetchAllUsersWallet();
+    this.reloadPage();
   }
 
   cancelAddAllBalance(): void {
     this.showAddAllBalanceForm = false;
-    this.amountToAddToAll = null;
   }
 }
