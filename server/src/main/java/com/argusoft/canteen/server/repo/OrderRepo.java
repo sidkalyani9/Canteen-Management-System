@@ -10,6 +10,6 @@ import org.springframework.data.jpa.repository.Query;
 
 public interface OrderRepo extends JpaRepository<Order, UUID> {
     @Query(value = "SELECT SUM(o.amount) AS total_sales FROM orders o WHERE DATE(o.created_at) = CURRENT_DATE", nativeQuery = true)
-    float fetchTodaySales();
+    Float fetchTodaySales();
 
 }

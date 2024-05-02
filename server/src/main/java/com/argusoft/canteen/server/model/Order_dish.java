@@ -22,19 +22,27 @@ public class Order_dish {
     @Column(name = "qty")
     private int qty;
 
-    public int getOrderUuid() {
+    public UUID getOrderUuid() {
         return orderUuid;
     }
 
-    public void setOrderUuid(int orderUuid) {
+    public void setOrderUuid(UUID orderUuid) {
         this.orderUuid = orderUuid;
     }
 
-    public List<Integer> getDishUuid() {
+    public UUID getDishUuid() {
         return dishUuid;
     }
 
-    public void setDishUuid(List<Integer> dishUuid) {
+    public void setDishUuid(UUID dishUuid) {
         this.dishUuid = dishUuid;
+    }
+
+    public int getQty() {
+        return qty;
+    }
+
+    public void setQty(int qty) {
+        this.qty = qty;
     }
 }
