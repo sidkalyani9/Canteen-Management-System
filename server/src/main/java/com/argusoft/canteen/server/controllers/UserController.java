@@ -46,4 +46,9 @@ public class UserController {
         }
 
     }
+
+    @GetMapping("/findAllUser")
+    public ResponseEntity<List<canteenUser>> findAllUser(){
+    	return new ResponseEntity<>(userService.findAllUser(), HttpStatus.OK);
+    }
 }
