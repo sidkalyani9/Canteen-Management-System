@@ -18,6 +18,6 @@ export class CouponService{
         return this.http.put<Coupons>(`${this.apiServerUrl}/Coupons/updateCoupon`,coupon);
     }
     deleteCoupon(couponId:number):Observable<void>{
-        return this.http.delete<void>(`${this.apiServerUrl}/Coupons/deleteCoupon/${couponId}`+couponId);
+        return this.http.delete<void>(`${this.apiServerUrl}/Coupons/deleteCoupon/${couponId}`);
     }
 }

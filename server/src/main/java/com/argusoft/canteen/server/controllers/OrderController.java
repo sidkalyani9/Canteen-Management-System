@@ -38,6 +38,7 @@ public class OrderController {
 	@PostMapping("/addOrder")
 	public ResponseEntity<Order> addOrder(@RequestBody Order order) {
         order.setOrderUuid(UUID.randomUUID());
+		order.setCreatedAt(new Date());
         Order addedOrder = service.addOrder(order);
         return new ResponseEntity<>(addedOrder, HttpStatus.CREATED);
     }
@@ -53,6 +54,20 @@ public class OrderController {
         Optional<Order> optionalOrder = service.findOrderById(orderUuidId);
         return optionalOrder.map(order -> new ResponseEntity<>(order, HttpStatus.OK))
                 .orElseGet(() -> new ResponseEntity<>(HttpStatus.NOT_FOUND));
+	}
+
+	@GetMapping("/getTodaySales")
+	public ResponseEntity<?> getTodaySales(){
+		try{
+			float salesNumber = service.fetchSales();
+			return new ResponseEntity<>(salesNumber,HttpStatus.OK);
+		}
+		catch (Exception e){
+			return new ResponseEntity<>(e.getMessage(),HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+//			return new ResponseEntity<>(null,HttpStatus.INTERNAL_SERVER_ERROR);
+
+
 	}
 	
 	

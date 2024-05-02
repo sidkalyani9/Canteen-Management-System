@@ -5,6 +5,8 @@ import com.argusoft.canteen.server.model.WalletHistory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.argusoft.canteen.server.repo.walletHistoryRepo;
+import com.argusoft.canteen.server.repo.UserRepo;
+import com.argusoft.canteen.server.model.canteenUser;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
