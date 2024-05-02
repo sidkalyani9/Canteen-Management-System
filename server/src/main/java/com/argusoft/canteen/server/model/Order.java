@@ -19,10 +19,10 @@ public class Order {
 	@Column(name = "order_uuid", updatable = false, nullable = false)
 	private UUID orderUuid;
 	
-	
-	@Column(name = "order_dish_uuid", updatable = false, nullable = false)
-	private UUID orderDishUuid;
-	
+//
+//	@Column(name = "order_dish_uuid", updatable = false, nullable = false)
+//	private UUID orderDishUuid;
+//
 	
 	@Column(name = "user_uuid", updatable = false, nullable = false)
 	private UUID userUuid;
@@ -44,10 +44,15 @@ public class Order {
 
 	public Order() {}
 
-	public Order(UUID orderUuid, UUID orderDishUuid, UUID userUuid, Date createdAt, Boolean isArchived,
-			String paymentMode, float amount) {
+	public Order(UUID orderUuid
+//			, UUID orderDishUuid,
+				 ,UUID userUuid,
+				 Date createdAt,
+				 Boolean isArchived,
+				 String paymentMode,
+				 float amount) {
 		this.orderUuid = orderUuid;
-		this.orderDishUuid = orderDishUuid;
+//		this.orderDishUuid = orderDishUuid;
 		this.userUuid = userUuid;
 		this.createdAt = createdAt;
 		this.isArchived = isArchived;
@@ -63,13 +68,13 @@ public class Order {
 		this.orderUuid = orderUuid;
 	}
 
-	public UUID getOrderDishUuid() {
-		return orderDishUuid;
-	}
-
-	public void setOrderDishUuid(UUID orderDishUuid) {
-		this.orderDishUuid = orderDishUuid;
-	}
+//	public UUID getOrderDishUuid() {
+//		return orderDishUuid;
+//	}
+//
+//	public void setOrderDishUuid(UUID orderDishUuid) {
+//		this.orderDishUuid = orderDishUuid;
+//	}
 
 	public UUID getUserUuid() {
 		return userUuid;
