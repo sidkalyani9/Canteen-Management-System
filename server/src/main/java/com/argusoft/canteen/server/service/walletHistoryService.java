@@ -2,8 +2,12 @@ package com.argusoft.canteen.server.service;
 
 import com.argusoft.canteen.server.exceptions.InvalidWallet;
 import com.argusoft.canteen.server.model.WalletHistory;
+import com.argusoft.canteen.server.model.canteenUser;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import com.argusoft.canteen.server.repo.UserRepo;
 import com.argusoft.canteen.server.repo.walletHistoryRepo;
 import com.argusoft.canteen.server.repo.UserRepo;
 import com.argusoft.canteen.server.model.canteenUser;
