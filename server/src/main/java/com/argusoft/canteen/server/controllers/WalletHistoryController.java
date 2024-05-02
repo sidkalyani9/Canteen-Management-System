@@ -55,27 +55,30 @@ public class WalletHistoryController implements walletHistoryInterface {
         return new ResponseEntity<>(returnedWallet, HttpStatus.OK);
     }
 
-        @PostMapping("/addAmountToAll/{amountToAdd}")
+    @PostMapping("/addAmountToAll/{amountToAdd}")
     public ResponseEntity<String> addAmountToAllUsersWallet(@PathVariable int amountToAdd) {
         try {
             walletService.addAmountToAllUsersWallet(amountToAdd);
-            return new ResponseEntity<>("Amount added to all users' wallets successfully", HttpStatus.OK);
+            return new ResponseEntity<>("Amount added to all users wallets successfully", HttpStatus.OK);
         } catch (Exception e) {
             return new ResponseEntity<>(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
     
-    @PostMapping("/addAmountToUserWallet/{employeeId}/{amountToAdd}")
+    @PostMapping("/addAmountToUserWallet/{employeeId}")
     public ResponseEntity<String> addAmountToUserWallet(
             @PathVariable String employeeId,
-            @PathVariable int amountToAdd) {
+            @RequestBody Map<String, Object> requestBody) {
         try {
+        	int amountToAdd = (int) requestBody.get("amountToAdd");
             walletService.addAmountToUserWallet(employeeId, amountToAdd);
             return new ResponseEntity<>("Amount added to user's wallet successfully", HttpStatus.OK);
         } catch (Exception e) {
             return new ResponseEntity<>(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
+
+
     
 
 //    @Override

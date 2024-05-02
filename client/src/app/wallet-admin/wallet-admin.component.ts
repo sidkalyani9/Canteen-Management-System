@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { WalletService } from '../service/wallet/wallet.service';
-import { Subject, takeUntil } from 'rxjs';
+import { Observable, Subject, Subscription, takeUntil } from 'rxjs';
 
 @Component({
   selector: 'app-wallet-admin',
@@ -9,7 +9,7 @@ import { Subject, takeUntil } from 'rxjs';
 })
 export class WalletAdminComponent {
 
-  constructor(private _walletService:WalletService) {}
+  constructor(private _walletService: WalletService) { }
   public $destroyWalletSubject = new Subject<void>();
 
   customers: any[] = [
@@ -66,6 +66,8 @@ export class WalletAdminComponent {
   ];
 
 
+
+  allUsers: any[] = [];
   displayedCustomers: any[] = [];
   searchQuery: string = '';
   pageSize: number = 10;
@@ -74,78 +76,146 @@ export class WalletAdminComponent {
   pages: number[] = [];
   amountToAddToAll: any;
   showAddAllBalanceForm: boolean = false;
+  showAddToUserBalanceForm: boolean = false;
   walletDetails: any[] = [];
+  employeeId: string = '';
+  amountToAddToUser: number = 0;
+
+  private subscription: Subscription;
 
   ngOnInit() {
-    this.updateDisplayedCustomers();
-    this.customers.forEach(customer => {
-      customer.isAddingBalance = false;
-      customer.amountToAdd = null;
-    });
-    
+    this.updateDisplayedUsers();
+    this.fetchAllUsersWallet();
   }
 
-  
+  async fetchAllUsersWallet(): Promise<void> {
+    this.subscription = await this._walletService.getAllUserWallet().subscribe(async (allUsers: any[]) => {
+      this.allUsers = await allUsers;
+      console.log(this.allUsers);
+    });
+  }
 
-  updateDisplayedCustomers() {
-    let filteredCustomers = this.customers;
 
-    if (this.searchQuery) {
-      filteredCustomers = this.customers.filter(customer => {
+
+  // updateDisplayedUsers() {
+  //   let filteredUsers = this.allUsers;
+
+  //   if (this.searchQuery) {
+  //     filteredUsers = this.allUsers.filter(user => {
+  //       return (
+  //         user.employeeId.toString().includes(this.searchQuery.toLowerCase()) ||
+  //         user.uname.toLowerCase().includes(this.searchQuery.toLowerCase())
+  //       );
+  //     });
+  //   }
+
+  //   this.totalPages = Math.ceil(filteredUsers.length / this.pageSize);
+  //   this.pages = Array.from({ length: this.totalPages }, (_, i) => i + 1);
+
+  //   const startIndex = (this.currentPage - 1) * this.pageSize;
+  //   this.displayedCustomers = filteredUsers.slice(startIndex, startIndex + this.pageSize);
+  // }
+
+  updateDisplayedUsers() {
+    let filteredUsers = this.allUsers;
+
+    if (this.searchQuery.trim() !== '') {
+      const lowerCaseQuery = this.searchQuery.toLowerCase().trim();
+      filteredUsers = this.allUsers.filter(user => {
         return (
-          customer.id.toString().includes(this.searchQuery.toLowerCase()) ||
-          customer.name.toLowerCase().includes(this.searchQuery.toLowerCase())
+          user.employeeId.toString().includes(lowerCaseQuery) ||
+          user.uname.toLowerCase().includes(lowerCaseQuery)
         );
       });
     }
 
-    this.totalPages = Math.ceil(filteredCustomers.length / this.pageSize);
+    this.totalPages = Math.ceil(filteredUsers.length / this.pageSize);
     this.pages = Array.from({ length: this.totalPages }, (_, i) => i + 1);
 
     const startIndex = (this.currentPage - 1) * this.pageSize;
-    this.displayedCustomers = filteredCustomers.slice(startIndex, startIndex + this.pageSize);
+    this.displayedCustomers = filteredUsers.slice(startIndex, startIndex + this.pageSize);
   }
+
 
   search() {
     this.currentPage = 1;
-    this.updateDisplayedCustomers();
+    this.updateDisplayedUsers();
   }
 
   prevPage() {
     if (this.currentPage > 1) {
       this.currentPage--;
-      this.updateDisplayedCustomers();
+      this.updateDisplayedUsers();
     }
   }
 
   nextPage() {
     if (this.currentPage < this.totalPages) {
       this.currentPage++;
-      this.updateDisplayedCustomers();
+      this.updateDisplayedUsers();
     }
   }
 
   goToPage(page: number) {
     this.currentPage = page;
-    this.updateDisplayedCustomers();
+    this.updateDisplayedUsers();
   }
 
-  toggleAddBalance(customer: any): void {
-    customer.isAddingBalance = !customer.isAddingBalance;
-    if (customer.isAddingBalance) {
-      customer.amountToAdd = null;
+  toggleAddBalance(user: any): void {
+    this.showAddToUserBalanceForm = true;
+    this.employeeId = user.employeeId;
+    console.log(this.employeeId);
+    console.log(user);
+  }
+
+  saveAddedBalance(): void {
+
+    if (this.employeeId != null && this.amountToAddToUser > 0) {
+      this._walletService.addAmountToUser(this.employeeId, this.amountToAddToUser).subscribe((Response) => {
+        console.log(Response);
+
+      }
+        ,
+        error => {
+          console.log(error);
+        });
+
+
     }
+    console.log(this.employeeId);
+    console.log(this.amountToAddToUser);
+
+
+    // this.reloadPage();
+
+    const userToUpdate = this.allUsers.find(user => user.employeeId === this.employeeId);
+
+    if (userToUpdate) {
+      userToUpdate.wallet_amount += this.amountToAddToUser;
+      console.log(`Updated amount for user with employee code ${this.employeeId} to ${this.employeeId}`);
+    } else {
+      console.log(`User with employee code ${this.employeeId} not found`);
+    }
+
+    this.showAddToUserBalanceForm = false;
+    this.amountToAddToUser = 0;
+    this.employeeId = "";
+
   }
 
-  saveAddedBalance(event: Event, customer: any): void {
-    event.preventDefault();
-    customer.balance += customer.amountToAdd;
-    customer.isAddingBalance = false;
+  reloadPage() {
+    this.subscription.unsubscribe();
+    this.fetchAllUsersWallet();
+    setTimeout(function () {
+    window.location.reload();
+    },300);
   }
+
+
+
 
   cancelAddBalance(customer: any): void {
-    customer.isAddingBalance = false;
-    customer.amountToAdd = null;
+    this.showAddToUserBalanceForm = false;
   }
 
   toggleAddAllBalanceForm(): void {
@@ -156,16 +226,23 @@ export class WalletAdminComponent {
   }
 
   addAllBalance(): void {
-    if (this.amountToAddToAll != null) {
-      this.customers.forEach(customer => {
-        customer.balance += this.amountToAddToAll;
+
+    this._walletService.addAmountToAll(this.amountToAddToAll).subscribe((response) => {
+      console.log(response);
+    },
+      error => {
+        console.log(error);
       });
-      this.showAddAllBalanceForm = false;
-    }
+    this.showAddAllBalanceForm = false;
+    this.amountToAddToAll = null;
+    this.reloadPage();
   }
 
   cancelAddAllBalance(): void {
     this.showAddAllBalanceForm = false;
-    this.amountToAddToAll = null;
   }
+
+
+
+
 }
