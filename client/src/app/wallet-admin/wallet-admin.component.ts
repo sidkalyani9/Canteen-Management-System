@@ -88,9 +88,9 @@ export class WalletAdminComponent {
     this.fetchAllUsersWallet();
   }
 
-  fetchAllUsersWallet(): void {
-    this.subscription = this._walletService.getAllUserWallet().subscribe((allUsers: any[]) => {
-      this.allUsers = allUsers;
+  async fetchAllUsersWallet(): Promise<void> {
+    this.subscription = await this._walletService.getAllUserWallet().subscribe(async (allUsers: any[]) => {
+      this.allUsers = await allUsers;
       console.log(this.allUsers);
     });
   }
