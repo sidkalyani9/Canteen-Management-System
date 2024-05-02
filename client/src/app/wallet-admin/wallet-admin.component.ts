@@ -167,9 +167,6 @@ export class WalletAdminComponent {
     console.log(user);
   }
 
-
-
-
   saveAddedBalance(): void {
     
     if (this.employeeId != null && this.amountToAddToUser > 0) {
@@ -196,7 +193,7 @@ export class WalletAdminComponent {
     this.fetchAllUsersWallet();
     setTimeout(function () {
       window.location.reload();
-    }, 200);
+    }, 0);
   }
 
 
