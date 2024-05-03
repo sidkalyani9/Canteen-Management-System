@@ -1,14 +1,20 @@
 /*  heading  */
 .heading {
-    font-size: 35px;
+    font-size: 2vw;
     font-weight: bold;
     border: 2px solid #802f59 !important;
-    border-radius: 20px;
-    width: 300px;
-    margin-left: 40%;
-    margin-top: 20px;
-    padding: 10px;
-    box-shadow: 10px 10px 5px #802f59;
+    border-radius: 20vw;
+    max-width: 500px;
+    width: 50vw;
+    margin-top: 1vw;
+    padding: 1vw;
+    box-shadow: 1vw 1vw 1vw #802f59;
+    margin-inline: auto;
+}
+
+.container{
+    max-width: 100%;
+    margin: 0 auto;
 }
 
 
@@ -193,7 +199,7 @@
 /* pagination  */
 .pagination-container {
     display: flex;
-    justify-content: flex-start;
+    justify-content: center;
     padding: 20px;
     box-sizing: border-box;
     overflow-x: auto;
@@ -248,4 +254,10 @@
     background-color: #802f59;
     color: #fff;
     border-color: #7f4764;
+}
+
+.order-tab-list ul{
+    border: 3px solid #802f59;
+    border-radius: 8px;
+    width: 290px;
 }

@@ -1,87 +1,106 @@
-<div>
-    <div class="mt-5 container">
-        <div class="card">
-            <div class="card-header">
-                <h4>
-                    User Role
-                </h4>
-                <!-- tab-list -->
-                <div class="order-tab-list">
-                    <ul class="nav nav-pills">
-                        <li class="nav-item">
-                            <button class="nav-link button" [class.active]="selectedCategory === 'id'"
-                                (click)="showAllOrders()">All
-                                Orders</button>
-                        </li>
-                        <li class="nav-item">
-                            <button class="nav-link button"
-                                [class.active]="selectedCategory === 'role' && searchQuery === 'admin'"
-                                (click)="showCompletedOrders()">Completed Orders</button>
-                        </li>
-                        <li class="nav-item">
-                            <button class="nav-link button"
-                                [class.active]="selectedCategory === 'role' && searchQuery === 'user'"
-                                (click)="showCancelledOrders()">Cancelled Orders</button>
-                        </li>
-                    </ul>
+<div class="container">
+    <div>
+        <div class="mt-1 container">
+            <div class="card">
+                <div class="card-header">
+                    <h1 _ngcontent-ng-c2042703737="" class="heading text-center">User Role</h1>
+                    <!-- tab-list -->
+                    <div class="order-tab-list">
+                        <ul class="nav nav-pills">
+                            <li class="nav-item">
+                                <button class="nav-link button"
+                                    [class.active]="selectedCategory === 'role' && searchQuery === ''"
+                                    (click)="showAll()">All User</button>
+                            </li>
+                            <li class="nav-item">
+                                <button class="nav-link button"
+                                    [class.active]="selectedCategory === 'role' && searchQuery === 'admin'"
+                                    (click)="showAllAdmins()">admin</button>
+                            </li>
+                            <li class="nav-item">
+                                <button class="nav-link button"
+                                    [class.active]="selectedCategory === 'role' && searchQuery === 'staff'"
+                                    (click)="showAllStaffs()">staff</button>
+                            </li>
+                            <li class="nav-item">
+                                <button class="nav-link button"
+                                    [class.active]="selectedCategory === 'role' && searchQuery === 'user'"
+                                    (click)="showAllUsers()">user</button>
+                            </li>
+                        </ul>
+                    </div>
+
+
+                    <!-- items per page -->
+                    <div class="itemsPerPage">
+                        <label for="itemsPerPageInput">Items Per Page</label>
+                        <input type="number" id="itemsPerPageInput" [(ngModel)]="itemsPerPage" (change)="changePageSize()">
+                    </div>
+
+
+                    <!-- search -->
+                    <div class="search">
+                        <label for="searchCategory">Search by :</label>
+                        <select id="searchCategory" [(ngModel)]="selectedCategory">
+                            <option *ngFor="let category of searchCategories" [value]="category">{{ category }}</option>
+                        </select>
+                        <input type="text" [(ngModel)]="searchQuery" (input)="search()" placeholder="Search...">
+                    </div>
                 </div>
+                <div class="card-body">
+                    <table class="table table-striped table-bordered">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Name</th>
+                                <th>Course</th>
+                                <th>Email</th>
+                                <th>Phone</th>
+                                <th>Role</th>
+                                <th> </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let user of paginatedData">
+                                <td>{{ user.id }}</td>
+                                <td>{{ user.name }}</td>
+                                <td>{{ user.course }}</td>
+                                <td>{{ user.email }}</td>
+                                <td>{{ user.phone }}</td>
+                                <td>{{ user.role }}</td>
 
+                                <td>
+                                    <form #basicForm="ngForm" (ngSubmit)="changeUserRole(basicForm.value.role, user)">
+                                        <select id="Role" name="role" class = "role" [(ngModel)]="user.role">
+                                            <option value="user">User</option>
+                                            <option value="staff">Staff</option>
+                                            <option value="admin">Admin</option>
+                                        </select>
+                                        <button type="submit" class="submit_button">Make Change</button>
+                                    </form> 
+                                </td>   
+                            </tr>
+                        </tbody>
 
-                <!-- items per page -->
-                <div class="itemsPerPage">
-                    <label for="itemsPerPageInput">Items Per Page</label>
-                    <input type="number" id="itemsPerPageInput" [(ngModel)]="itemsPerPage" (change)="changePageSize()">
-                </div>
-
-
-                <!-- search -->
-                <div class="search">
-                    <label for="searchCategory">Search by :</label>
-                    <select id="searchCategory" [(ngModel)]="selectedCategory">
-                        <option *ngFor="let category of searchCategories" [value]="category">{{ category }}</option>
-                    </select>
-                    <input type="text" [(ngModel)]="searchQuery" (input)="search()" placeholder="Search...">
+                    </table>
                 </div>
             </div>
-            <div class="card-body">
-                <table class="table table-striped table-bordered">
-                    <thead>
-                        <tr>
-                            <th>ID</th>
-                            <th>Name</th>
-                            <th>Course</th>
-                            <th>Email</th>
-                            <th>Phone</th>
-                            <th>Role</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr *ngFor="let item of paginatedData">
-                            <td>{{item.id}}</td>
-                            <td>{{item.name}}</td>
-                            <td>{{item.course}}</td>
-                            <td>{{item.email}}</td>
-                            <td>{{item.phone}}</td>
-                            <td> <a routerLink="{{item.id}}/edit">{{item.role}}</a></td>
-                        </tr>
-                    </tbody>
-                </table>
+
+            <!-- pagination  -->
+            <div class="pagination-container">
+                <ul class="pagination">
+                    <li class="page-item" [ngClass]="{disabled :currentPage == 1}" style="cursor: pointer;">
+                        <a class="page-link" (click)="pageClicked(currentPage - 1)">Previous</a>
+                    </li>
+                    <li (click)="pageClicked(page)" *ngFor="let page of pages" class="page-item"
+                        [ngClass]="{'active':page == currentPage}"><a class="page-link">{{page}}</a></li>
+                    <li class="page-item" [ngClass]="{disabled :currentPage == totalPages}" style="cursor: pointer;">
+                        <a class="page-link" (click)="pageClicked(currentPage + 1)">Next</a>
+                    </li>
+                </ul>
             </div>
-        </div>
 
-        <!-- pagination  -->
-        <div class="pagination-container">
-            <ul class="pagination">
-                <li class="page-item" [ngClass]="{disabled :currentPage == 1}" style="cursor: pointer;">
-                    <a class="page-link"  (click)="pageClicked(currentPage - 1)">Previous</a>
-                </li>
-                <li (click)="pageClicked(page)" *ngFor="let page of pages" class="page-item"
-                    [ngClass]="{'active':page == currentPage}"><a class="page-link">{{page}}</a></li>
-                <li class="page-item" [ngClass]="{disabled :currentPage == totalPages}" style="cursor: pointer;">
-                    <a class="page-link"  (click)="pageClicked(currentPage + 1)">Next</a>
-                </li>
-            </ul>
         </div>
-
     </div>
+
 </div>
