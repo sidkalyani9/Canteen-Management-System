@@ -1,9 +1,15 @@
-<form #basicForm="ngForm" (ngSubmit)="updateRole(basicForm.value)">
-    <select id="Role" name="role" [(ngModel)]="defaultRole">
-        <option value="user">User</option>
-        <option value="staff">Staff</option>
-        <option value="admin">Admin</option>
-      </select>
-      
-    <button type="submit">Submit</button>
-  </form>
+
+      <form #basicForm="ngForm" (ngSubmit)="updateRole(basicForm.value)">
+        <select id="Role" name="role" [(ngModel)]="defaultRole">
+            <option value="user">User</option>
+            <option value="staff">Staff</option>
+            <option value="admin">Admin</option>
+          </select>
+    
+        <button type="submit">Submit</button>
+      </form>
+    
+
+
+
+  

@@ -1,0 +1,50 @@
+<div class="wallet-container">
+    <h2 class="amount">
+        Wallet Balance: <fa-icon [icon]="rupeeIcon" class="rupeeIcon"></fa-icon>{{ walletBalance }}
+    </h2>
+    <div class="balanceHistory">
+        <!-- <table class="balanceTable">
+            <tr class="heading">
+                <th>Amount</th>
+                <th>Date</th>
+                <th>Type</th>
+            </tr>
+            <tr *ngFor="let walletDetail of walletDetails" class="rows">
+                <td>{{walletDetail?.amount}}</td>
+                <td>{{walletDetail?.createdAt | date:'dd-MM-yyyy'}}</td>
+                <td>{{transactionType(walletDetail?.amount)}}</td>
+            </tr>
+        </table> -->
+        <p-table 
+                #MostOrderedDataTable
+                [value]="walletDetails" 
+                [paginator]="true" 
+                [rows]="10"
+                paginatorPosition="bottom"
+                >
+                <ng-template pTemplate="caption" style="border-radius: 1em;">
+                    
+                        <span>Wallet History</span>
+                        <!-- <span class="searchBox">
+                            <fa-icon [icon]="searchIcon"></fa-icon>
+                            <input pInputText class="searchInput" type="text" (input)="MostOrderedDataTable.filterGlobal($any($event.target).value, 'contains')" placeholder="Search keyword" />
+                        </span> -->
+                  
+                </ng-template>
+                <ng-template pTemplate="header">
+                    <tr>
+                        <th pSortableColumn="amount"><p-sortIcon field="name"></p-sortIcon> Amount</th>
+                        <th pSortableColumn="createdAt"><p-sortIcon field="name"></p-sortIcon> Date of Transaction</th>
+                        <th pSortableColumn="quantity"> Transaction Type</th>
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-walletDetail>
+                    <tr>
+                        <td>{{walletDetail.amount}}</td>
+                        <td>{{walletDetail.createdAt | date:'dd, MMMM, yyyy'}}</td>
+                        <td>{{transactionType(walletDetail?.amount)}}</td>
+                    </tr>
+                </ng-template>
+        </p-table>
+    </div>
+</div>

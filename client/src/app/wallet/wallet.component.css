@@ -1,0 +1,88 @@
+.wallet-container {
+    height: 93%;
+    margin: 2%;
+    background-color: #ffffff;
+    border-radius: 1em;
+    width: 97% !important;
+    padding: 2%;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    color: #802f59;
+    margin-bottom: 20px;
+}
+
+.balanceHistory{
+    border-radius: 1em !important;
+    overflow: scroll;
+}
+
+.balanceTable {
+    font-size: 1.5em;
+    width: 70%;
+    margin: 0 auto;
+    border-radius: 1em !important;
+}
+
+tr{
+    border-radius: 1em !important;
+    text-align: center;
+    height: 3em;
+}
+
+.p-sortable-column{
+    background-color: #802f5931 !important;
+}
+
+tr:nth-child(odd){
+    background-color: #802f5911 !important;
+}
+
+tr:nth-child(even){
+    background-color: #802f5931 !important;
+}
+
+td{
+    text-align: center;
+}
+
+.p-datatable-header{
+    background-color: #802f59 !important;
+}
+
+.p-datatable, .p-datatable-header, .p-component {
+    border-top-left-radius: 1em !important;
+    border-top-right-radius: 1em !important;
+}
+/* 
+.p-datatable-header{
+    width: 100%;
+    align-items: center;
+    background-color: #802f59 !important;
+    color: white;
+} */
+
+.heading{
+    border-top: 1px solid rgba(0, 0, 0, 0.18);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+th{
+    font-weight: 600  !important;
+}
+
+tr{
+    font-weight: 100 !important;
+}
+
+.rupeeIcon{
+    font-size: 0.91em;
+}
+
+.amount {
+    text-align: center;
+    font-size: 2em;
+    font-weight: 400;
+    color: #802f59;
+}

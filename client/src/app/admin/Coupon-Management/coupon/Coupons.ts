@@ -1,8 +1,11 @@
 export interface Coupons{
-    name:string;
+    couponName:string;
     activeTill:Date;
     description:string;
     discountType:string;
     deductionAmount:number;
     minValue:number;
+    couponId : number;
+    couponCode:string;
+
 }

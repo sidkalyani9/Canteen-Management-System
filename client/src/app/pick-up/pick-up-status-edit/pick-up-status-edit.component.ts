@@ -13,26 +13,29 @@ export class PickUpStatusEditComponent implements OnInit{
   
   order!:any;
   payment!:any;
+  isLoading:boolean=false;
  
   order_no!: any;
 
   constructor(private router:Router,private route : ActivatedRoute , private pickUpUserData: PickUpOrderDataService){}
   ngOnInit(): void {
+    this.isLoading=true;
       this.order_no = this.route.snapshot.paramMap.get('id');
       this.pickUpUserData.getOrder(this.order_no).subscribe((res:any)=>{
         console.log(res)
         this.order=res
       })
+      this.isLoading=false;
   }
  
 
   updatePayment(data:any){
-    
+    this.isLoading=true;
     this.payment=data.Payment_method
     var inputdata={
-      order_no : this.order.order_no,
-      customer_name : this.order.customer_name,
-      customer_mo_no : this.order.customer_mo_no,
+      // order_no : this.order.order_no,
+      // customer_name : this.order.customer_name,
+      // customer_mo_no : this.order.customer_mo_no,
       payment : this.payment
       
     }
@@ -44,5 +47,6 @@ export class PickUpStatusEditComponent implements OnInit{
         this.router.navigateByUrl('/admin/pickupmanagement');
     }
   });
+  this.isLoading=false;
   }
 }

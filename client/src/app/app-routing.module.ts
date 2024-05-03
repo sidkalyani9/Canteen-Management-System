@@ -12,11 +12,26 @@ import { MenuManagementComponent } from './admin/Menu-Management/menu-management
 import { PickUpStatusEditComponent } from './pick-up/pick-up-status-edit/pick-up-status-edit.component';
 import { UserRoleManagementComponent } from './user-role/user-role-management/user-role-management.component';
 import { UserRoleEditComponent } from './user-role/user-role-edit/user-role-edit.component';
+import { WalletComponent } from './wallet/wallet.component';
+import { WalletAdminComponent } from './wallet-admin/wallet-admin.component';
+import { OrderManagementComponent } from './order-management/order-management.component';
+import { LoginComponent } from './login/login/login.component';
+import { NavbarComponent } from './navbar/navbar/navbar.component';
+
 
 const routes: Routes = [
   {
+    path:'',
+    redirectTo:'login',
+    pathMatch:'full'
+  },
+  {
+    path:"login",
+    component: LoginComponent
+  },
+  {
     path: "admin",
-    component: RootComponent,
+    component: NavbarComponent,
     children: [
       // Admin's Child Routes
       {
@@ -44,11 +59,11 @@ const routes: Routes = [
       },
       {
         path: "order-history",
-        component: OrderHistoryComponent,
+        component: OrderHistoryComponent
       },
       {
         path: "menu-management",
-        component:MenuManagementComponent
+        component: MenuManagementComponent
       },
       {
         path:"user-role",
@@ -59,13 +74,23 @@ const routes: Routes = [
         path: "user-role/:id/edit",
         component: UserRoleEditComponent,
         title : "user-role-update"
-      }
+      },
+      {
+        path: "wallet",
+        component: WalletAdminComponent,
+        title: "wallet"
+      },
+      {
+        path: "order-management",
+        component: OrderManagementComponent,
+        title: "order-management"
+      },
     ]
   },
 
   {
     path: "user",
-    component: RootComponent,
+    component: NavbarComponent,
     children: [
       // User childers
       {
@@ -75,7 +100,11 @@ const routes: Routes = [
       {
         path: "cart",
         component: CartComponent
-      }
+      },
+      {
+        path: "wallet",
+        component: WalletComponent
+      },
     ]
   },
 

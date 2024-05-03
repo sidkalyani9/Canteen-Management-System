@@ -30,11 +30,11 @@
         <div class="rightAnalytics">
             <p-table 
                 #MostOrderedDataTable
-                [tableStyle]="{'border-radius': '5em'}"
                 [value]="dishes" 
                 [paginator]="true" 
                 [rows]="10"
                 [globalFilterFields]="['name','category','quantity']"
+                paginatorPosition="bottom"
                 >
                 <ng-template pTemplate="caption" style="border-radius: 1em;">
                     
