@@ -19,6 +19,7 @@ public class canteenUser {
     private long uphone;
     private String utype;
     private String email;
+    private String role;
     private int wallet_amount;
     private Date created_at;
     private Date updated_at;
@@ -69,6 +70,14 @@ public class canteenUser {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+    
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
     }
 
     public int getWallet_amount() {
