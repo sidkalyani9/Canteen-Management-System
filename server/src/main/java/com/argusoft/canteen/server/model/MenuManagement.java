@@ -12,17 +12,11 @@ import java.util.UUID;
 public class MenuManagement implements Serializable {
 
     @Id
-<<<<<<< HEAD
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "dish_uuid", updatable = false)
-    private UUID dish_uuid;
+    @Column(name = "uuid", updatable = false)
+    private UUID uuid;
 
     @Column(name = "dish_name")
     private String dish_name;
-=======
-    @Column(nullable = false, updatable = false)
-    private UUID uuid;
->>>>>>> sid
 
     @Column(name = "category_name")
     private String category_name;
@@ -36,43 +30,34 @@ public class MenuManagement implements Serializable {
     @Column(name = "price")
     private Integer price;
 
-<<<<<<< HEAD
-    @Column(name = "rating")
-    private Float rating;
-
     @Column(name = "created_at")
     private Date created_at;
-=======
-    @Column(name = "createdOn")
-    private Date createdOn;
->>>>>>> sid
 
     @Column(name = "updated_at")
     private Date updated_at;
 
-
-    public UUID getUuid() {
+    public UUID getDish_uuid() {
         return uuid;
     }
 
-    public void setUuid(UUID uuid) {
-        this.uuid = uuid;
+    public void setDish_uuid(UUID dish_uuid) {
+        this.uuid = dish_uuid;
     }
 
-    public String getItemName() {
-        return itemName;
+    public String getDish_name() {
+        return dish_name;
     }
 
-    public void setItemName(String itemName) {
-        this.itemName = itemName;
+    public void setDish_name(String dish_name) {
+        this.dish_name = dish_name;
     }
 
-    public String getCategoryName() {
-        return categoryName;
+    public String getCategory_name() {
+        return category_name;
     }
 
-    public void setCategoryName(String categoryName) {
-        this.categoryName = categoryName;
+    public void setCategory_name(String category_name) {
+        this.category_name = category_name;
     }
 
     public String getDescription() {
@@ -83,12 +68,12 @@ public class MenuManagement implements Serializable {
         this.description = description;
     }
 
-    public String getImageUrl() {
-        return imageUrl;
+    public String getImage_url() {
+        return image_url;
     }
 
-    public void setImageUrl(String imageUrl) {
-        this.imageUrl = imageUrl;
+    public void setImage_url(String image_url) {
+        this.image_url = image_url;
     }
 
     public Integer getPrice() {
@@ -99,19 +84,19 @@ public class MenuManagement implements Serializable {
         this.price = price;
     }
 
-    public Date getCreatedOn() {
-        return createdOn;
+    public Date getCreated_at() {
+        return created_at;
     }
 
-    public void setCreatedOn(Date createdOn) {
-        this.createdOn = createdOn;
+    public void setCreated_at(Date created_at) {
+        this.created_at = created_at;
     }
 
-    public Date getUpdatedOn() {
-        return updatedOn;
+    public Date getUpdated_at() {
+        return updated_at;
     }
 
-    public void setUpdatedOn(Date updatedOn) {
-        this.updatedOn = updatedOn;
+    public void setUpdated_at(Date updated_at) {
+        this.updated_at = updated_at;
     }
 }
