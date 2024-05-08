@@ -6,6 +6,7 @@ import com.argusoft.canteen.server.exceptions.DishNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
 import java.util.UUID;
 
@@ -20,7 +21,8 @@ public class MenuManagementService{
     }
 
     public MenuManagement addItem(MenuManagement menuManagement){
-        menuManagement.setItemCode(UUID.randomUUID().toString());
+        menuManagement.setUuid(UUID.randomUUID());
+        menuManagement.setCreatedOn(new Date());
         return menuManagementRepository.save(menuManagement);
     }
 
@@ -32,13 +34,17 @@ public class MenuManagementService{
         return menuManagementRepository.save(menuManagement);
     }
 
-    public  MenuManagement findItemById(Long id){
-        return menuManagementRepository.findItemById(id).orElseThrow(() -> new DishNotFoundException("Dish id" +id+ "was not found"));
+    public  MenuManagement findItemById(UUID id){
+        return menuManagementRepository.findItemByUuid(id).orElseThrow(() -> new DishNotFoundException("Dish id" +id+ "was not found"));
     }
 
-    public void deleteItem(Long id){
-        menuManagementRepository.deleteItemById(id);
+    public void deleteItem(UUID id){
+        menuManagementRepository.deleteItemByUuid(id);
     }
+
+//    public List<MenuManagement> todaysTopDishes(){
+//        return null;
+//    }
 
 
 }

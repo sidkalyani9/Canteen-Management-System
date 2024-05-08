@@ -7,6 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.UUID;
 
 @RestController
 @RequestMapping("/menu")
@@ -18,14 +19,14 @@ public class MenuManagementController {
         this.menuManagementService=menuManagementService;
     }
 
-    @GetMapping
+    @GetMapping("/fetchAll")
     public ResponseEntity<List<MenuManagement>> getAllItems(){
         List<MenuManagement> items = menuManagementService.findAllItems();
         return new ResponseEntity<>(items, HttpStatus.OK);
     }
 
     @GetMapping("/find/{id}")
-    public ResponseEntity<MenuManagement> getItemById(@PathVariable("id") Long id){
+    public ResponseEntity<MenuManagement> getItemById(@PathVariable("id") UUID id){
         MenuManagement item = menuManagementService.findItemById(id);
         return new ResponseEntity<>(item, HttpStatus.OK);
     }
@@ -43,7 +44,7 @@ public class MenuManagementController {
     }
 
     @DeleteMapping("/delete/{id}")
-    public ResponseEntity<MenuManagement> deleteItem(@PathVariable("id") Long id){
+    public ResponseEntity<MenuManagement> deleteItem(@PathVariable("id") UUID id){
         menuManagementService.deleteItem(id);
         return new ResponseEntity<>(HttpStatus.OK);
     }
