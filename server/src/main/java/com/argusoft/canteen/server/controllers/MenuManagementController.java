@@ -9,7 +9,10 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
 import java.util.List;
+<<<<<<< HEAD
 import java.util.Map;
+=======
+>>>>>>> sid
 import java.util.UUID;
 
 @RestController
@@ -20,9 +23,26 @@ public class MenuManagementController {
     @Autowired
     private MenuManagementRepository menuManagementRepository;
 
+<<<<<<< HEAD
     @GetMapping("/all")
     public List<MenuManagement> getMenu(){
         return menuManagementRepository.findAll();
+=======
+    public MenuManagementController(MenuManagementService menuManagementService){
+        this.menuManagementService=menuManagementService;
+    }
+
+    @GetMapping("/fetchAll")
+    public ResponseEntity<List<MenuManagement>> getAllItems(){
+        List<MenuManagement> items = menuManagementService.findAllItems();
+        return new ResponseEntity<>(items, HttpStatus.OK);
+    }
+
+    @GetMapping("/find/{id}")
+    public ResponseEntity<MenuManagement> getItemById(@PathVariable("id") UUID id){
+        MenuManagement item = menuManagementService.findItemById(id);
+        return new ResponseEntity<>(item, HttpStatus.OK);
+>>>>>>> sid
     }
 
     @PostMapping("/add")
@@ -49,6 +69,7 @@ public class MenuManagementController {
         return ResponseEntity.ok(updatedMenu);
     }
 
+<<<<<<< HEAD
     @DeleteMapping("/dish/{uuid}")
     public ResponseEntity<Map<String, Boolean>> deleteDish(@PathVariable UUID uuid){
         MenuManagement dish = menuManagementRepository.findById(uuid)
@@ -58,6 +79,12 @@ public class MenuManagementController {
         Map<String, Boolean> response = new HashMap<>();
         response.put("deleted", Boolean.TRUE);
         return ResponseEntity.ok(response);
+=======
+    @DeleteMapping("/delete/{id}")
+    public ResponseEntity<MenuManagement> deleteItem(@PathVariable("id") UUID id){
+        menuManagementService.deleteItem(id);
+        return new ResponseEntity<>(HttpStatus.OK);
+>>>>>>> sid
     }
 
 
