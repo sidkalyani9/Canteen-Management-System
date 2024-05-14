@@ -1,6 +1,5 @@
 package com.argusoft.canteen.server.service;
 
-import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
@@ -44,9 +43,18 @@ public class OrderService {
         }
     }
 
-	public float fetchSales(){
-		float todaySales = repo.fetchTodaySales();
-		return todaySales;
+	public Float fetchSales(){
+		try{
+			Float todaySales = repo.fetchTodaySales();
+			if(todaySales == null){
+				todaySales = 0.0f;
+			}
+			return todaySales;
+		}
+		catch (Exception e){
+			System.out.println(e.getMessage());
+		}
+		return null;
 	}
 	
 	

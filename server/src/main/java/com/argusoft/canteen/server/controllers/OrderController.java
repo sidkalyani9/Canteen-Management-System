@@ -1,10 +1,7 @@
 package com.argusoft.canteen.server.controllers;
 
 import java.time.LocalDate;
-import java.util.Date;
-import java.util.List;
-import java.util.Optional;
-import java.util.UUID;
+import java.util.*;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -19,6 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.argusoft.canteen.server.model.Order;
 import com.argusoft.canteen.server.service.OrderService;
+import com.argusoft.canteen.server.service.order_dishService;
 
 
 
@@ -28,6 +26,9 @@ public class OrderController {
 	
 	@Autowired
 	private OrderService service;
+
+	@Autowired
+	private order_dishService order_dishService;
 	
 	@GetMapping("/getAllOrders")
 	 public ResponseEntity<List<Order>> getAllOrders() {
@@ -56,11 +57,16 @@ public class OrderController {
                 .orElseGet(() -> new ResponseEntity<>(HttpStatus.NOT_FOUND));
 	}
 
-	@GetMapping("/getTodaySales")
+	@GetMapping("/getTodayStats")
 	public ResponseEntity<?> getTodaySales(){
 		try{
-			float salesNumber = service.fetchSales();
-			return new ResponseEntity<>(salesNumber,HttpStatus.OK);
+
+			Float salesNumber = service.fetchSales();
+			Integer todayDishQty = order_dishService.fetchDishQty();
+			Map<String, Object> map = new HashMap<>();
+			map.put("salesNum", salesNumber);
+			map.put("todayDishQty", todayDishQty);
+			return new ResponseEntity<>(map,HttpStatus.OK);
 		}
 		catch (Exception e){
 			return new ResponseEntity<>(e.getMessage(),HttpStatus.INTERNAL_SERVER_ERROR);
@@ -69,7 +75,4 @@ public class OrderController {
 
 
 	}
-	
-	
-
 }

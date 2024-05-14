@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 import com.argusoft.canteen.server.model.canteenUser;
 
 import java.util.Date;
+import java.util.List;
 import java.util.UUID;
 
 @Service
@@ -25,5 +26,9 @@ public class UserService {
         user.setUser_uuid(UUID.randomUUID());
         user.setCreated_at(new Date());
         return userRepo.save(user);
+    }
+
+    public List<canteenUser> findAllUser() {
+        return userRepo.findAll();
     }
 }
