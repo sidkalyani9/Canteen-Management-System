@@ -1,7 +1,9 @@
 export interface Dish {
-    id?:string;
-    name?:string;
-    category?:string;
-    price?:number;
+    dish_name:string;
+    description:string;
+    category_name: string;
+    price: number;
+    rating: number;
+    image_url:string;
    
   }
