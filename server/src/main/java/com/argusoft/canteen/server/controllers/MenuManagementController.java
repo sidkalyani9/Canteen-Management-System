@@ -28,7 +28,7 @@ public class MenuManagementController {
         this.menuManagementService=menuManagementService;
     }
 
-    @GetMapping("/fetchAll")
+    @GetMapping("/all")
     public ResponseEntity<List<MenuManagement>> getAllItems(){
         List<MenuManagement> items = menuManagementService.findAllItems();
         return new ResponseEntity<>(items, HttpStatus.OK);
@@ -66,7 +66,7 @@ public class MenuManagementController {
 
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<MenuManagement> deleteItem(@PathVariable("id") UUID id){
-        menuManagementService.deleteItem(id);
+        menuManagementService.deleteDishById(id);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 

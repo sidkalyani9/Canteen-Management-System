@@ -12,7 +12,7 @@ import java.util.UUID;
 
 @Repository
 public interface MenuManagementRepository extends JpaRepository<MenuManagement, UUID> {
-    void deleteItemByUuid(UUID id);
+//    void deleteItemByUuid(UUID id);
 
     Optional<MenuManagement> findItemByUuid(UUID id);
 
