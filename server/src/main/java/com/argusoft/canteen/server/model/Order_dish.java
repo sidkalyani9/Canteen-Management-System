@@ -37,4 +37,27 @@ public class Order_dish {
     // public void setDishUuid(List<Integer> dishUuid) {
     //     this.dishUuid = dishUuid;
     // }
+    public UUID getOrderUuid() {
+        return orderUuid;
+    }
+
+    public void setOrderUuid(UUID orderUuid) {
+        this.orderUuid = orderUuid;
+    }
+
+    public UUID getDishUuid() {
+        return dishUuid;
+    }
+
+    public void setDishUuid(UUID dishUuid) {
+        this.dishUuid = dishUuid;
+    }
+
+    public int getQty() {
+        return qty;
+    }
+
+    public void setQty(int qty) {
+        this.qty = qty;
+    }
 }
