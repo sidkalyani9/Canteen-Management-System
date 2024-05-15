@@ -1,109 +1,129 @@
 import { Component, OnInit } from '@angular/core';
-import { ConfirmationService } from 'primeng/api';
-import { MessageService } from 'primeng/api';
-
+import { MenuManagementService } from '../../../service/menuManagement/menu-management.service';
 import { Dish } from '../Dish';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+
+
 
 @Component({
   selector: 'app-menu-management',
   templateUrl: './menu-management.component.html',
-  styleUrl: './menu-management.component.css'
+  // C:\Users\Kunal\Desktop\Canteen\Canteen-Management-System\client\src\app\admin\Menu-Management\menu-management\menu-management.component.html
+  styleUrl: './menu-management.component.css',
+
 })
 
 export class MenuManagementComponent implements OnInit {
-  selectedDishes: any[];
-  dish: any;
-  submitted: boolean;
-  dishDialog: boolean;
+  visible: boolean = false;
 
-  title = 'PrimeNg';
+  showDialog() {
+      this.visible = true;
+      this.dishForm;
+  }
+
+  
+  // dishes:[];
+  dishes: any[] = [];
   menuItems: any[];
   category:any[];
-  categoryName:any[];
+  selectedDishes: any[];
+
+  newDish: Dish = {
+    dish_name: '',
+    description: '',
+    category_name: '',
+    price: 0,
+    rating: 0,
+    image_url: ''
+  }; 
+  dishForm:FormGroup;
+
   
-  
-  
-  constructor( private messageService: MessageService, private confirmationService: ConfirmationService){}
-  editProduct(dish: Dish) {
-    this.dish = { ...dish };
-    this.dishDialog = true;
+  editDialogVisible: boolean = false; 
+  selectedDish: Dish; 
+
+  constructor( private menuManagementService: MenuManagementService,
+    // private formBuilder:FormGroup
+  ){}
+
+
+ngOnInit(): void {
+    this.getMenu();
+
+    this.dishForm =  new FormGroup({
+      dish_name: new FormControl (null, [Validators.required]),
+      description: new FormControl(null,Validators.required),
+      category_name: new FormControl(null,Validators.required),
+      price: new FormControl(null,Validators.required),
+      rating: new FormControl(null,Validators.required),
+      image_url: new FormControl(null,Validators.required)
+    });
+
+    
 }
 
 
-deleteProduct(item: any) {
- 
-}
-openNew() {
-  this.dish = {};
-  this.submitted = false;
-  this.dishDialog = true;
+getMenu(){
+  this.menuManagementService.getMenu().subscribe((data) => {
+    console.log(data);
+    this.dishes=data;
+  })
 }
 
-deleteSelectedProducts() {
-  this.confirmationService.confirm({
-      message: 'Are you sure you want to delete the selected dishes?',
-      header: 'Confirm',
-      icon: 'pi pi-exclamation-triangle',
-      accept: () => {
-          this.menuItems = this.menuItems.filter(val => !this.selectedDishes.includes(val));
-          this.selectedDishes;
-          this.messageService.add({severity:'success', summary: 'Successful', detail: 'Dish Deleted', life: 3000});
-      }
+saveDish() {
+  this.newDish.dish_name=this.dishForm.controls['dish_name'].value
+    console.log(this.dishForm.controls['dish_name'].value);
+    
+    this.newDish.description=this.dishForm.controls['description'].value
+    this.newDish.category_name=this.dishForm.controls['category_name'].value
+    this.newDish.price=this.dishForm.controls['price'].value
+    this.newDish.rating=this.dishForm.controls['rating'].value
+    this.newDish.image_url=this.dishForm.controls['image_url'].value
+  this.menuManagementService.saveDish(this.newDish).subscribe(response => {
+    console.log('Dish saved successfully:', response);
+    this.getMenu(); // Optionally, update the dish list after saving
+    this.visible = false; // Close the dialog after saving
+    // this.newDish = { // Reset newDish object
+    //   dish_name: '',
+    //   description: '',
+    //   category_name: '',
+    //   price: 0,
+    //   rating: 0,
+    //   image_url: ''
+    // };
   });
 }
 
-
-  ngOnInit(): void {
-      
-      this.category=[
-        {name:'Breakfast'},
-        {name:'Lunch'},
-        {name:'Snacks'}
-      ]
-      this.menuItems=
-      [
-        {
-          name: 'Vadapav',
-          categoryName:'Snacks',
-          price: '40'
-        },
-        {
-          
-          name: 'Maggie',
-          categoryName:'Snacks',
-          price: '55'
-        },
-        {
-          
-          name: 'Paneer Tikka Masala',
-          categoryName:'Lunch',
-          price: '45'
-        },
-        {
-         
-          name: 'Malai kofta',
-          categoryName:'Lunch',
-          price: '55'
-        },
-        {
-          
-          name: 'Sandwich',
-          categoryName:'Breakfast',
-          price: '65'
-        },
-        {
-          
-          name: 'Poha',
-          categoryName:'Breakfast',
-          price: '25'
-        }
-        
-      ];
+editDish(dish: Dish) {
+    this.selectedDish = dish; 
+    this.editDialogVisible = true; 
   }
-  
-   
+
+  deleteDish(uuid: string) {
+    this.menuManagementService.deleteDish(uuid).subscribe(response => {
+      console.log('Dish deleted successfully:', response);
+      this.getMenu(); 
+    });
+  }
+
+openNew(){}
+
+deleteSelectedProducts(){}
+
+editProduct(dish: Dish[]) {}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }
-
-  
-
-

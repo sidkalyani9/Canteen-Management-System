@@ -39,8 +39,8 @@ public class MenuManagementService{
         return menuManagementRepository.findItemByUuid(id).orElseThrow(() -> new DishNotFoundException("Dish id" +id+ "was not found"));
     }
 
-    public void deleteItem(UUID id){
-        menuManagementRepository.deleteItemByUuid(id);
+    public void deleteDishById(UUID id){
+        menuManagementRepository.deleteById(id);
     }
 
 //    public List<MenuManagement> todaysTopDishes(){
